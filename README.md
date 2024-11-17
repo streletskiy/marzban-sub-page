@@ -33,7 +33,7 @@
 
 1. Upload the file to the server.
 ```
-sudo wget -O /var/lib/marzban/templates/subscription/index.html https://raw.githubusercontent.com/dermv/marzbanify-template/master/index.html
+sudo wget -O /var/lib/marzban/templates/subscription/index.html https://raw.githubusercontent.com/dermv/marzbanify-template/main/index.html
 ```
 2. Enter these commands to automatically specify the file path to the subscription page.
 ```
