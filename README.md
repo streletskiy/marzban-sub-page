@@ -1,4 +1,4 @@
-<h3 align="center">Marzban Subscription page template</h3>
+<h3 align="center">Marzbanner - Marzban subscription page template</h3>
 
 <p align="center">
   Simple, beautiful, and user-friendly HTML template for <a href="https://github.com/Gozargah/Marzban">Marzban</a> subscription page based on Bootstrap CSS framework
@@ -24,7 +24,7 @@
 
 - The design is simple and intuitive, with minimal code.
 - Language switching: English and Russian.
-- Detailed guides are provided for PC, Android, iOS, MacOS and Linux.
+- Detailed guides are provided for Windows, Android, iOS, MacOS and Linux.
 - Automatic detection of the user's language.
 
 # Installation
