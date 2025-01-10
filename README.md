@@ -27,7 +27,9 @@
 - Detailed guides are provided for Windows, Android, iOS, MacOS and Linux.
 - Automatic detection of the user's language.
 
-# Installation
+# Installation and Update
+
+<h3>Isntall:</h3>
 
 1. Upload the file to the server.
 ```
@@ -47,6 +49,13 @@ SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"
 ```
 marzban restart
 ```
+<h3>Update:</h3>
+Re-upload the page file to the server (re-do first step from install):
+
+```
+sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/streletskiy/marzban-sub-page/main/index.html
+```
+After update need to repeat personalization.
 
 # Personalization
 
@@ -60,11 +69,11 @@ https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/i
 ```
 Support link:
 ```
-https://t.me/
+https://t.me/gozargah_marzban
 ```
 Donate link:
 ```
-https://boosty.to/
+https://github.com/Gozargah/Marzban#donation
 ```
 Logo:
 ```
