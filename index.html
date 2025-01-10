@@ -531,6 +531,14 @@
 										</a>
 										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
 										<p x-text="$t('v2rayNgUpdateSub')"></p>
+										<div class="row align-items-center">
+											<div class="col">
+												<img id="imgV2rayNg1" src="" width="100%" class="rounded img-fluid">
+											</div>
+											<div class="col">
+												<img id="imgV2rayNg2"src="" width="100%" class="rounded img-fluid">
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -818,6 +826,17 @@
 		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/cdn.min.js"></script>
 		<script>  
+			const images = {
+				en: {
+					imgV2rayNg1: "https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/v2rayNg-en-1.png",
+					imgV2rayNg2: "https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/v2rayNg-en-2.png",
+				},
+				ru: {
+					imgV2rayNg1: "https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/v2rayNg-ru-1.png",
+					imgV2rayNg2: "https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/v2rayNg-ru-2.png",
+				}
+			};
+						
 			const MESSAGES = {
 				en: {
 					support: 'Support',
@@ -1012,32 +1031,38 @@
 			return supportedLanguages.includes(lang) ? lang : 'ru';
 			}
 			
+			function changeImages(lang) {
+				const langImages = images[lang] || images["ru"];
+				document.getElementById("imgV2rayNg1").src = langImages.imgV2rayNg1;
+				document.getElementById("imgV2rayNg2").src = langImages.imgV2rayNg2;
+			}
+			
 			function showActiveDropdownButton(btn, selectedBtn, isIndependent) {
-			// Change dropdowns that can't be changed because
-			// they don't depend on Bootstrap.
-			if (isIndependent) {
-				const activeDropdownBtn = btn.nextElementSibling.querySelector('.active');
-				if (activeDropdownBtn) {
-					activeDropdownBtn.classList.remove('active');
-					activeDropdownBtn.setAttribute('aria-pressed', 'false');
+				// Change dropdowns that can't be changed because
+				// they don't depend on Bootstrap.
+				if (isIndependent) {
+					const activeDropdownBtn = btn.nextElementSibling.querySelector('.active');
+					if (activeDropdownBtn) {
+						activeDropdownBtn.classList.remove('active');
+						activeDropdownBtn.setAttribute('aria-pressed', 'false');
+					}
+					
+					selectedBtn.classList.add('active');
+					selectedBtn.setAttribute('aria-pressed', 'true');
 				}
 				
-				selectedBtn.classList.add('active');
-				selectedBtn.setAttribute('aria-pressed', 'true');
-			}
-			
-			const btnIcon = btn.querySelector('.my-dropdown-icon-active use');
-			const selectedBtnIcon = selectedBtn.querySelector('svg use');
-			if (btnIcon && selectedBtnIcon) {
-				btnIcon.setAttribute('href', selectedBtnIcon.getAttribute('href'));
-			}
-			
-			const btnText = btn.querySelector('.my-dropdown-text-active');
-			const selectedBtnText = selectedBtn.querySelector('span');
-			if (btnText && selectedBtnText) {
-				selectedBtnText.classList.remove('me-2');
-				btnText.innerHTML = selectedBtnText.outerHTML;
-			}
+				const btnIcon = btn.querySelector('.my-dropdown-icon-active use');
+				const selectedBtnIcon = selectedBtn.querySelector('svg use');
+				if (btnIcon && selectedBtnIcon) {
+					btnIcon.setAttribute('href', selectedBtnIcon.getAttribute('href'));
+				}
+				
+				const btnText = btn.querySelector('.my-dropdown-text-active');
+				const selectedBtnText = selectedBtn.querySelector('span');
+				if (btnText && selectedBtnText) {
+					selectedBtnText.classList.remove('me-2');
+					btnText.innerHTML = selectedBtnText.outerHTML;
+				}
 			}
       
 			document.addEventListener('alpine-i18n:ready', () => {
@@ -1049,11 +1074,15 @@
 					`[data-language-value="${getPreferredLanguage()}"]`,
 				);
 				showActiveDropdownButton(btnLang, btnPrefLang, true);
+				changeImages(getPreferredLanguage());
+				
 				document.querySelectorAll('[data-language-value]').forEach(btn => {
 					btn.addEventListener('click', () => {
+						const newLang = btn.dataset.languageValue;
 						localStorage.setItem('language', btn.dataset.languageValue);
 						AlpineI18n.locale = btn.dataset.languageValue;
 						showActiveDropdownButton(btnLang, btn, true);
+						changeImages(newLang);
 					});
 				});
 			});
