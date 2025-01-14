@@ -143,6 +143,11 @@
 				}
 			}
 			
+			.my-modal {
+				background-color: #35384b;
+				color: #fff;
+			}
+			
 			.my-toast {
 				--bs-toast-bg: #2383e2;
 				--bs-toast-border-radius: var(--bs-border-radius-xl);
@@ -200,10 +205,19 @@
 			}
 		</style>
 	</head>
-	<body class="container my-container py-3" x-data>
+	<body>
 	
 		<!-- Apps icons -->
 		<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+			<symbol id="qr" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M2 0C0.895431 0 0 0.89543 0 2V5.5C0 6.60457 0.89543 7.5 2 7.5H5.5C6.60457 7.5 7.5 6.60457 7.5 5.5V2C7.5 0.895431 6.60457 0 5.5 0H2ZM2.5 1.5C1.94772 1.5 1.5 1.94772 1.5 2.5V5C1.5 5.55228 1.94772 6 2.5 6H5C5.55228 6 6 5.55228 6 5V2.5C6 1.94772 5.55228 1.5 5 1.5H2.5Z"/>
+				<path d="M2.25 2.75C2.25 2.47386 2.47386 2.25 2.75 2.25H4.75C5.02614 2.25 5.25 2.47386 5.25 2.75V4.75C5.25 5.02614 5.02614 5.25 4.75 5.25H2.75C2.47386 5.25 2.25 5.02614 2.25 4.75V2.75Z"/>
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 0C9.39543 0 8.5 0.89543 8.5 2V5.5C8.5 6.60457 9.39543 7.5 10.5 7.5H14C15.1046 7.5 16 6.60457 16 5.5V2C16 0.895431 15.1046 0 14 0H10.5ZM11 1.5C10.4477 1.5 10 1.94772 10 2.5V5C10 5.55228 10.4477 6 11 6H13.5C14.0523 6 14.5 5.55228 14.5 5V2.5C14.5 1.94772 14.0523 1.5 13.5 1.5H11Z"/>
+				<path d="M10.75 2.75C10.75 2.47386 10.9739 2.25 11.25 2.25H13.25C13.5261 2.25 13.75 2.47386 13.75 2.75V4.75C13.75 5.02614 13.5261 5.25 13.25 5.25H11.25C10.9739 5.25 10.75 5.02614 10.75 4.75V2.75Z"/>
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M2 8.5C0.895431 8.5 0 9.39543 0 10.5V14C0 15.1046 0.89543 16 2 16H5.5C6.60457 16 7.5 15.1046 7.5 14V10.5C7.5 9.39543 6.60457 8.5 5.5 8.5H2ZM2.5 10C1.94772 10 1.5 10.4477 1.5 11V13.5C1.5 14.0523 1.94772 14.5 2.5 14.5H5C5.55228 14.5 6 14.0523 6 13.5V11C6 10.4477 5.55228 10 5 10H2.5Z"/>
+				<path d="M2.25 11.25C2.25 10.9739 2.47386 10.75 2.75 10.75H4.75C5.02614 10.75 5.25 10.9739 5.25 11.25V13.25C5.25 13.5261 5.02614 13.75 4.75 13.75H2.75C2.47386 13.75 2.25 13.5261 2.25 13.25V11.25Z"/>
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 8.5C9.39543 8.5 8.5 9.39543 8.5 10.5V14C8.5 15.1046 9.39543 16 10.5 16H14C15.1046 16 16 15.1046 16 14V10.5C16 9.39543 15.1046 8.5 14 8.5H10.5ZM11 10C10.4477 10 10 10.4477 10 11V13.5C10 14.0523 10.4477 14.5 11 14.5H13.5C14.0523 14.5 14.5 14.0523 14.5 13.5V11C14.5 10.4477 14.0523 10 13.5 10H11Z"/>
+			</symbol>
 			<symbol id="hiddify" viewBox="0 0 32 32" >
 				<path d="M26.8191 2.1691C25.0243 3.36662 23.3928 4.49636 23.2092 4.67711C22.6993 5.1742 22.6789 8.38265 23.1684 8.90233C23.6375 9.44461 30.2046 9.44461 30.6737 8.90233C30.9388 8.6086 31 7.88557 31 4.63192C31 1.37828 30.9388 0.655248 30.6737 0.361516C30.5105 0.158163 30.3066 0 30.225 0C30.1434 0 28.6138 0.971575 26.8191 2.1691Z" />
 				<path d="M15.398 9.39942C13.6033 10.5969 11.9717 11.7267 11.7882 11.9074C11.4618 12.2464 11.4211 12.8338 11.4211 18.1888C11.4211 22.4818 11.3599 24.1538 11.1763 24.3571C10.85 24.7187 8.72895 24.7187 8.40263 24.3571C8.23947 24.1764 8.15789 22.8885 8.15789 20.0867C8.15789 16.6749 8.11711 16.0197 7.83158 15.7034C7.64803 15.5 7.3625 15.387 7.17895 15.4774C6.70987 15.6808 1.40724 19.2055 0.673026 19.8156L0 20.3579V25.3061C0 29.4862 0.0407895 30.2996 0.326316 30.5933C0.591447 30.887 1.22368 30.9548 4.07895 30.9548C8.21908 30.9548 8.15789 31 8.15789 28.605C8.15789 27.6334 8.25987 26.8652 8.40263 26.707C8.72895 26.3455 10.85 26.3455 11.1763 26.707C11.3191 26.8652 11.4211 27.6334 11.4211 28.605C11.4211 31 11.3599 30.9548 15.5 30.9548C18.3553 30.9548 18.9875 30.887 19.2526 30.5933C19.5382 30.277 19.5789 28.9213 19.5789 19.0926C19.5789 9.26385 19.5382 7.90817 19.2526 7.59184C19.0895 7.38849 18.8855 7.23032 18.8039 7.23032C18.7224 7.23032 17.1928 8.2019 15.398 9.39942Z" />
@@ -252,306 +266,616 @@
 				<path d="M6.41257 8.64705C7.48252 8.33646 8.5037 8.73022 8.88054 8.96593L9 9.44889C8.62315 9.21319 7.60198 8.81943 6.53203 9.13001C5.46208 9.44059 4.0854 10.1853 3.5308 10.5188L3.41134 10.0359C3.96594 9.70234 5.34262 8.95763 6.41257 8.64705Z" />
 			</symbol>
 		</svg>
-		
-		<!-- Logo, support and language switcher -->
-		<header class="d-flex flex-wrap align-items-center gap-2 mb-5">
-			<img src="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/logo.png" class="me-auto" alt="Logo" width="32" height="32">
-			<ul class="nav align-items-center">
-				<li class="nav-item">
-					<a class="nav-link my-nav-link fw-semibold px-2" id="href-support" rel="noopener noreferrer" target="_blank" x-text="$t('support')"></a>
-				</li>
-				<li class="nav-item">
-					<div class="dropdown">
-						<button class="nav-link my-nav-link dropdown-toggle d-flex align-items-center px-2" id="btn-lang" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<i class="bi fs-5 bi-translate mb-2"></i>
-						</button>
-						<ul class="dropdown-menu my-dropdown-menu">
-							<li>
-								<button class="dropdown-item active d-flex align-items-center fw-semibold" type="button" data-language-value="ru" aria-pressed="true">
-									<span class="me-2">Русский</span>
-									<i class="bi my-dropdown-item-check ms-auto bi-check2 mb-2"></i>
-								</button>
-							</li>
-							<li>
-								<button class="dropdown-item d-flex align-items-center fw-semibold" type="button" data-language-value="en" aria-pressed="false">
-									<span class="me-2">English</span>
-									<i class="bi my-dropdown-item-check ms-auto bi-check2 mb-2"></i>
-								</button>
-							</li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-		</header>
-		
-		<!-- Subscription status -->
-		<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-			<span class="text-break fs-3 fw-bold me-auto"><span x-text="$t('subscriptionFor')"></span> {{ user.username }}</span>
-			<button class="btn my-btn btn-copy-link" type="button" x-text="$t('copyLink')"></button>
+		<div class="container my-container py-3" x-data>
+			
+			<!-- Copied to clipboard notification -->
 			<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
 				<div class="toast my-toast" id="toast-copy-link" role="alert" aria-atomic="true" aria-live="assertive">
 					<div class="d-flex">
 						<div class="toast-body fs-6 fw-semibold">
 							<span x-text="$t('copiedToClipboard')"></span>
 						</div>
-						<button type="button" class="btn-close btn-close-white m-auto me-3" data-bs-dismiss="toast" aria-label="Close"></button>
+						<button type="button" class="btn-close m-auto me-3" data-bs-dismiss="toast" aria-label="Close"></button>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row row-cols-2 row-cols-sm-4 g-3 mb-4">
-			<div class="col">
-				<div class="my-block d-flex flex-column h-100">
-					{% if user.status.value == 'active' %}
-					<i class="bi my-color-green fs-4 mb-3 bi-emoji-smile-fill"></i>
-					{% else %}
-					<i class="bi my-color-red fs-4 mb-3 bi-emoji-frown-fill"></i>
-					{% endif %}
-					<span class="fs-5 fw-bold" x-text="$t('status')"></span>
-					{% if user.status.value == 'active' %}
-					<span class="fw-semibold" x-text="$t('active')"></span>
-					{% elif user.status.value == 'limited' %}
-					<span class="fw-semibold" x-text="$t('limited')"></span>
-					{% elif user.status.value == 'expired' %}
-					<span class="fw-semibold" x-text="$t('expired')"></span>
-					{% elif user.status.value == 'disabled' %}
-					<span class="fw-semibold" x-text="$t('disabled')"></span>
-					{% endif %}
+			
+			<!-- QR Modal -->
+			<div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel">
+				<div class="modal-sm modal-dialog modal-dialog-centered">
+					<div class="my-modal modal-content border border-0 rounded-4 shadow-lg">
+						<div class="modal-header">
+							<h1 class="modal-title fw-bold me-auto fs-5" id="qrModalLabel" x-text="$t('subscription')"></h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body d-flex justify-content-center align-items-center">
+							<div id="qrcode"></div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="col">
-				<div class="my-block d-flex flex-column h-100">
-					<i class="bi my-color-red fs-4 mb-3 bi-calendar3"></i>
-					<span class="fs-5 fw-bold" x-text="$t('duration')"></span>
-					{% if not user.expire %}
-					<span class="fw-semibold" x-text="$t('forever')"></span>
-					{% else %}
-					<!-- Can it be done better? -->
-					{% set date = (user.expire | datetime).split()[0].split('-')[::-1] %}
-					<span class="fw-semibold">
-					<span x-text="$t('until')"></span>
-					{{ '.'.join(date) }}
-					</span>
-					{% endif %}
-				</div>
+			
+			<!-- Logo, support and language switcher -->
+			<header class="d-flex flex-wrap align-items-center gap-2 mb-5">
+				<img src="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/logo.png" class="me-auto" alt="Logo" width="32" height="32">
+				<ul class="nav align-items-center">
+					<li class="nav-item">
+						<a class="nav-link my-nav-link fw-semibold px-2" id="href-support" rel="noopener noreferrer" target="_blank" x-text="$t('support')"></a>
+					</li>
+					<li class="nav-item">
+						<div class="dropdown">
+							<button class="nav-link my-nav-link dropdown-toggle d-flex align-items-center px-2" id="btn-lang" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<i class="bi fs-5 bi-translate mb-2"></i>
+							</button>
+							<ul class="dropdown-menu my-dropdown-menu">
+								<li>
+									<button class="dropdown-item active d-flex align-items-center fw-semibold" type="button" data-language-value="ru" aria-pressed="true">
+										<span class="me-2">Русский</span>
+										<i class="bi my-dropdown-item-check ms-auto bi-check2 mb-2"></i>
+									</button>
+								</li>
+								<li>
+									<button class="dropdown-item d-flex align-items-center fw-semibold" type="button" data-language-value="en" aria-pressed="false">
+										<span class="me-2">English</span>
+										<i class="bi my-dropdown-item-check ms-auto bi-check2 mb-2"></i>
+									</button>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</header>
+			
+			<!-- Subscription username and buttons -->
+			<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+				<span class="text-break fs-3 fw-bold me-auto"><span x-text="$t('subscriptionFor')"></span> {{ user.username }}</span>
+				<button class="btn my-btn btn-copy-link" type="button" x-text="$t('copyLink')"></button>
+				<button class="btn my-btn" id="btn-show-qr" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true">
+					<svg class="bi"><use href="#qr"></use></svg>
+				</button>
 			</div>
-			<div class="col">
-				<div class="my-block d-flex flex-column h-100">
-					<i class="bi my-color-blue fs-4 mb-3 bi-arrow-down-up"></i>
-					<span class="fs-5 fw-bold" x-text="$t('traffic')"></span>
-					<span class="fw-semibold">
-					{{ user.used_traffic | bytesformat }}
-					<span x-text="$t('of')"></span>
-					{% if not user.data_limit %}∞{% else %}
-					{{ user.data_limit | bytesformat }}
-					{% endif %}
-					</span>
+			
+			<!-- Subscription status -->
+			<div class="row row-cols-2 row-cols-sm-4 g-3 mb-4">
+				<div class="col">
+					<div class="my-block d-flex flex-column h-100">
+						{% if user.status.value == 'active' %}
+						<i class="bi my-color-green fs-4 mb-3 bi-emoji-smile-fill"></i>
+						{% else %}
+						<i class="bi my-color-red fs-4 mb-3 bi-emoji-frown-fill"></i>
+						{% endif %}
+						<span class="fs-5 fw-bold" x-text="$t('status')"></span>
+						{% if user.status.value == 'active' %}
+						<span class="fw-semibold" x-text="$t('active')"></span>
+						{% elif user.status.value == 'limited' %}
+						<span class="fw-semibold" x-text="$t('limited')"></span>
+						{% elif user.status.value == 'expired' %}
+						<span class="fw-semibold" x-text="$t('expired')"></span>
+						{% elif user.status.value == 'disabled' %}
+						<span class="fw-semibold" x-text="$t('disabled')"></span>
+						{% endif %}
+					</div>
 				</div>
-			</div>
-			<div class="col">
-				<div class="my-block d-flex flex-column h-100">
-					<i class="bi my-color-yellow fs-4 mb-3 bi-repeat"></i>
-					<span class="fs-5 fw-bold" x-text="$t('trafficReset')"></span>
-					{% if user.data_limit_reset_strategy == 'no_reset' %}
-					<span class="fw-semibold" x-text="$t('no')"></span>
-					{% elif user.data_limit_reset_strategy == 'day' %}
-					<span class="fw-semibold" x-text="$t('daily')"></span>
-					{% elif user.data_limit_reset_strategy == 'week' %}
-					<span class="fw-semibold" x-text="$t('weekly')"></span>
-					{% elif user.data_limit_reset_strategy == 'month' %}
-					<span class="fw-semibold" x-text="$t('monthly')"></span>
-					{% elif user.data_limit_reset_strategy == 'year' %}
-					<span class="fw-semibold" x-text="$t('yearly')"></span>
-					{% endif %}
-				</div>
-			</div>
-		</div>
-		
-		<!-- Guides -->
-		<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-			<span class="fs-3 fw-bold me-auto" x-text="$t('guide')"></span>
-		</div>
-		<div class="accordion mt-2" id="accordionOs">
-			<div class="accordion-item rounded-4 px-3 mb-2">
-				<h2 class="accordion-header">
-					<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIos" aria-expanded="false" aria-controls="collapseIos">
-						<i class="bi bi-apple mb-2"></i>
-						<span class="d-block w-100 text-center">
-							iOS / macOS
+				<div class="col">
+					<div class="my-block d-flex flex-column h-100">
+						<i class="bi my-color-red fs-4 mb-3 bi-calendar3"></i>
+						<span class="fs-5 fw-bold" x-text="$t('duration')"></span>
+						{% if not user.expire %}
+						<span class="fw-semibold" x-text="$t('forever')"></span>
+						{% else %}
+						<!-- Can it be done better? -->
+						{% set date = (user.expire | datetime).split()[0].split('-')[::-1] %}
+						<span class="fw-semibold">
+						<span x-text="$t('until')"></span>
+						{{ '.'.join(date) }}
 						</span>
-					</button>
-				</h2>
-				<div id="collapseIos" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
-					<div class="accordion-body m-0 p-0 pb-2">
-						<div class="accordion" id="accordionOsIos">
+						{% endif %}
+					</div>
+				</div>
+				<div class="col">
+					<div class="my-block d-flex flex-column h-100">
+						<i class="bi my-color-blue fs-4 mb-3 bi-arrow-down-up"></i>
+						<span class="fs-5 fw-bold" x-text="$t('traffic')"></span>
+						<span class="fw-semibold">
+						{{ user.used_traffic | bytesformat }}
+						<span x-text="$t('of')"></span>
+						{% if not user.data_limit %}∞{% else %}
+						{{ user.data_limit | bytesformat }}
+						{% endif %}
+						</span>
+					</div>
+				</div>
+				<div class="col">
+					<div class="my-block d-flex flex-column h-100">
+						<i class="bi my-color-yellow fs-4 mb-3 bi-repeat"></i>
+						<span class="fs-5 fw-bold" x-text="$t('trafficReset')"></span>
+						{% if user.data_limit_reset_strategy == 'no_reset' %}
+						<span class="fw-semibold" x-text="$t('no')"></span>
+						{% elif user.data_limit_reset_strategy == 'day' %}
+						<span class="fw-semibold" x-text="$t('daily')"></span>
+						{% elif user.data_limit_reset_strategy == 'week' %}
+						<span class="fw-semibold" x-text="$t('weekly')"></span>
+						{% elif user.data_limit_reset_strategy == 'month' %}
+						<span class="fw-semibold" x-text="$t('monthly')"></span>
+						{% elif user.data_limit_reset_strategy == 'year' %}
+						<span class="fw-semibold" x-text="$t('yearly')"></span>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			
+			<!-- Guides -->
+			<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+				<span class="fs-3 fw-bold me-auto" x-text="$t('guide')"></span>
+			</div>
+			<div class="accordion mt-2" id="accordionOs">
+				<div class="accordion-item rounded-4 px-3 mb-2">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIos" aria-expanded="false" aria-controls="collapseIos">
+							<i class="bi bi-apple mb-2"></i>
+							<span class="d-block w-100 text-center">
+								iOS / macOS
+							</span>
+						</button>
+					</h2>
+					<div id="collapseIos" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
+						<div class="accordion-body m-0 p-0 pb-2">
+							<div class="accordion" id="accordionOsIos">
+								<div class="accordion-item">
+									<hr class="divider">
+									<h2 class="accordion-header">
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHiddify" aria-expanded="false" aria-controls="collapseOsIosHiddify">
+											<svg class="my-icon-small"><use href="#hiddify"></use></svg>
+											<span class="d-block w-100 text-center">
+												Hiddify🔥
+											</span>
+										</button>
+									</h2>
+									<div id="collapseOsIosHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsIos">
+										<div class="container pb-4">
+											<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
+											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+											<p x-text="$t('getAppDescription')"></p>
+											<a href="https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532">
+												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+											<p x-text="$t('addConfigDescription')"></p>
+											<a id="href-ios-hiddify">
+												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
+											<p x-text="$t('hiddifyAdditional1')"></p>
+											<p x-text="$t('hiddifyAdditional2')"></p>
+											<p x-text="$t('hiddifyAdditional3')"></p>
+										</div>
+									</div>
+								</div>
+								<hr class="divider">
+								<div class="accordion-item">
+									<h2 class="accordion-header">
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosAlt" aria-expanded="false" aria-controls="collapseOsIosAlt">
+											<i class="bi bi-plus-circle-fill mb-2"></i>
+											<span class="d-block w-100 text-center" x-text="$t('otherApps')"></span>
+										</button>
+									</h2>
+									<div id="collapseOsIosAlt" class="accordion-collapse collapse" data-bs-parent="#accordionOsIos">
+										<p x-text="$t('selectApp')"></p>
+										<div class="accordion mt-2" id="accordionOsIosAltList">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosStreisand" aria-expanded="false" aria-controls="collapseOsIosStreisand">
+														<svg class="my-icon"><use href="#streisand"></use></svg>
+														<span class="d-block w-100 text-center">
+															Streisand
+														</span>
+													</button>
+												</h2>
+												<div id="collapseOsIosStreisand" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+													<div class="container pb-4">
+														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 14+</b></p>
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://apps.apple.com/us/app/streisand/id6450534064">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-streisand">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
+											<hr class="divider">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosFoxray" aria-expanded="false" aria-controls="collapseOsIosFoxray">
+														<svg class="my-icon"><use href="#foxray"></use></svg>
+														<span class="d-block w-100 text-center">
+															FoxRay
+														</span>
+													</button>
+												</h2>
+												<div id="collapseOsIosFoxray" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+													<div class="container pb-4">
+														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 16+</b></p>
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://apps.apple.com/us/app/foxray/id6448898396">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-foxray">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
+											<hr class="divider">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosV2box" aria-expanded="false" aria-controls="collapseOsIosV2box">
+														<svg class="my-icon"><use href="#v2box"></use></svg>
+														<span class="d-block w-100 text-center">
+															V2Box
+														</span>
+													</button>
+												</h2>
+												<div id="collapseOsIosV2box" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+													<div class="container pb-4">
+														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 12+</b></p>
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-v2box">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+														<p x-text="$t('v2boxStart')"></p>
+													</div>
+												</div>
+											</div>
+											<hr class="divider">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosShadowrocket" aria-expanded="false" aria-controls="collapseOsIosShadowrocket">
+														<svg class="my-icon"><use href="#shadowrocket"></use></svg>
+														<span class="d-block w-100 text-center">
+															Shadowrocket
+														</span>
+													</button>
+												</h2>
+												<div id="collapseOsIosShadowrocket" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+													<div class="container pb-4">
+														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 14+</b></p>
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://apps.apple.com/ca/app/shadowrocket/id932747118">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-shadowrocket">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
+											<hr class="divider">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosSingbox" aria-expanded="false" aria-controls="collapseOsIosSingbox">
+														<svg class="my-icon"><use href="#singbox"></use></svg>
+														<span class="d-block w-100 text-center">
+															SingBox
+														</span>
+													</button>
+												</h2>
+												<div id="collapseOsIosSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+													<div class="container pb-4">
+														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://apps.apple.com/us/app/sing-box/id6451272673">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-singbox">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item rounded-4 px-3 mb-2">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAndroid" aria-expanded="false" aria-controls="collapseAndroid">
+							<i class="bi bi-android2 mb-2"></i>
+							<span class="d-block w-100 text-center">
+								Android
+							</span>
+						</button>
+					</h2>
+					<div id="collapseAndroid" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
+						<div class="accordion-body m-0 p-0 pb-2">
+							<div class="accordion" id="accordionOsAndroid">
+								<div class="accordion-item">
+									<hr class="divider">
+									<h2 class="accordion-header">
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidHiddify" aria-expanded="false" aria-controls="accordionOsAndroidHiddify">
+											<svg class="my-icon-small"><use href="#hiddify"></use></svg>
+											<span class="d-block w-100 text-center">
+												Hiddify🔥
+											</span>
+										</button>
+									</h2>
+									<div id="accordionOsAndroidHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsAndroid">
+										<div class="container pb-4">
+											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+											<p x-text="$t('getAppDescription')"></p>
+											<a href="https://play.google.com/store/apps/details?id=app.hiddify.com">
+												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+											<p x-text="$t('addConfigDescription')"></p>
+											<a id="href-android-hiddify">
+												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
+											<p x-text="$t('hiddifyAdditional1')"></p>
+											<p x-text="$t('hiddifyAdditional2')"></p>
+											<p x-text="$t('hiddifyAdditional3')"></p>
+										</div>
+									</div>
+								</div>
+								<hr class="divider">
+								<div class="accordion-item">
+									<h2 class="accordion-header">
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidV2rayng" aria-expanded="false" aria-controls="accordionOsAndroidV2rayng">
+											<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
+											<span class="d-block w-100 text-center">
+												V2RayNG
+											</span>
+										</button>
+									</h2>
+									<div id="accordionOsAndroidV2rayng" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
+										<div class="container pb-4">
+											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+											<p x-text="$t('getAppDescription')"></p>
+											<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
+												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+											<p x-text="$t('addConfigDescription')"></p>
+											<a id="href-android-v2rayng">
+												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
+											<p x-text="$t('v2rayNgUpdateSub')"></p>
+											<div class="row align-items-center">
+												<div class="col">
+													<img id="imgV2rayNg1" src="" width="100%" class="rounded img-fluid">
+												</div>
+												<div class="col">
+													<img id="imgV2rayNg2"src="" width="100%" class="rounded img-fluid">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item rounded-4 px-3 mb-2">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWindows" aria-expanded="false" aria-controls="collapseWindows">
+							<i class="bi bi-microsoft mb-2"></i>
+							<span class="d-block w-100 text-center">
+								Windows
+							</span>
+						</button>
+					</h2>
+					<div id="collapseWindows" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
+						<div class="accordion" id="accordionOsWindows">
 							<div class="accordion-item">
 								<hr class="divider">
 								<h2 class="accordion-header">
-									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHiddify" aria-expanded="false" aria-controls="collapseOsIosHiddify">
+									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsHiddify" aria-expanded="false" aria-controls="accordionOsWindowsHiddify">
 										<svg class="my-icon-small"><use href="#hiddify"></use></svg>
 										<span class="d-block w-100 text-center">
 											Hiddify🔥
 										</span>
 									</button>
 								</h2>
-								<div id="collapseOsIosHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsIos">
+								<div id="accordionOsWindowsHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsWindows">
 									<div class="container pb-4">
-										<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
 										<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 										<p x-text="$t('getAppDescription')"></p>
-										<a href="https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532">
+										<a href="https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Windows-Setup-x64.exe">
 											<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 										</a>
 										<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 										<p x-text="$t('addConfigDescription')"></p>
-										<a id="href-ios-hiddify">
+										<a id="href-windows-hiddify">
 											<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 										</a>
 										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
 										<p x-text="$t('hiddifyAdditional1')"></p>
 										<p x-text="$t('hiddifyAdditional2')"></p>
 										<p x-text="$t('hiddifyAdditional3')"></p>
+										<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+											<p x-text="$t('troubleWin1')"></p>
+											<p x-text="$t('troubleWin2')"></p>
+										</div>
+										<p class="fs-5 fw-bold mt-4">4. VPN-mode:</p>
+										<p x-text="$t('hiddifyTun1')"></p>
+										<p x-text="$t('hiddifyTun2')"></p>
 									</div>
 								</div>
 							</div>
 							<hr class="divider">
 							<div class="accordion-item">
 								<h2 class="accordion-header">
-									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosAlt" aria-expanded="false" aria-controls="collapseOsIosAlt">
+									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsAlt" aria-expanded="false" aria-controls="accordionOsWindowsAlt">
 										<i class="bi bi-plus-circle-fill mb-2"></i>
 										<span class="d-block w-100 text-center" x-text="$t('otherApps')"></span>
 									</button>
 								</h2>
-								<div id="collapseOsIosAlt" class="accordion-collapse collapse" data-bs-parent="#accordionOsIos">
+								<div id="accordionOsWindowsAlt" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindows">
 									<p x-text="$t('selectApp')"></p>
-									<div class="accordion mt-2" id="accordionOsIosAltList">
+									<div class="accordion mt-2" id="accordionOsWindowsAltList">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosStreisand" aria-expanded="false" aria-controls="collapseOsIosStreisand">
-													<svg class="my-icon"><use href="#streisand"></use></svg>
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsNekoray" aria-expanded="false" aria-controls="collapseOsWindowsNekoray">
+													<svg class="my-icon"><use href="#nekoray"></use></svg>
 													<span class="d-block w-100 text-center">
-														Streisand
+														NekoRay
 													</span>
 												</button>
 											</h2>
-											<div id="collapseOsIosStreisand" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+											<div id="collapseOsWindowsNekoray" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
 												<div class="container pb-4">
-													<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 14+</b></p>
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
-													<a href="https://apps.apple.com/us/app/streisand/id6450534064">
+													<a href="https://github.com/MatsuriDayo/nekoray/releases/download/4.0.1/nekoray-4.0.1-2024-12-12-windows64.zip">
 														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
-													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-													<p x-text="$t('addConfigDescription')"></p>
-													<a id="href-ios-streisand">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
+													<p x-text="$t('anyPlace')"></p>
+													<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('runFile')"></span> nekobox.exe</p>
+													<p x-text="$t('betterAdmin')"></p>
+													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
+													<p x-text="$t('copyLinkBelow')"></p>
+													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-link" type="button">
+														<script type="text/javascript">
+															document.write(linkFull);
+														</script>
+													</button>
+													<p x-text="$t('openAndPaste')"></p>
+													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('tunWish')"></span></p>
+													<p x-text="$t('nekorayTun')"></p>
+													<a href="https://blancvpn.online/ru/help/NekoRay-windows-split-tunneling">
+														<button type="button" class="btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('nekoraySplit1')"></button>
 													</a>
+													<p x-text="$t('nekoraySplit2')"></p>
+													<p x-text="$t('nekoraySplit3')"></p>
+													<div class="card p-3 pb-1 border border-0 rounded-4 mb-3">
+													<code>
+														<p>{"rules": [{"outbound": "proxy","process_name": </p>
+														<p>[ "Discord.exe", "Update.exe", "chrome.exe", "firefox.exe", "msedge.exe", "opera.exe", "browser.exe", "yandexbrowser.exe", "brave.exe", "vivaldi.exe", "librewolf.exe" ] </p>
+														<p>}]}</p>
+													</code>
+													</div>
+													<p x-text="$t('nekoraySplit4')"></p>
+													<p x-text="$t('nekoraySplit5')"></p>
+													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('doRun')"></span></p>
+													<p x-text="$t('nekorayRun1')"></p>
+													<p x-text="$t('nekorayRun2')"></p>
+													<p x-text="$t('nekorayRun3')"></p>
+													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+														<p x-text="$t('troubleWin1')"></p>
+														<p x-text="$t('troubleWin2')"></p>
+													</div>
 												</div>
 											</div>
 										</div>
 										<hr class="divider">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosFoxray" aria-expanded="false" aria-controls="collapseOsIosFoxray">
-													<svg class="my-icon"><use href="#foxray"></use></svg>
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsV2rayN" aria-expanded="false" aria-controls="collapseOsWindowsV2rayN">
+													<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
 													<span class="d-block w-100 text-center">
-														FoxRay
+														v2rayN
 													</span>
 												</button>
 											</h2>
-											<div id="collapseOsIosFoxray" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+											<div id="collapseOsWindowsV2rayN" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
 												<div class="container pb-4">
-													<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 16+</b></p>
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
-													<a href="https://apps.apple.com/us/app/foxray/id6448898396">
+													<a href="https://github.com/2dust/v2rayN/releases/download/7.4.2/v2rayN-windows-64-SelfContained-With-Core.7z">
 														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
-													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-													<p x-text="$t('addConfigDescription')"></p>
-													<a id="href-ios-foxray">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
+													<p x-text="$t('anyPlace')"></p>
+													<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('runFile')"></span> v2rayN.exe</p>
+													<p x-text="$t('betterAdmin')"></p>
+													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
+													<p x-text="$t('copyLinkBelow')"></p>
+													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-link" type="button">
+														<script type="text/javascript">
+															document.write(linkFull);
+														</script>
+													</button>
+													<p x-text="$t('openAndPaste')"></p>
+													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('doUpdate')"></span></p>
+													<p x-text="$t('v2rayNupdateSub')"></p>
+													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
+													<p x-text="$t('v2rayNtun1')"/></p>
+													<p x-text="$t('v2rayNtun2')"/></p>
+													<p x-text="$t('v2rayNtun3')"/></p>
+													<p class="fs-5 fw-bold mt-4">7. <span x-text="$t('doRun')"></span></p>
+													<p x-text="$t('v2rayNrun1')"></p>
+													<p x-text="$t('v2rayNrun2')"></p>
+													<a href="https://habr.com/en/articles/853796/">
+														<button type="button" class="btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('v2rayNabout')"></button>
 													</a>
+													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+														<p x-text="$t('troubleWin1')"></p>
+														<p x-text="$t('troubleWin2')"></p>
+													</div>
 												</div>
 											</div>
 										</div>
 										<hr class="divider">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosV2box" aria-expanded="false" aria-controls="collapseOsIosV2box">
-													<svg class="my-icon"><use href="#v2box"></use></svg>
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsInvisibleman" aria-expanded="false" aria-controls="collapseOsWindowsInvisibleman">
+													<svg class="my-icon"><use href="#invisibleman"></use></svg>
 													<span class="d-block w-100 text-center">
-														V2Box
+														InvisibleMan
 													</span>
 												</button>
 											</h2>
-											<div id="collapseOsIosV2box" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+											<div id="collapseOsWindowsInvisibleman" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
 												<div class="container pb-4">
-													<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 12+</b></p>
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
-													<a href="https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690">
+													<a href="https://github.com/InvisibleManVPN/InvisibleMan-XRayClient/releases/latest/download/InvisibleManXRay-x64.zip">
 														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
-													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
+													<p x-text="$t('anyPlace')"></p>
+													<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('runFile')"></span> Invisible Man XRay.exe</p>
+													<p x-text="$t('betterAdmin')"></p>
+													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('addConfigDescription')"></p>
-													<a id="href-ios-v2box">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+													<a id="href-windows-invisibleman">
+														<button type="button" class="btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
 													</a>
-													<p x-text="$t('v2boxStart')"></p>
-												</div>
-											</div>
-										</div>
-										<hr class="divider">
-										<div class="accordion-item">
-											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosShadowrocket" aria-expanded="false" aria-controls="collapseOsIosShadowrocket">
-													<svg class="my-icon"><use href="#shadowrocket"></use></svg>
-													<span class="d-block w-100 text-center">
-														Shadowrocket
-													</span>
-												</button>
-											</h2>
-											<div id="collapseOsIosShadowrocket" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
-												<div class="container pb-4">
-													<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 14+</b></p>
-													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-													<p x-text="$t('getAppDescription')"></p>
-													<a href="https://apps.apple.com/ca/app/shadowrocket/id932747118">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-													</a>
-													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-													<p x-text="$t('addConfigDescription')"></p>
-													<a id="href-ios-shadowrocket">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-													</a>
-												</div>
-											</div>
-										</div>
-										<hr class="divider">
-										<div class="accordion-item">
-											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosSingbox" aria-expanded="false" aria-controls="collapseOsIosSingbox">
-													<svg class="my-icon"><use href="#singbox"></use></svg>
-													<span class="d-block w-100 text-center">
-														SingBox
-													</span>
-												</button>
-											</h2>
-											<div id="collapseOsIosSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
-												<div class="container pb-4">
-													<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
-													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-													<p x-text="$t('getAppDescription')"></p>
-													<a href="https://apps.apple.com/us/app/sing-box/id6451272673">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-													</a>
-													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-													<p x-text="$t('addConfigDescription')"></p>
-													<a id="href-ios-singbox">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-													</a>
+													<p x-text="$t('invManAddConf1')"></p>
+													<p x-text="$t('invManAddConf2')"></p>
+													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('doRun')"></span></p>
+													<p x-text="$t('invManRun')"></p>
+													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
+													<p x-text="$t('invManTun')"></p>
+													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+														<p x-text="$t('troubleWin1')"></p>
+														<p x-text="$t('troubleWin2')"></p>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -561,331 +885,46 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="accordion-item rounded-4 px-3 mb-2">
-				<h2 class="accordion-header">
-					<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAndroid" aria-expanded="false" aria-controls="collapseAndroid">
-						<i class="bi bi-android2 mb-2"></i>
-						<span class="d-block w-100 text-center">
-							Android
-						</span>
-					</button>
-				</h2>
-				<div id="collapseAndroid" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
-					<div class="accordion-body m-0 p-0 pb-2">
-						<div class="accordion" id="accordionOsAndroid">
-							<div class="accordion-item">
-								<hr class="divider">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidHiddify" aria-expanded="false" aria-controls="accordionOsAndroidHiddify">
-										<svg class="my-icon-small"><use href="#hiddify"></use></svg>
-										<span class="d-block w-100 text-center">
-											Hiddify🔥
-										</span>
-									</button>
-								</h2>
-								<div id="accordionOsAndroidHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsAndroid">
-									<div class="container pb-4">
-										<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-										<p x-text="$t('getAppDescription')"></p>
-										<a href="https://play.google.com/store/apps/details?id=app.hiddify.com">
-											<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-										</a>
-										<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-										<p x-text="$t('addConfigDescription')"></p>
-										<a id="href-android-hiddify">
-											<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-										</a>
-										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
-										<p x-text="$t('hiddifyAdditional1')"></p>
-										<p x-text="$t('hiddifyAdditional2')"></p>
-										<p x-text="$t('hiddifyAdditional3')"></p>
-									</div>
-								</div>
-							</div>
-							<hr class="divider">
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidV2rayng" aria-expanded="false" aria-controls="accordionOsAndroidV2rayng">
-										<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
-										<span class="d-block w-100 text-center">
-											V2RayNG
-										</span>
-									</button>
-								</h2>
-								<div id="accordionOsAndroidV2rayng" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
-									<div class="container pb-4">
-										<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-										<p x-text="$t('getAppDescription')"></p>
-										<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
-											<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-										</a>
-										<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-										<p x-text="$t('addConfigDescription')"></p>
-										<a id="href-android-v2rayng">
-											<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-										</a>
-										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
-										<p x-text="$t('v2rayNgUpdateSub')"></p>
-										<div class="row align-items-center">
-											<div class="col">
-												<img id="imgV2rayNg1" src="" width="100%" class="rounded img-fluid">
-											</div>
-											<div class="col">
-												<img id="imgV2rayNg2"src="" width="100%" class="rounded img-fluid">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+				<div class="accordion-item rounded-4 px-3 mb-2">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOther" aria-expanded="false" aria-controls="collapseWindows">
+							<i class="bi bi-motherboard-fill mb-2"></i>
+							<span class="d-block w-100 text-center">
+								Linux / <span x-text="$t('otherDevices')"></span>
+							</span>
+						</button>
+					</h2>
+					<div id="collapseOther" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
+						<p x-text="$t('linux1')"></p>
+						<a href="https://v2raya.org/en/docs/prologue/installation/">
+							<button type="button" class="btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
+						</a>
+						<p x-text="$t('linux2')"></p>
+						<button class="btn my-btn-accent w-100 text-break btn-copy-link mb-4" type="button">
+							<script type="text/javascript">
+								document.write(linkFull);
+							</script>
+						</button>
 					</div>
 				</div>
 			</div>
-			<div class="accordion-item rounded-4 px-3 mb-2">
-				<h2 class="accordion-header">
-					<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWindows" aria-expanded="false" aria-controls="collapseWindows">
-						<i class="bi bi-microsoft mb-2"></i>
-						<span class="d-block w-100 text-center">
-							Windows
-						</span>
-					</button>
-				</h2>
-				<div id="collapseWindows" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
-					<div class="accordion" id="accordionOsWindows">
-						<div class="accordion-item">
-							<hr class="divider">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsHiddify" aria-expanded="false" aria-controls="accordionOsWindowsHiddify">
-									<svg class="my-icon-small"><use href="#hiddify"></use></svg>
-									<span class="d-block w-100 text-center">
-										Hiddify🔥
-									</span>
-								</button>
-							</h2>
-							<div id="accordionOsWindowsHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsWindows">
-								<div class="container pb-4">
-									<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-									<p x-text="$t('getAppDescription')"></p>
-									<a href="https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Windows-Setup-x64.exe">
-										<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-									</a>
-									<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-									<p x-text="$t('addConfigDescription')"></p>
-									<a id="href-windows-hiddify">
-										<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-									</a>
-									<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
-									<p x-text="$t('hiddifyAdditional1')"></p>
-									<p x-text="$t('hiddifyAdditional2')"></p>
-									<p x-text="$t('hiddifyAdditional3')"></p>
-									<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
-										<p x-text="$t('troubleWin1')"></p>
-										<p x-text="$t('troubleWin2')"></p>
-									</div>
-									<p class="fs-5 fw-bold mt-4">4. VPN-mode:</p>
-									<p x-text="$t('hiddifyTun1')"></p>
-									<p x-text="$t('hiddifyTun2')"></p>
-								</div>
-							</div>
-						</div>
-						<hr class="divider">
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsAlt" aria-expanded="false" aria-controls="accordionOsWindowsAlt">
-									<i class="bi bi-plus-circle-fill mb-2"></i>
-									<span class="d-block w-100 text-center" x-text="$t('otherApps')"></span>
-								</button>
-							</h2>
-							<div id="accordionOsWindowsAlt" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindows">
-								<p x-text="$t('selectApp')"></p>
-								<div class="accordion mt-2" id="accordionOsWindowsAltList">
-									<div class="accordion-item">
-										<h2 class="accordion-header">
-											<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsNekoray" aria-expanded="false" aria-controls="collapseOsWindowsNekoray">
-												<svg class="my-icon"><use href="#nekoray"></use></svg>
-												<span class="d-block w-100 text-center">
-													NekoRay
-												</span>
-											</button>
-										</h2>
-										<div id="collapseOsWindowsNekoray" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
-											<div class="container pb-4">
-												<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-												<p x-text="$t('getAppDescription')"></p>
-												<a href="https://github.com/MatsuriDayo/nekoray/releases/download/4.0.1/nekoray-4.0.1-2024-12-12-windows64.zip">
-													<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-												</a>
-												<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
-												<p x-text="$t('anyPlace')"></p>
-												<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('runFile')"></span> nekobox.exe</p>
-												<p x-text="$t('betterAdmin')"></p>
-												<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
-												<p x-text="$t('copyLinkBelow')"></p>
-												<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-link" type="button">
-													<script type="text/javascript">
-														document.write(linkFull);
-													</script>
-												</button>
-												<p x-text="$t('openAndPaste')"></p>
-												<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('tunWish')"></span></p>
-												<p x-text="$t('nekorayTun')"></p>
-												<a href="https://blancvpn.online/ru/help/NekoRay-windows-split-tunneling">
-													<button type="button" class="btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('nekoraySplit1')"></button>
-												</a>
-												<p x-text="$t('nekoraySplit2')"></p>
-												<p x-text="$t('nekoraySplit3')"></p>
-												<div class="card p-3 pb-1 border border-0 rounded-4 mb-3">
-												<code>
-													<p>{"rules": [{"outbound": "proxy","process_name": </p>
-													<p>[ "Discord.exe", "Update.exe", "chrome.exe", "firefox.exe", "msedge.exe", "opera.exe", "browser.exe", "yandexbrowser.exe", "brave.exe", "vivaldi.exe", "librewolf.exe" ] </p>
-													<p>}]}</p>
-												</code>
-												</div>
-												<p x-text="$t('nekoraySplit4')"></p>
-												<p x-text="$t('nekoraySplit5')"></p>
-												<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('doRun')"></span></p>
-												<p x-text="$t('nekorayRun1')"></p>
-												<p x-text="$t('nekorayRun2')"></p>
-												<p x-text="$t('nekorayRun3')"></p>
-												<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
-													<p x-text="$t('troubleWin1')"></p>
-													<p x-text="$t('troubleWin2')"></p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<hr class="divider">
-									<div class="accordion-item">
-										<h2 class="accordion-header">
-											<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsV2rayN" aria-expanded="false" aria-controls="collapseOsWindowsV2rayN">
-												<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
-												<span class="d-block w-100 text-center">
-													v2rayN
-												</span>
-											</button>
-										</h2>
-										<div id="collapseOsWindowsV2rayN" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
-											<div class="container pb-4">
-												<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-												<p x-text="$t('getAppDescription')"></p>
-												<a href="https://github.com/2dust/v2rayN/releases/download/7.4.2/v2rayN-windows-64-SelfContained-With-Core.7z">
-													<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-												</a>
-												<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
-												<p x-text="$t('anyPlace')"></p>
-												<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('runFile')"></span> v2rayN.exe</p>
-												<p x-text="$t('betterAdmin')"></p>
-												<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
-												<p x-text="$t('copyLinkBelow')"></p>
-												<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-link" type="button">
-													<script type="text/javascript">
-														document.write(linkFull);
-													</script>
-												</button>
-												<p x-text="$t('openAndPaste')"></p>
-												<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('doUpdate')"></span></p>
-												<p x-text="$t('v2rayNupdateSub')"></p>
-												<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
-												<p x-text="$t('v2rayNtun1')"/></p>
-												<p x-text="$t('v2rayNtun2')"/></p>
-												<p x-text="$t('v2rayNtun3')"/></p>
-												<p class="fs-5 fw-bold mt-4">7. <span x-text="$t('doRun')"></span></p>
-												<p x-text="$t('v2rayNrun1')"></p>
-												<p x-text="$t('v2rayNrun2')"></p>
-												<a href="https://habr.com/en/articles/853796/">
-													<button type="button" class="btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('v2rayNabout')"></button>
-												</a>
-												<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
-													<p x-text="$t('troubleWin1')"></p>
-													<p x-text="$t('troubleWin2')"></p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<hr class="divider">
-									<div class="accordion-item">
-										<h2 class="accordion-header">
-											<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsInvisibleman" aria-expanded="false" aria-controls="collapseOsWindowsInvisibleman">
-												<svg class="my-icon"><use href="#invisibleman"></use></svg>
-												<span class="d-block w-100 text-center">
-													InvisibleMan
-												</span>
-											</button>
-										</h2>
-										<div id="collapseOsWindowsInvisibleman" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
-											<div class="container pb-4">
-												<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-												<p x-text="$t('getAppDescription')"></p>
-												<a href="https://github.com/InvisibleManVPN/InvisibleMan-XRayClient/releases/latest/download/InvisibleManXRay-x64.zip">
-													<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-												</a>
-												<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
-												<p x-text="$t('anyPlace')"></p>
-												<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('runFile')"></span> Invisible Man XRay.exe</p>
-												<p x-text="$t('betterAdmin')"></p>
-												<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
-												<p x-text="$t('addConfigDescription')"></p>
-												<a id="href-windows-invisibleman">
-													<button type="button" class="btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
-												</a>
-												<p x-text="$t('invManAddConf1')"></p>
-												<p x-text="$t('invManAddConf2')"></p>
-												<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('doRun')"></span></p>
-												<p x-text="$t('invManRun')"></p>
-												<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
-												<p x-text="$t('invManTun')"></p>
-												<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
-													<p x-text="$t('troubleWin1')"></p>
-													<p x-text="$t('troubleWin2')"></p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			
+			<!-- FAQ/Info -->
+			<div class="mt-4 fs-3 fw-bold me-auto" x-text="$t('faq')"></div>
+			<div class="my-block mt-3 pt-4 pb-2">
+				<p x-text="$t('faq1')"></p>
+				<p x-text="$t('faq2')"></p>
 			</div>
-			<div class="accordion-item rounded-4 px-3 mb-2">
-				<h2 class="accordion-header">
-					<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOther" aria-expanded="false" aria-controls="collapseWindows">
-						<i class="bi bi-motherboard-fill mb-2"></i>
-						<span class="d-block w-100 text-center">
-							Linux / <span x-text="$t('otherDevices')"></span>
-						</span>
-					</button>
-				</h2>
-				<div id="collapseOther" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
-					<p x-text="$t('linux1')"></p>
-					<a href="https://v2raya.org/en/docs/prologue/installation/">
-						<button type="button" class="btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
-					</a>
-					<p x-text="$t('linux2')"></p>
-					<button class="btn my-btn-accent w-100 text-break btn-copy-link mb-4" type="button">
-						<script type="text/javascript">
-							document.write(linkFull);
-						</script>
-					</button>
-				</div>
-			</div>
+			
+			<!-- Donate -->
+			<a id="href-donate">
+				<button type="button" class="btn my-btn mt-4 mb-5 w-100" x-text="$t('donate')"></button>
+			</a>
 		</div>
-		
-		<!-- FAQ/Info -->
-		<div class="mt-4 fs-3 fw-bold me-auto" x-text="$t('faq')"></div>
-		<div class="my-block mt-3 pt-4 pb-2">
-			<p x-text="$t('faq1')"></p>
-			<p x-text="$t('faq2')"></p>
-		</div>
-		
-		<!-- Donate -->
-		<a id="href-donate">
-			<button type="button" class="btn my-btn mt-4 mb-5 w-100" x-text="$t('donate')"></button>
-		</a>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"></script>
 		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/cdn.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 		<script>  
 			const images = {
 				en: {
@@ -1175,6 +1214,15 @@
 						bootstrap.Toast.getOrCreateInstance(toastCopyLink).show();
 					});
 				});
+				
+			const qrCode = new QRCode(document.getElementById("qrcode"), {
+				text: linkFull,
+				width: 256	,
+				height: 256,
+				colorDark: "#fff",
+				colorLight: "#35384b",
+				correctLevel: QRCode.CorrectLevel.H
+			});
 			});
 		</script>
 	</body
