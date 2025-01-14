@@ -309,14 +309,14 @@
 							</button>
 							<ul class="dropdown-menu my-dropdown-menu">
 								<li>
-									<button class="dropdown-item active d-flex align-items-center fw-semibold" type="button" data-language-value="ru" aria-pressed="true">
-										<span class="me-2">Русский</span>
+									<button class="dropdown-item active d-flex align-items-center fw-semibold" type="button" data-language-value="en">
+										<span class="me-2">English</span>
 										<i class="bi my-dropdown-item-check ms-auto bi-check2 mb-2"></i>
 									</button>
 								</li>
 								<li>
-									<button class="dropdown-item d-flex align-items-center fw-semibold" type="button" data-language-value="en" aria-pressed="false">
-										<span class="me-2">English</span>
+									<button class="dropdown-item d-flex align-items-center fw-semibold" type="button" data-language-value="ru">
+										<span class="me-2">Русский</span>
 										<i class="bi my-dropdown-item-check ms-auto bi-check2 mb-2"></i>
 									</button>
 								</li>
@@ -1146,11 +1146,11 @@
 			const lang = localStorage.getItem('language') ||
 						(navigator.language || navigator.userLanguage).slice(0, 2);
 			const supportedLanguages = ['ru', 'en'];
-			return supportedLanguages.includes(lang) ? lang : 'ru';
+			return supportedLanguages.includes(lang) ? lang : 'en';
 			}
 			
 			function changeImages(lang) {
-				const langImages = images[lang] || images["ru"];
+				const langImages = images[lang] || images["en"];
 				document.getElementById("imgV2rayNg1").src = langImages.imgV2rayNg1;
 				document.getElementById("imgV2rayNg2").src = langImages.imgV2rayNg2;
 			}
@@ -1184,7 +1184,7 @@
 			}
       
 			document.addEventListener('alpine-i18n:ready', () => {
-				window.AlpineI18n.fallbackLocale = 'ru';
+				window.AlpineI18n.fallbackLocale = 'en';
 				window.AlpineI18n.create(getPreferredLanguage(), MESSAGES);
 				
 				const btnLang = document.getElementById('btn-lang');
