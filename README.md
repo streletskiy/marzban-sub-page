@@ -26,6 +26,7 @@
 - Language switching: English and Russian.
 - Detailed guides are provided for Windows, Android, iOS, MacOS and Linux.
 - Automatic detection of the user's language.
+- QR code with subscription link
 
 # Installation and Update
 
