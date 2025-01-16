@@ -28,7 +28,7 @@
 - Automatic detection of the user's language.
 - QR code with subscription link
 
-# Install
+# Installation
 
 <h2>Marzban:</h2>
 Use the instruction below to install page to <a href="https://github.com/Gozargah/Marzban">Marzban</a>
