@@ -339,19 +339,19 @@
 			<div class="row row-cols-2 row-cols-sm-4 g-3 mb-4">
 				<div class="col">
 					<div class="my-block d-flex flex-column h-100">
-						{% if user.status.value == 'active' %}
+						{% if user.is_active %}
 						<i class="bi my-color-green fs-4 mb-3 bi-emoji-smile-fill"></i>
 						{% else %}
 						<i class="bi my-color-red fs-4 mb-3 bi-emoji-frown-fill"></i>
 						{% endif %}
 						<span class="fs-5 fw-bold" x-text="$t('status')"></span>
-						{% if user.status.value == 'active' %}
+						{% if user.is_active %}
 						<span class="fw-semibold" x-text="$t('active')"></span>
-						{% elif user.status.value == 'limited' %}
+						{% elif user.data_limit_reached %}
 						<span class="fw-semibold" x-text="$t('limited')"></span>
-						{% elif user.status.value == 'expired' %}
+						{% elif user.expired %}
 						<span class="fw-semibold" x-text="$t('expired')"></span>
-						{% elif user.status.value == 'disabled' %}
+						{% elif not user.enabled %}
 						<span class="fw-semibold" x-text="$t('disabled')"></span>
 						{% endif %}
 					</div>
@@ -360,11 +360,11 @@
 					<div class="my-block d-flex flex-column h-100">
 						<i class="bi my-color-red fs-4 mb-3 bi-calendar3"></i>
 						<span class="fs-5 fw-bold" x-text="$t('duration')"></span>
-						{% if not user.expire %}
+						{% if not user.expire_date %}
 						<span class="fw-semibold" x-text="$t('forever')"></span>
 						{% else %}
 						<!-- Can it be done better? -->
-						{% set date = (user.expire | datetime).split()[0].split('-')[::-1] %}
+						{% set date = (user.expire_date | datetime).split()[0].split('-')[::-1] %}
 						<span class="fw-semibold">
 							<span x-text="$t('until')"></span>
 							{{ '.'.join(date) }}
