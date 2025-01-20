@@ -329,7 +329,7 @@
 			<!-- Subscription username and buttons -->
 			<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
 				<span class="text-break fs-3 fw-bold me-auto"><span x-text="$t('subscriptionFor')"></span> {{ user.username }}</span>
-				<button class="btn my-btn btn-copy-link" type="button" x-text="$t('copyLink')"></button>
+				<button class="btn my-btn btn-copy-sub-link" type="button" x-text="$t('copyLink')"></button>
 				<button class="btn my-btn" id="btn-show-qr" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true">
 					<svg class="bi"><use href="#qr"></use></svg>
 				</button>
@@ -759,7 +759,7 @@
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-link" type="button">
+													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
 														<script type="text/javascript">
 															document.write(linkFull);
 														</script>
@@ -815,7 +815,7 @@
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-link" type="button">
+													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
 														<script type="text/javascript">
 															document.write(linkFull);
 														</script>
@@ -900,7 +900,7 @@
 							<button type="button" class="btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
 						</a>
 						<p x-text="$t('linux2')"></p>
-						<button class="btn my-btn-accent w-100 text-break btn-copy-link mb-4" type="button">
+						<button class="btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4" type="button">
 							<script type="text/javascript">
 								document.write(linkFull);
 							</script>
@@ -926,6 +926,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/cdn.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 		<script>  
+			// Tutorial images links
 			const images = {
 				en: {
 					imgV2rayNg1: "https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/v2rayNg-en-1.png",
@@ -937,6 +938,7 @@
 				}
 			};
 						
+			// Localizations strings
 			const MESSAGES = {
 				en: {
 					support: 'Support',
@@ -1156,8 +1158,6 @@
 			}
 			
 			function showActiveDropdownButton(btn, selectedBtn, isIndependent) {
-				// Change dropdowns that can't be changed because
-				// they don't depend on Bootstrap.
 				if (isIndependent) {
 					const activeDropdownBtn = btn.nextElementSibling.querySelector('.active');
 					if (activeDropdownBtn) {
@@ -1204,25 +1204,30 @@
 					});
 				});
 			});
-      
+			
 			document.addEventListener('DOMContentLoaded', () => {
+				
+				//  Setup deeplinks
 				setHrefs()
+				
+				//  Show copy to clipboard toast
 				const toastCopyLink = document.getElementById('toast-copy-link');
-				document.querySelectorAll('.btn-copy-link').forEach(button => {
+				document.querySelectorAll('.btn-copy-sub-link').forEach(button => {
 					button.addEventListener('click', () => {
-						navigator.clipboard.writeText('{{ user.subscription_url }}');
+						navigator.clipboard.writeText(linkFull);
 						bootstrap.Toast.getOrCreateInstance(toastCopyLink).show();
 					});
 				});
 				
-			const qrCode = new QRCode(document.getElementById("qrcode"), {
-				text: linkFull,
-				width: 256	,
-				height: 256,
-				colorDark: "#fff",
-				colorLight: "#35384b",
-				correctLevel: QRCode.CorrectLevel.H
-			});
+				// Generate qr code for subscription
+				const qrCode = new QRCode(document.getElementById("qrcode"), {
+					text: linkFull,
+					width: 256	,
+					height: 256,
+					colorDark: "#fff",
+					colorLight: "#35384b",
+					correctLevel: QRCode.CorrectLevel.H
+				});
 			});
 		</script>
 	</body
