@@ -26,7 +26,8 @@
 - Language switching: English and Russian.
 - Detailed guides are provided for Windows, Android, iOS, MacOS and Linux.
 - Automatic detection of the user's language.
-- QR code with subscription link
+- QR code with subscription link.
+- Separate links and QR codes for each node, display name for each connection (including emoji symbols in all browsers).
 
 # Installation
 

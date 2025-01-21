@@ -10,9 +10,11 @@
 		<link href="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
 		<script>
 			var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
 			const linkFull = "{{ user.subscription_url }}";
+			var qrLink = linkFull;
 			const link64 = Base64.encode(linkFull);
 			
 			// Change "sub" to other string to customize subscription group name when import in app
@@ -203,6 +205,19 @@
 				padding: 0px;
 				margin : 0px;
 			}
+			
+			.link-separate {
+				font-family: "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Emoji", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Segoe UI Symbol";
+				background-color: transparent;
+			}
+			
+			.link-separate:focus {
+				outline: none !important;
+			}
+			
+			.form-control:disabled {
+				background-color: transparent;
+			}
 		</style>
 	</head>
 	<body>
@@ -285,7 +300,7 @@
 				<div class="modal-sm modal-dialog modal-dialog-centered">
 					<div class="my-modal modal-content border border-0 rounded-4 shadow-lg">
 						<div class="modal-header">
-							<h1 class="modal-title fw-bold me-auto fs-5" id="qrModalLabel" x-text="$t('subscription')"></h1>
+							<h1 class="modal-title link-separate fw-bold me-auto fs-5" id="qrModalLabel"></h1>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body d-flex justify-content-center align-items-center">
@@ -329,8 +344,8 @@
 			<!-- Subscription username and buttons -->
 			<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
 				<span class="text-break fs-3 fw-bold me-auto"><span x-text="$t('subscriptionFor')"></span> {{ user.username }}</span>
-				<button class="btn my-btn btn-copy-link" type="button" x-text="$t('copyLink')"></button>
-				<button class="btn my-btn" id="btn-show-qr" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true">
+				<button class="btn my-btn btn-copy-sub-link" type="button" x-text="$t('copyLink')"></button>
+				<button class="btn my-btn btn-show-qr-sub" id="btn-show-qr-sub" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true">
 					<svg class="bi"><use href="#qr"></use></svg>
 				</button>
 			</div>
@@ -759,7 +774,7 @@
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-link" type="button">
+													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
 														<script type="text/javascript">
 															document.write(linkFull);
 														</script>
@@ -815,7 +830,7 @@
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-link" type="button">
+													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
 														<script type="text/javascript">
 															document.write(linkFull);
 														</script>
@@ -887,8 +902,8 @@
 				</div>
 				<div class="accordion-item rounded-4 px-3 mb-2">
 					<h2 class="accordion-header">
-						<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOther" aria-expanded="false" aria-controls="collapseWindows">
-							<i class="bi bi-motherboard-fill mb-2"></i>
+						<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOther" aria-expanded="false" aria-controls="collapseOther">
+							<i class="bi bi-terminal-fill mb-2"></i>
 							<span class="d-block w-100 text-center">
 								Linux / <span x-text="$t('otherDevices')"></span>
 							</span>
@@ -900,13 +915,44 @@
 							<button type="button" class="btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
 						</a>
 						<p x-text="$t('linux2')"></p>
-						<button class="btn my-btn-accent w-100 text-break btn-copy-link mb-4" type="button">
+						<button class="btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4" type="button">
 							<script type="text/javascript">
 								document.write(linkFull);
 							</script>
 						</button>
 					</div>
 				</div>
+				
+				<!-- Separate servers links start -->
+				{% if user.is_active %}
+				<div class="accordion-item rounded-4 px-3 mb-2">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLinks" aria-expanded="false" aria-controls="collapseLinks">
+							<i class="bi bi-geo-alt-fill mb-2"></i>
+							<span class="d-block w-100 text-center" x-text="$t('separateLinksTitle')"></span>
+						</button>
+					</h2>
+					<div id="collapseLinks" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
+						<div class="pb-2">
+							<p x-text="$t('separateLinks1')"></p>
+							<p x-text="$t('separateLinks2')"></p>
+							{% for link in links %}
+							<div class="input-group input-group-lg border border-0 text-bg-dark rounded-4 ps-1 mb-3">	
+								<input class="form-control link-separate border border-0" type="text" value="{{ link }}" disabled readonly>
+								<button class="btn my-btn btn-copy-link fs-5 m-2 rounded-4 pb-2 pt-1" data-link="{{ link }}">
+									<i class="bi bi-clipboard2-fill"></i>
+								</button>
+								<button class="btn my-btn btn-show-qr m-2 ms-0 rounded-4" id="btn-show-qr" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true" data-link="{{ link }}">
+									<svg class="bi"><use href="#qr"></use></svg>
+								</button>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				<!-- Separate servers links end -->
+				
 			</div>
 			
 			<!-- FAQ/Info -->
@@ -926,6 +972,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/alpinejs-i18n@2.x.x/dist/cdn.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
 		<script>  
+			// Tutorial images links
 			const images = {
 				en: {
 					imgV2rayNg1: "https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/v2rayNg-en-1.png",
@@ -937,6 +984,7 @@
 				}
 			};
 						
+			// Localizations strings
 			const MESSAGES = {
 				en: {
 					support: 'Support',
@@ -963,6 +1011,9 @@
 					subscriptionFor: 'Subscription for',
 					copyLink: 'Copy subscription link',
 					copiedToClipboard: 'Copied to clipboard',
+					separateLinksTitle: 'List of Available Servers',
+					separateLinks1: 'In this section, you can access your configurations individually, allowing you to share each one via QR code or simply copy them',
+					separateLinks2: 'This can be useful if, for example, you need to set up a connection to a specific server on a particular device',
 					
 					//Guide
 					guide: 'Guide:',
@@ -1064,6 +1115,9 @@
 					subscriptionFor: 'Подписка для',
 					copyLink: 'Скопировать ссылку подписки',
 					copiedToClipboard: 'Скопировано в буфер обмена',
+					separateLinksTitle: 'Список доступных серверов',
+					separateLinks1: 'В этом разделе вы получаете доступ к своим конфигурациям по отдельности, что позволяет делиться каждой из них с помощью QR-кода или просто копировать их',
+					separateLinks2: 'Может пригодиться, если, например, нужно настроить подключение только к конкретному серверу на определенном устройстве',
 					
 					//Guide
 					guide: 'Инструкция:',
@@ -1143,10 +1197,9 @@
 			};
 			
 			function getPreferredLanguage() {
-			const lang = localStorage.getItem('language') ||
-						(navigator.language || navigator.userLanguage).slice(0, 2);
-			const supportedLanguages = ['ru', 'en'];
-			return supportedLanguages.includes(lang) ? lang : 'en';
+				const lang = localStorage.getItem('language') || (navigator.language || navigator.userLanguage).slice(0, 2);
+				const supportedLanguages = ['ru', 'en'];
+				return supportedLanguages.includes(lang) ? lang : 'en';
 			}
 			
 			function changeImages(lang) {
@@ -1156,8 +1209,6 @@
 			}
 			
 			function showActiveDropdownButton(btn, selectedBtn, isIndependent) {
-				// Change dropdowns that can't be changed because
-				// they don't depend on Bootstrap.
 				if (isIndependent) {
 					const activeDropdownBtn = btn.nextElementSibling.querySelector('.active');
 					if (activeDropdownBtn) {
@@ -1204,25 +1255,97 @@
 					});
 				});
 			});
-      
+			
 			document.addEventListener('DOMContentLoaded', () => {
+				
+				//  Setup deeplinks
 				setHrefs()
 				const toastCopyLink = document.getElementById('toast-copy-link');
-				document.querySelectorAll('.btn-copy-link').forEach(button => {
+				
+				// Copy subscription link and show toast
+				document.querySelectorAll('.btn-copy-sub-link').forEach(button => {
 					button.addEventListener('click', () => {
-						navigator.clipboard.writeText('{{ user.subscription_url }}');
+						navigator.clipboard.writeText(linkFull);
 						bootstrap.Toast.getOrCreateInstance(toastCopyLink).show();
 					});
 				});
 				
-			const qrCode = new QRCode(document.getElementById("qrcode"), {
-				text: linkFull,
-				width: 256	,
-				height: 256,
-				colorDark: "#fff",
-				colorLight: "#35384b",
-				correctLevel: QRCode.CorrectLevel.H
-			});
+				// QR code settings
+				const qrCode = new QRCode(document.getElementById("qrcode"), {
+					text: qrLink,
+					width: 256	,
+					height: 256,
+					colorDark: "#fff",
+					colorLight: "#35384b",
+					correctLevel: QRCode.CorrectLevel.H
+				});
+				
+				// Define QR modal header string container and subscription show button
+				const qrModalLabel = document.getElementById('qrModalLabel');
+				const qrButtonSub = document.getElementById('btn-show-qr-sub');
+				
+				// Change QR modal header to subscription localization string and show sub link QR
+				qrButtonSub.addEventListener('click', () => {
+					qrLink = linkFull;
+					qrCode.clear();
+					qrCode.makeCode(qrLink);
+					subscriptionTitle = MESSAGES[getPreferredLanguage()]['subscription'];
+					qrModalLabel.setAttribute('x-text', `'${subscriptionTitle}'`);
+				});
+				
+				// --- Separate servers links block start ---
+				const copyButtons = document.querySelectorAll('.btn-copy-link');
+				const qrButtons = document.querySelectorAll('.btn-show-qr');
+				const inputs = document.querySelectorAll('.link-separate');
+			
+				// Decode server name from link
+				function extractName(url) {
+					const decoded = decodeURIComponent(url);
+					const match = decoded.match(/#(.+)$/);
+					return match ? match[1] : null;
+				}
+			
+				// Show decoded server name
+				inputs.forEach((input) => {
+					const originalValue = input.value; 
+					const name = extractName(originalValue);
+					if (name) {
+						input.setAttribute('data-original', originalValue);
+						input.setAttribute('value', name);
+					}
+				});
+			
+				// Copy each node connection link
+				copyButtons.forEach((button) => {
+					button.addEventListener('click', () => {
+						const separateLink = button.dataset.link;
+						navigator.clipboard.writeText(separateLink);
+					});
+				});
+				
+				// Show notification toast when separate link is copied
+				document.querySelectorAll('.btn-copy-link').forEach(button => {
+					button.addEventListener('click', () => {
+						bootstrap.Toast.getOrCreateInstance(toastCopyLink).show();
+					});
+				});
+			
+				// Generate different QR code for each separate connection link
+				qrButtons.forEach((qrButtons) => {
+					qrButtons.addEventListener('click', () => {
+						const separateLink = qrButtons.dataset.link;
+						const name = extractName(separateLink);
+						qrLink = separateLink;
+						qrCode.clear();
+						qrCode.makeCode(qrLink);
+						
+						// Change QR modal header to server name
+						if (qrModalLabel) {
+							qrModalLabel.setAttribute('x-text', `'${name}'`);
+						}
+					});
+				});
+				// --- Separate servers links block end ---
 			});
 		</script>
 	</body
