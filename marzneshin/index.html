@@ -939,10 +939,10 @@
 							{% for link in links %}
 							<div class="input-group input-group-lg border border-0 text-bg-dark rounded-4 ps-1 mb-3">	
 								<input class="form-control link-separate border border-0" type="text" value="{{ link }}" disabled readonly>
-								<button class="btn my-btn btn-copy-link fs-5 m-2 rounded-4 pb-2 pt-1" data-link="{{ link }}">
+								<button class="btn my-btn btn-copy-link fs-5 m-2 rounded-3 pb-2 pt-1" data-link="{{ link }}">
 									<i class="bi bi-clipboard2-fill"></i>
 								</button>
-								<button class="btn my-btn btn-show-qr m-2 ms-0 rounded-4" id="btn-show-qr" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true" data-link="{{ link }}">
+								<button class="btn my-btn btn-show-qr m-2 ms-0 rounded-3" id="btn-show-qr" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true" data-link="{{ link }}">
 									<svg class="bi"><use href="#qr"></use></svg>
 								</button>
 							</div>
