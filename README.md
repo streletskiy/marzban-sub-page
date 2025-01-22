@@ -23,7 +23,7 @@
 # Features
 
 - The design is simple and intuitive, with minimal code.
-- Language switching: English and Russian.
+- Language switching: English, Chinese and Russian.
 - Detailed guides are provided for Windows, Android, iOS, MacOS and Linux.
 - Automatic detection of the user's language.
 - QR code with subscription link.
