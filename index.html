@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru" data-bs-theme="dark">
+<html lang="en" dir="ltr" data-bs-theme="dark">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1347,6 +1347,7 @@
 			document.addEventListener('alpine-i18n:ready', () => {
 				window.AlpineI18n.fallbackLocale = 'en';
 				window.AlpineI18n.create(getPreferredLanguage(), MESSAGES);
+				document.documentElement.setAttribute('lang', getPreferredLanguage());
 				
 				const btnLang = document.getElementById('btn-lang');
 				const btnPrefLang = document.querySelector(
@@ -1362,6 +1363,7 @@
 						AlpineI18n.locale = btn.dataset.languageValue;
 						showActiveDropdownButton(btnLang, btn, true);
 						changeImages(newLang);
+						document.documentElement.setAttribute('lang', newLang);
 					});
 				});
 			});
