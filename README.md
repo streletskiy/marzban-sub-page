@@ -22,12 +22,13 @@
 
 # Features
 
-- The design is simple and intuitive, with minimal code.
-- Language switching: English, Chinese and Russian.
-- Detailed guides are provided for Windows, Android, iOS, MacOS and Linux.
+- The design is simple and intuitive.
+- The code is minimal and with comments for easy editing.
+- Language switching: English, Russian (Русский), Chinese (中文) and Persian (فارسی).
 - Automatic detection of the user's language.
 - QR code with subscription link.
 - Separate links and QR codes for each node, display name for each connection (including emoji symbols in all browsers).
+- Detailed guides are provided for Windows, Android, iOS, MacOS and Linux.
 
 # Installation
 

@@ -8,7 +8,7 @@
 		<link href="https://raw.githubusercontent.com/dstreletskiy/marzban-sub-page/refs/heads/main/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
 		<link href="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
 		<link href="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH">
+		<link rel="stylesheet" id="dynamic-stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 		<link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
 		<script>
@@ -17,11 +17,11 @@
 			var qrLink = linkFull;
 			const link64 = Base64.encode(linkFull);
 			
-			// Change "sub" to other string to customize subscription group name when import in app
+			// Change "sub" to other string to customize subscription group name when import in app (works in some apps)
 			const serviceName = "sub";
 			
-			// Apps deeplinks
 			function setHrefs() {
+				// Apps deeplinks
 				document.getElementById("href-ios-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-ios-streisand").href = `streisand://import/${linkFull}`;
 				document.getElementById("href-ios-foxray").href = `foxray://yiguo.dev/sub/add/?url=${link64}#` + serviceName;
@@ -286,11 +286,9 @@
 			<!-- Copied to clipboard notification -->
 			<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
 				<div class="toast my-toast" id="toast-copy-link" role="alert" aria-atomic="true" aria-live="assertive">
-					<div class="d-flex">
-						<div class="toast-body fs-6 fw-semibold">
-							<span x-text="$t('copiedToClipboard')"></span>
-						</div>
-						<button type="button" class="btn-close m-auto me-3" data-bs-dismiss="toast" aria-label="Close"></button>
+					<div class="d-flex justify-content-between align-items-center">
+						<span class="toast-body fs-6 fw-semibold" x-text="$t('copiedToClipboard')"></span>
+						<button type="button" class="btn-close m-3" data-bs-dismiss="toast" aria-label="Close"></button>
 					</div>
 				</div>
 			</div>
@@ -299,9 +297,9 @@
 			<div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel">
 				<div class="modal-sm modal-dialog modal-dialog-centered">
 					<div class="my-modal modal-content border border-0 rounded-4 shadow-lg">
-						<div class="modal-header">
-							<h1 class="modal-title link-separate fw-bold me-auto fs-5" id="qrModalLabel"></h1>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						<div class="d-flex modal-header justify-content-between">
+							<h1 class="modal-title link-separate fw-bold fs-5" id="qrModalLabel"></h1>
+							<button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body d-flex justify-content-center align-items-center">
 							<div id="qrcode"></div>
@@ -311,8 +309,8 @@
 			</div>
 			
 			<!-- Logo, support and language switcher -->
-			<header class="d-flex flex-wrap align-items-center gap-2 mb-5">
-				<img src="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/logo.png" class="me-auto" alt="Logo" width="32" height="32">
+			<header class="d-flex flex-wrap align-items-center gap-2 mb-5 justify-content-between">
+				<img src="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/logo.png" alt="Logo" width="32" height="32">
 				<ul class="nav align-items-center">
 					<li class="nav-item">
 						<a class="nav-link my-nav-link fw-semibold px-2" id="href-support" rel="noopener noreferrer" target="_blank" x-text="$t('support')"></a>
@@ -320,25 +318,31 @@
 					<li class="nav-item">
 						<div class="dropdown">
 							<button class="nav-link my-nav-link dropdown-toggle d-flex align-items-center px-2" id="btn-lang" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<i class="bi fs-5 bi-translate mb-2"></i>
+								<i class="bi fs-5 bi-translate ms-1 me-1 mb-2"></i>
 							</button>
 							<ul class="dropdown-menu my-dropdown-menu">
 								<li>
-									<button class="dropdown-item active d-flex align-items-center fw-semibold" type="button" data-language-value="en">
+									<button class="dropdown-item active d-flex align-items-center fw-semibold justify-content-between" type="button" data-language-value="en">
 										<span class="me-2">English</span>
-										<i class="bi my-dropdown-item-check ms-auto bi-check2 mb-2"></i>
+										<i class="bi my-dropdown-item-check bi-check2 mb-2"></i>
 									</button>
 								</li>
 								<li>
-									<button class="dropdown-item d-flex align-items-center fw-semibold" type="button" data-language-value="ru">
+									<button class="dropdown-item d-flex align-items-center fw-semibold justify-content-between" type="button" data-language-value="ru">
 										<span class="me-2">Русский</span>
-										<i class="bi my-dropdown-item-check ms-auto bi-check2 mb-2"></i>
+										<i class="bi my-dropdown-item-check bi-check2 mb-2"></i>
 									</button>
 								</li>
 								<li>
-									<button class="dropdown-item d-flex align-items-center fw-semibold" type="button" data-language-value="zh">
-										<span class="me-2">中文</span>
-										<i class="bi my-dropdown-item-check ms-auto bi-check2 mb-2"></i>
+									<button class="dropdown-item d-flex align-items-center fw-semibold justify-content-between" type="button" data-language-value="zh">
+										<span class="me-3">中文</span>
+										<i class="bi my-dropdown-item-check bi-check2 mb-2"></i>
+									</button>
+								</li>
+								<li>
+									<button class="dropdown-item d-flex align-items-center fw-semibold justify-content-between" type="button" data-language-value="fa">
+										<span class="me-3">فارسی</span>
+										<i class="bi my-dropdown-item-check bi-check2 mb-2"></i>
 									</button>
 								</li>
 							</ul>
@@ -348,12 +352,14 @@
 			</header>
 			
 			<!-- Subscription username and buttons -->
-			<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-				<span class="text-break fs-3 fw-bold me-auto"><span x-text="$t('subscriptionFor')"></span> {{ user.username }}</span>
-				<button class="btn my-btn btn-copy-sub-link" type="button" x-text="$t('copyLink')"></button>
-				<button class="btn my-btn btn-show-qr-sub" id="btn-show-qr-sub" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true">
-					<svg class="bi"><use href="#qr"></use></svg>
-				</button>
+			<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+				<span class="text-break fs-3 fw-bold"><span x-text="$t('subscriptionFor')"></span> {{ user.username }}</span>
+				<div>
+					<button class="btn my-btn btn-copy-sub-link" type="button" x-text="$t('copyLink')"></button>
+					<button class="btn my-btn btn-show-qr-sub" id="btn-show-qr-sub" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true">
+						<svg class="bi"><use href="#qr"></use></svg>
+					</button>
+				</div>
 			</div>
 			
 			<!-- Subscription status -->
@@ -426,9 +432,7 @@
 			</div>
 			
 			<!-- Guides -->
-			<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-				<span class="fs-3 fw-bold me-auto" x-text="$t('guide')"></span>
-			</div>
+			<div class="fs-3 fw-bold mb-3" x-text="$t('guide')"></div>
 			<div class="accordion mt-2" id="accordionOs">
 				<div class="accordion-item rounded-4 px-3 mb-2">
 					<h2 class="accordion-header">
@@ -943,12 +947,12 @@
 							<p x-text="$t('separateLinks1')"></p>
 							<p x-text="$t('separateLinks2')"></p>
 							{% for link in links %}
-							<div class="input-group input-group-lg border border-0 text-bg-dark rounded-4 ps-1 mb-3">	
-								<input class="form-control link-separate border border-0" type="text" value="{{ link }}" disabled readonly>
-								<button class="btn my-btn btn-copy-link fs-5 m-2 rounded-3 pb-2 pt-1" data-link="{{ link }}">
+							<div class="input-group input-group-lg border border-0 text-bg-dark rounded-4 mb-3">	
+								<input class="form-control link-separate border border-0 ps-4" type="text" value="{{ link }}" disabled readonly>
+								<button class="btn my-btn btn-copy-link fs-5 mt-2 mb-2 rounded-3 pb-2 pt-1" data-link="{{ link }}">
 									<i class="bi bi-clipboard2-fill"></i>
 								</button>
-								<button class="btn my-btn btn-show-qr m-2 ms-0 rounded-3" id="btn-show-qr" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true" data-link="{{ link }}">
+								<button class="btn my-btn btn-show-qr m-2 rounded-3" id="btn-show-qr" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true" data-link="{{ link }}">
 									<svg class="bi"><use href="#qr"></use></svg>
 								</button>
 							</div>
@@ -962,7 +966,7 @@
 			</div>
 			
 			<!-- FAQ/Info -->
-			<div class="mt-4 fs-3 fw-bold me-auto" x-text="$t('faq')"></div>
+			<div class="mt-4 fs-3 fw-bold" x-text="$t('faq')"></div>
 			<div class="my-block mt-3 pt-4 pb-2">
 				<p x-text="$t('faq1')"></p>
 				<p x-text="$t('faq2')"></p>
@@ -1304,11 +1308,149 @@
 					faq2: '2. 相同的订阅可以在多个设备上同时使用',
 					donate: '捐赠',
 				},
+				fa: {
+					support: 'پشتیبانی',
+					system: 'سیستم',
+					light: 'روشن',
+					dark: 'تاریک',
+					status: 'وضعیت',
+					active: 'فعال',
+					limited: 'محدود',
+					expired: 'منقضی شده',
+					disabled: 'غیرفعال',
+					duration: 'مدت زمان',
+					until: 'تا',
+					forever: 'همیشگی',
+					traffic: 'ترافیک',
+					of: 'از',
+					trafficReset: 'بازنشانی ترافیک',
+					no: 'خیر',
+					daily: 'روزانه',
+					weekly: 'هفتگی',
+					monthly: 'ماهانه',
+					yearly: 'سالانه',
+					subscription: 'اشتراک',
+					subscriptionFor: 'اشتراک برای',
+					copyLink: 'کپی لینک اشتراک',
+					copiedToClipboard: 'کپی شد',
+					separateLinksTitle: 'لیست سرورهای موجود',
+					separateLinks1: 'در این بخش می‌توانید به تنظیمات خود به صورت جداگانه دسترسی داشته باشید و هرکدام را از طریق کد QR به اشتراک بگذارید یا فقط کپی کنید',
+					separateLinks2: 'این می‌تواند زمانی مفید باشد که به عنوان مثال نیاز دارید اتصال به یک سرور خاص را روی یک دستگاه خاص تنظیم کنید',
+				
+					//Guide
+					guide: 'راهنما:',
+					otherApps: 'برنامه‌های دیگر',
+					additional: 'اضافی:',
+					otherDevices: 'دستگاه‌های دیگر',
+					selectApp: 'یکی از برنامه‌ها را انتخاب کنید:',
+					needVersion: 'نسخه موردنیاز',
+					getApp: 'دانلود برنامه:',
+					getAppDescription: 'روی لینک زیر کلیک کنید تا برنامه را دانلود کنید:',
+					downloadApp: 'دانلود',
+					addConfig: 'افزودن تنظیمات:',
+					addConfigDescription: 'روی لینک زیر کلیک کنید تا تنظیمات را به برنامه اضافه کنید:',
+					addConfigApp: 'افزودن به برنامه',
+					doUpdate: 'به‌روزرسانی',
+					doRun: 'اجرا:',
+					unpack: 'استخراج فایل فشرده',
+					runFile: 'اجرای فایل',
+					anyPlace: 'در هر محل دلخواه روی کامپیوتر خود',
+					betterAdmin: 'ترجیحاً به عنوان مدیر سیستم',
+					openAndPaste: 'پنجره برنامه را باز کرده و "Ctrl+V" را فشار دهید',
+					tunWish: 'در صورت نیاز حالت TUN را تنظیم کنید:',
+					troubleWin1: 'اگر اینترنت پس از شروع برنامه کار نمی‌کند، به تنظیمات سیستم ویندوز بروید، بخش "Network & Internet" را باز کنید، سپس "Proxy Server"، گزینه "استفاده از پروکسی سرور" را فعال کنید و ذخیره کنید.',
+					troubleWin2: 'همچنین، اگر اینترنت پس از خاموش کردن برنامه کار نمی‌کند، باید گزینه "استفاده از پروکسی سرور" را غیرفعال کنید.',
+				
+					//v2box
+					v2boxStart: 'در تب "تنظیمات"، اشتراک ظاهر خواهد شد. روی سرور موردنظر کلیک کرده و در تب "خانه" آن را شروع کنید.',
+				
+					//Hiddify
+					hiddifyAdditional1: 'در تنظیمات، کشور خود را انتخاب کنید. اتصال به آدرس‌ها/سایت‌های این کشور مستقیماً انجام خواهد شد. اگر می‌خواهید تمام اتصالات از طریق پروکسی انجام شوند، "دیگر" را به عنوان کشور انتخاب کنید.',
+					hiddifyAdditional2: 'بخش تنظیمات کشور در برنامه: گوشه بالا سمت راست، آیکون تنظیمات -> تمام تنظیمات -> منطقه',
+					hiddifyAdditional3: 'دکمه بزرگ دایره‌ای را برای شروع فشار دهید',
+					hiddifyTun1: 'برای کارکرد برنامه‌هایی که از پروکسی سیستم عامل استفاده نمی‌کنند (مثل Steam یا Discord)، "حالت VPN" را در تنظیمات فعال کنید:',
+					hiddifyTun2: 'برای این کار، به تنظیمات (سمت چپ) بروید -> حالت عملکرد -> "VPN (تجربی)" را انتخاب کنید -> برنامه را به عنوان مدیر مجدداً راه‌اندازی کنید',
+				
+					//v2rayNg
+					v2rayNgUpdateSub: 'روی سه نقطه در گوشه بالا سمت راست کلیک کنید و گزینه "به‌روزرسانی اشتراک" را انتخاب کنید. سپس سرورهای موجود در لیست ظاهر می‌شوند.',
+				
+					//v2rayN
+					v2rayNupdateSub: 'در بالای صفحه کلیک کنید: گروه اشتراک -> به‌روزرسانی اشتراک‌ها بدون پروکسی',
+					v2rayNtun1: 'در بالای صفحه، تنظیمات مربوط به روسیه را انتخاب کنید اگر در فدراسیون روسیه هستید: تنظیمات -> تنظیمات منطقه‌ای -> روسیه',
+					v2rayNtun2: 'در پایین، در بخش "مسیر"، می‌توانید حالت "همه چیز به جز روسیه" را انتخاب کنید — تمام ترافیک به جز تورنت‌ها و IPهای روسیه از طریق پروکسی/VPN هدایت می‌شود',
+					v2rayNtun3: 'همچنین می‌توانید گزینه "فعال کردن TUN" را روشن کنید تا برنامه‌هایی که از پروکسی سیستم عامل استفاده نمی‌کنند (مثل Steam یا Discord) از طریق پروکسی کار کنند',
+					v2rayNrun1: 'یکی از سرورها را از لیست انتخاب کنید، روی آن راست کلیک کرده و گزینه "به عنوان سرور فعال تنظیم کن" را انتخاب کنید',
+					v2rayNrun2: 'اگر حالت TUN را فعال نکرده‌اید، در بالا گزینه "حالت پروکسی سیستم" را روشن کنید',
+					v2rayNabout: 'بیشتر درباره v2rayN بخوانید',
+				
+					//NekoRay
+					nekorayTun: 'برای کارکرد برنامه‌هایی که از پروکسی سیستم عامل استفاده نمی‌کنند (مثل Steam یا Discord)، گزینه "حالت TUN" را در بالا بررسی کنید.',
+					nekoraySplit1: 'دستورالعمل برای تنظیم تقسیم تونل در NekoRay',
+					nekoraySplit2: 'به "تنظیمات" -> "تنظیمات مسیر" -> "مسیرهای پایه" -> "مسیرهای سفارشی" بروید',
+					nekoraySplit3: 'تنظیمات JSON را جای‌گذاری کنید. به عنوان مثال، این قوانین برای Discord و مرورگرهای محبوب:',
+					nekoraySplit4: 'برای "پیش‌فرض خروجی"، حالت عبور را انتخاب کنید. تایید را کلیک کنید',
+					nekoraySplit5: 'به "تنظیمات" -> "تنظیمات مسیر" -> "عمومی" بروید و "ipv4_only" را برای هر دو گزینه "استراتژی دامنه" و "استراتژی انتخاب آدرس سرور" انتخاب کنید. تایید را کلیک کنید',
+					nekorayRun1: 'یکی از سرورها را انتخاب کنید، روی آن راست کلیک کرده و "شروع" را کلیک کنید',
+					nekorayRun2: 'اگر چیزی کار نمی‌کند، بررسی کنید که آیا گزینه "حالت TUN" یا "حالت پروکسی سیستم" فعال شده است. یکی از این دو باید فعال باشد.',
+					nekorayRun3: 'اگر اینترنت کار نمی‌کند، چند دقیقه صبر کنید تا برنامه همه چیز لازم را تنظیم کند یا یک حالت دیگر (TUN/حالت پروکسی سیستم) را امتحان کنید',
+				
+					//InvisibleMan
+					invManAddConf1: 'می‌توانید هر چیزی را در فیلد "توضیحات" وارد کنید، اما وارد کردن آن الزامی است',
+					invManAddConf2: 'یکی از سرورها را انتخاب کنید و روی آیکون بستن کلیک کنید',
+					invManRun: 'دکمه سبز "RUN" را در صفحه اصلی برنامه فشار دهید',
+					invManTun: 'برای اطمینان از کارکرد برنامه‌هایی مثل Steam یا Discord از طریق پروکسی، حالت TUN را در تنظیمات فعال کنید',
+				
+					//Linux/Other
+					linuxExampleV2rayA: 'به عنوان مثال، می‌توانید از v2rayA استفاده کنید',
+					linux1: 'اگر می‌خواهید تنظیمات را روی دستگاه دیگری (روتر، تلویزیون، سرور و غیره) انجام دهید، یک برنامه مناسب پیدا کنید.',
+					linux2: 'باید لینک زیر را به عنوان "لینک اشتراک" جای‌گذاری کنید:',
+					copyLinkBelow: 'لینک زیر را کپی کنید:',
+				
+					//Footer
+					faq: 'پرسش‌های متداول:',
+					faq1: '1. اشتراک — لینکی با یک فرمت خاص که برنامه از آن برای دانلود داده‌های لازم برای اتصال از سرور استفاده می‌کند',
+					faq2: '2. همان اشتراک می‌تواند همزمان روی چندین دستگاه استفاده شود',
+					donate: 'کمک مالی',
+				},
 			};
+			
+			// Change CSS style between RTL and LTR
+			function updateDirectionAndStyles(language) {
+				const html = document.documentElement;
+				if (['ar', 'he', 'fa'].includes(language)) {
+					html.setAttribute('dir', 'rtl');
+					switchStylesheet(
+						'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css', // Path to RTL CSS
+						'sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb'
+					);
+				} else {
+					html.setAttribute('dir', 'ltr');
+					switchStylesheet(
+						'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css', // Path to LTR CSS
+						'sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH'
+					);
+				}
+			}
+			
+			function switchStylesheet(newStylesheetHref, newIntegrity) {
+				const existingLink = document.getElementById('dynamic-stylesheet');
+				if (existingLink) {
+					existingLink.href = newStylesheetHref;
+					existingLink.setAttribute('integrity', newIntegrity);
+				} else {
+					const link = document.createElement('link');
+					link.rel = 'stylesheet';
+					link.id = 'dynamic-stylesheet';
+					link.href = newStylesheetHref;
+					link.integrity = newIntegrity;
+					link.crossOrigin = 'anonymous';
+					document.head.appendChild(link);
+				}
+			}
 			
 			function getPreferredLanguage() {
 				const lang = localStorage.getItem('language') || (navigator.language || navigator.userLanguage).slice(0, 2);
-				const supportedLanguages = ['ru', 'en', 'zh'];
+				const supportedLanguages = ['ru', 'en', 'zh', 'fa'];
 				return supportedLanguages.includes(lang) ? lang : 'en';
 			}
 			
@@ -1317,7 +1459,8 @@
 				document.getElementById("imgV2rayNg1").src = langImages.imgV2rayNg1;
 				document.getElementById("imgV2rayNg2").src = langImages.imgV2rayNg2;
 			}
-			
+
+			// Display current language as checked
 			function showActiveDropdownButton(btn, selectedBtn, isIndependent) {
 				if (isIndependent) {
 					const activeDropdownBtn = btn.nextElementSibling.querySelector('.active');
@@ -1343,7 +1486,8 @@
 					btnText.innerHTML = selectedBtnText.outerHTML;
 				}
 			}
-      
+			
+			// Localization execute
 			document.addEventListener('alpine-i18n:ready', () => {
 				window.AlpineI18n.fallbackLocale = 'en';
 				window.AlpineI18n.create(getPreferredLanguage(), MESSAGES);
@@ -1355,6 +1499,7 @@
 				);
 				showActiveDropdownButton(btnLang, btnPrefLang, true);
 				changeImages(getPreferredLanguage());
+				updateDirectionAndStyles(getPreferredLanguage());
 				
 				document.querySelectorAll('[data-language-value]').forEach(btn => {
 					btn.addEventListener('click', () => {
@@ -1364,12 +1509,12 @@
 						showActiveDropdownButton(btnLang, btn, true);
 						changeImages(newLang);
 						document.documentElement.setAttribute('lang', newLang);
+						updateDirectionAndStyles(newLang);
 					});
 				});
 			});
 			
 			document.addEventListener('DOMContentLoaded', () => {
-				
 				//  Setup deeplinks
 				setHrefs()
 				const toastCopyLink = document.getElementById('toast-copy-link');
