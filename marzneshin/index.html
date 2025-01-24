@@ -30,6 +30,8 @@
 				document.getElementById("href-ios-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
 				document.getElementById("href-android-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-android-v2rayng").href = `v2rayng://install-config?url=${linkFull}&name=` + serviceName;
+				document.getElementById("href-android-cmfa").href = `clash://install-config?url${linkFull}&name=` + serviceName;
+				document.getElementById("href-android-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
 				document.getElementById("href-windows-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-windows-invisibleman").href = `invxray://subscription/${linkFull}`;
 				
@@ -38,6 +40,46 @@
 				document.getElementById("href-donate").href = `https://github.com/Gozargah/Marzban#donation`;
 			}
 		</script>
+				  <script>
+					async function getLatestReleaseName(url) {
+					  if (!url || typeof url !== 'string') {
+						throw new Error('A valid URL must be provided.');
+					  }
+				
+					  try {
+						const response = await fetch(url);
+				
+						if (!response.ok) {
+						  throw new Error(`Network response was not ok: ${response.statusText}`);
+						}
+				
+						const latest = await response.json();
+				
+						if ((!latest || !latest.tag_name) && (!latest || !latest.name)) {
+						  throw new Error('The response does not contain the expected data.');
+						}
+				
+						return latest.name || latest.tag_name;
+					  } catch (error) {
+						console.error('Error fetching the latest release name:', error);
+						throw error;
+					  }
+					}
+				
+					const cmfa_api = 'https://api.github.com/repos/MetaCubeX/ClashMetaForAndroid/releases/latest';
+				
+					document.addEventListener('DOMContentLoaded', async () => {
+					  try {
+						const cmfaName = await getLatestReleaseName(cmfa_api);
+						const cmfa = document.getElementById('cmfa');
+						let cmfa_version = cmfaName.substring(1);
+						cmfa.href = `https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/${cmfaName}/cmfa-${cmfa_version}-meta-universal-release.apk`;
+				
+					  } catch (error) {
+						console.error('Failed to update link:', error);
+					  }
+					});
+				  </script>
 		<style>
 			.bi {
 				width: 1em;
@@ -700,6 +742,58 @@
 										</div>
 									</div>
 								</div>
+								<hr class="divider">
+								<div class="accordion-item">
+									<h2 class="accordion-header">
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidCMFA" aria-expanded="false" aria-controls="accordionOsAndroidCMFA">
+											<i class="bi bi-android2 mb-2"></i>
+											<span class="d-block w-100 text-center">
+												Clash Meta
+											</span>
+										</button>
+									</h2>
+									<div id="accordionOsAndroidCMFA" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
+										<div class="container pb-4">
+											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+											<p x-text="$t('getAppDescription')"></p>
+											<a id="cmfa" href="#">
+												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+											<p x-text="$t('CMFAaddconfig')"></p>
+											<a id="href-android-cmfa">
+												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
+											<p x-text="$t('CMFArunconfig')"></p>
+										</div>
+									</div>
+								</div>
+								<hr class="divider">
+								<div class="accordion-item">
+									<h2 class="accordion-header">
+									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidSingbox" aria-expanded="false" aria-controls="collapseOsAndroidSingbox">
+											<svg class="my-icon"><use href="#singbox"></use></svg>
+											<span class="d-block w-100 text-center">
+												SingBox
+											</span>
+										</button>
+									</h2>
+									<div id="collapseOsAndroidSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
+										<div class="container pb-4">
+											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+											<p x-text="$t('getAppDescription')"></p>
+											<a href="https://play.google.com/store/apps/details?id=io.nekohasekai.sfa">
+												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+											<p x-text="$t('addConfigDescription')"></p>
+											<a id="href-android-singbox">
+												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											</a>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1061,6 +1155,10 @@
 					
 					//v2rayNg
 					v2rayNgUpdateSub: 'Tap the three dots in the top-right corner and select "Update subscription." After that, the available servers will appear in the list.',
+
+					//cmfa
+					CMFAaddconfig: 'Click the button below to open the profile creation window. You will need to specify the auto-update period, for example, 720 minutes. Click the "Save" button in the upper right corner.',
+					CMFArunconfig: 'Go to the "Profiles" section and select the profile you created, then return to the main page. Now you can connect by clicking the "Stopped" button to start the VPN or the "Running" button to disconnect it.',
 					
 					//v2rayN
 					v2rayNupdateSub: 'At the top, click: Subscription Group -> Update Subscriptions without proxy',
@@ -1165,6 +1263,10 @@
 					
 					//v2rayNg
 					v2rayNgUpdateSub: 'Нажмите на три точечки справа сверху и выберите "Обновить подписку". После этого в списке появятся доступные серверы',
+
+					//cmfa
+					CMFAaddconfig: 'Нажмите кнопку ниже — откроется окно создания профиля. Потребуется указать период автообновления, например, 720 минут. Справа вверху нажми на кнопку "Сохранить".',
+					CMFArunconfig: 'Перейди в пункт "Профили" и выбери созданный профиль, затем вернись на главную страницу. Теперь ты можешь подключиться, нажав на кнопку "Остановлен", чтобы запустить VPN, или "Запущен", чтобы отключить его.',
 					
 					//v2rayN
 					v2rayNupdateSub: 'Нажмите сверху: Subscription Group -> Update Subscriptions without proxy',
@@ -1269,6 +1371,10 @@
 				
 					//v2rayNg
 					v2rayNgUpdateSub: '点击右上角的三个点，然后选择 "更新订阅"。之后，可用服务器将出现在列表中。',
+
+					//cmfa
+					CMFAaddconfig: '点击下面的按钮打开配置文件创建窗口。您需要指定自动更新周期，例如 720 分钟。点击右上角的“保存”按钮。',
+					CMFArunconfig: '进入“配置文件”部分，选择您创建的配置文件，然后返回主页。现在您可以通过点击“已停止”按钮来启动 VPN，或点击“运行中”按钮来断开连接。',
 				
 					//v2rayN
 					v2rayNupdateSub: '在顶部，点击：订阅组 -> 无代理更新订阅',
@@ -1373,6 +1479,10 @@
 				
 					//v2rayNg
 					v2rayNgUpdateSub: 'روی سه نقطه در گوشه بالا سمت راست کلیک کنید و گزینه "به‌روزرسانی اشتراک" را انتخاب کنید. سپس سرورهای موجود در لیست ظاهر می‌شوند.',
+
+					//cmfa
+					CMFAaddconfig: 'روی دکمه زیر کلیک کنید تا پنجره ایجاد پروفایل باز شود. باید دوره به‌روزرسانی خودکار را مشخص کنید، مثلاً ۷۲۰ دقیقه. روی دکمه "ذخیره" در بالا سمت راست کلیک کنید.',
+					CMFArunconfig: 'به بخش "پروفایل‌ها" بروید و پروفایل ایجادشده را انتخاب کنید، سپس به صفحه اصلی برگردید. اکنون می‌توانید با کلیک روی دکمه "متوقف‌شده" VPN را راه‌اندازی کنید یا با کلیک روی "در حال اجرا" آن را غیرفعال کنید.',
 				
 					//v2rayN
 					v2rayNupdateSub: 'در بالای صفحه کلیک کنید: گروه اشتراک -> به‌روزرسانی اشتراک‌ها بدون پروکسی',
@@ -1459,7 +1569,7 @@
 				document.getElementById("imgV2rayNg1").src = langImages.imgV2rayNg1;
 				document.getElementById("imgV2rayNg2").src = langImages.imgV2rayNg2;
 			}
-			
+
 			// Display current language as checked
 			function showActiveDropdownButton(btn, selectedBtn, isIndependent) {
 				if (isIndependent) {
