@@ -1644,6 +1644,13 @@
 				// Decode server name from link
 				function extractName(url) {
 					const decoded = decodeURIComponent(url);
+				
+					if (decoded.startsWith("vmess://")) {
+						const encodedString = decoded.replace("vmess://", "");
+						const decodedString = atob(encodedString);
+						return JSON.parse(decodedString).ps;
+					}
+				
 					const match = decoded.match(/#(.+)$/);
 					return match ? match[1] : null;
 				}
