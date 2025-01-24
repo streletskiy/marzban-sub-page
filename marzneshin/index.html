@@ -40,46 +40,6 @@
 				document.getElementById("href-donate").href = `https://github.com/Gozargah/Marzban#donation`;
 			}
 		</script>
-				  <script>
-					async function getLatestReleaseName(url) {
-					  if (!url || typeof url !== 'string') {
-						throw new Error('A valid URL must be provided.');
-					  }
-				
-					  try {
-						const response = await fetch(url);
-				
-						if (!response.ok) {
-						  throw new Error(`Network response was not ok: ${response.statusText}`);
-						}
-				
-						const latest = await response.json();
-				
-						if ((!latest || !latest.tag_name) && (!latest || !latest.name)) {
-						  throw new Error('The response does not contain the expected data.');
-						}
-				
-						return latest.name || latest.tag_name;
-					  } catch (error) {
-						console.error('Error fetching the latest release name:', error);
-						throw error;
-					  }
-					}
-				
-					const cmfa_api = 'https://api.github.com/repos/MetaCubeX/ClashMetaForAndroid/releases/latest';
-				
-					document.addEventListener('DOMContentLoaded', async () => {
-					  try {
-						const cmfaName = await getLatestReleaseName(cmfa_api);
-						const cmfa = document.getElementById('cmfa');
-						let cmfa_version = cmfaName.substring(1);
-						cmfa.href = `https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/${cmfaName}/cmfa-${cmfa_version}-meta-universal-release.apk`;
-				
-					  } catch (error) {
-						console.error('Failed to update link:', error);
-					  }
-					});
-				  </script>
 		<style>
 			.bi {
 				width: 1em;
@@ -306,6 +266,9 @@
 			</symbol>
 			<symbol id="v2rayng" viewBox="0 0 32 32">
 				<path d="M0 1.86298V3.72596H1.8778H3.7556L3.80567 17.363L3.88078 31L18.4024 15.6987C26.3893 7.30288 32.9741 0.322916 32.9992 0.198717C33.0492 0.0993585 30.846 -4.76837e-07 28.1169 -4.76837e-07H23.1595L16.2742 6.38381L9.38899 12.7428L9.2638 6.43349L9.13862 0.124198L4.58183 0.049679L0 -4.76837e-07V1.86298Z"/>
+			</symbol>
+			<symbol id="clash-meta" viewBox="0 0 48 48">
+				<path stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" d="M15.1 35.17H5.686m9.282 2.993l-8.846 3.163M24 16.874c.801 0 2.551.256 2.551.256L37.746 6.674s3.295.341 4.754.852V31.63c-1.42.653-4.574 1.108-6.45 1.108V17.11l-7.756 7.302S25.708 23.56 24 23.56s-4.294.853-4.294.853L11.95 17.11v15.627c-1.876 0-5.03-.455-6.45-1.108V7.526c1.458-.511 4.754-.852 4.754-.852L21.45 17.13s1.75-.256 2.551-.256m.625 17.245L24 35.265l-.626-1.146M32.9 35.17h9.414m-9.282 2.993l8.846 3.163"/>
 			</symbol>
 			<symbol id="invisibleman" viewBox="0 0 32 32">
 				<path d="M8.5 11C8.5 10.6 9 10 10.5 9.5L19 7C19.6667 6.83333 21.5 6.43431 21.5 7C21.5 7.5 18.5 9 15.5 10C12.5 11 8.5 11.4 8.5 11Z" />
@@ -710,87 +673,100 @@
 								<hr class="divider">
 								<div class="accordion-item">
 									<h2 class="accordion-header">
-										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidV2rayng" aria-expanded="false" aria-controls="accordionOsAndroidV2rayng">
-											<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
-											<span class="d-block w-100 text-center">
-												V2RayNG
-											</span>
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidAlt" aria-expanded="false" aria-controls="accordionOsAndroidAlt">
+											<i class="bi bi-plus-circle-fill mb-2"></i>
+											<span class="d-block w-100 text-center" x-text="$t('otherApps')"></span>
 										</button>
 									</h2>
-									<div id="accordionOsAndroidV2rayng" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
-										<div class="container pb-4">
-											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-											<p x-text="$t('getAppDescription')"></p>
-											<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-											</a>
-											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-											<p x-text="$t('addConfigDescription')"></p>
-											<a id="href-android-v2rayng">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-											</a>
-											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
-											<p x-text="$t('v2rayNgUpdateSub')"></p>
-											<div class="row align-items-center">
-												<div class="col">
-													<img id="imgV2rayNg1" src="" width="100%" class="rounded img-fluid">
-												</div>
-												<div class="col">
-													<img id="imgV2rayNg2"src="" width="100%" class="rounded img-fluid">
+									<div id="accordionOsAndroidAlt" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
+										<p x-text="$t('selectApp')"></p>
+										<div class="accordion mt-2" id="accordionOsAndroidAltList">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidV2rayng" aria-expanded="false" aria-controls="accordionOsAndroidV2rayng">
+														<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
+														<span class="d-block w-100 text-center">
+															V2RayNG
+														</span>
+													</button>
+												</h2>
+												<div id="accordionOsAndroidV2rayng" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
+													<div class="container pb-4">
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-v2rayng">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
+														<p x-text="$t('v2rayNgUpdateSub')"></p>
+														<div class="row align-items-center">
+															<div class="col">
+																<img id="imgV2rayNg1" src="" width="100%" class="rounded img-fluid">
+															</div>
+															<div class="col">
+																<img id="imgV2rayNg2"src="" width="100%" class="rounded img-fluid">
+															</div>
+														</div>
+													</div>
 												</div>
 											</div>
-										</div>
-									</div>
-								</div>
-								<hr class="divider">
-								<div class="accordion-item">
-									<h2 class="accordion-header">
-										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidCMFA" aria-expanded="false" aria-controls="accordionOsAndroidCMFA">
-											<i class="bi bi-android2 mb-2"></i>
-											<span class="d-block w-100 text-center">
-												Clash Meta
-											</span>
-										</button>
-									</h2>
-									<div id="accordionOsAndroidCMFA" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
-										<div class="container pb-4">
-											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-											<p x-text="$t('getAppDescription')"></p>
-											<a id="cmfa" href="#">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-											</a>
-											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-											<p x-text="$t('CMFAaddconfig')"></p>
-											<a id="href-android-cmfa">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-											</a>
-											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
-											<p x-text="$t('CMFArunconfig')"></p>
-										</div>
-									</div>
-								</div>
-								<hr class="divider">
-								<div class="accordion-item">
-									<h2 class="accordion-header">
-									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidSingbox" aria-expanded="false" aria-controls="collapseOsAndroidSingbox">
-											<svg class="my-icon"><use href="#singbox"></use></svg>
-											<span class="d-block w-100 text-center">
-												SingBox
-											</span>
-										</button>
-									</h2>
-									<div id="collapseOsAndroidSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
-										<div class="container pb-4">
-											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-											<p x-text="$t('getAppDescription')"></p>
-											<a href="https://play.google.com/store/apps/details?id=io.nekohasekai.sfa">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-											</a>
-											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-											<p x-text="$t('addConfigDescription')"></p>
-											<a id="href-android-singbox">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-											</a>
+											<hr class="divider">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidCMFA" aria-expanded="false" aria-controls="accordionOsAndroidCMFA">
+														<svg class="my-icon"><use href="#clash-meta"></use></svg>
+														<span class="d-block w-100 text-center">
+															Clash Meta
+														</span>
+													</button>
+												</h2>
+												<div id="accordionOsAndroidCMFA" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
+													<div class="container pb-4">
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a id="cmfa" href="#">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('CMFAaddconfig')"></p>
+														<a id="href-android-cmfa">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
+														<p x-text="$t('CMFArunconfig')"></p>
+													</div>
+												</div>
+											</div>
+											<hr class="divider">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidSingbox" aria-expanded="false" aria-controls="collapseOsAndroidSingbox">
+														<svg class="my-icon"><use href="#singbox"></use></svg>
+														<span class="d-block w-100 text-center">
+															SingBox
+														</span>
+													</button>
+												</h2>
+												<div id="collapseOsAndroidSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
+													<div class="container pb-4">
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://play.google.com/store/apps/details?id=io.nekohasekai.sfa">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-singbox">
+															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -1569,7 +1545,7 @@
 				document.getElementById("imgV2rayNg1").src = langImages.imgV2rayNg1;
 				document.getElementById("imgV2rayNg2").src = langImages.imgV2rayNg2;
 			}
-
+			
 			// Display current language as checked
 			function showActiveDropdownButton(btn, selectedBtn, isIndependent) {
 				if (isIndependent) {
@@ -1713,6 +1689,42 @@
 					});
 				});
 				// --- Separate servers links block end ---
+			});
+			
+			// Get link to the latest version of cmfa
+			async function getLatestReleaseName(url) {
+				if (!url || typeof url !== 'string') {
+					throw new Error('A valid URL must be provided.');
+				}
+				try {
+					const response = await fetch(url);
+						
+					if (!response.ok) {
+					throw new Error(`Network response was not ok: ${response.statusText}`);
+					}
+					const latest = await response.json();
+						
+					if ((!latest || !latest.tag_name) && (!latest || !latest.name)) {
+					throw new Error('The response does not contain the expected data.');
+					}
+					return latest.name || latest.tag_name;
+				} 
+				catch (error) {
+					console.error('Error fetching the latest release name:', error);
+					throw error;
+				}
+			}
+			const cmfa_api = 'https://api.github.com/repos/MetaCubeX/ClashMetaForAndroid/releases/latest';	
+			document.addEventListener('DOMContentLoaded', async () => {
+				try {
+					const cmfaName = await getLatestReleaseName(cmfa_api);
+					const cmfa = document.getElementById('cmfa');
+					let cmfa_version = cmfaName.substring(1);
+					cmfa.href = `https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/${cmfaName}/cmfa-${cmfa_version}-meta-universal-release.apk`;
+				} 
+				catch (error) {
+					console.error('Failed to update link:', error);
+				}
 			});
 		</script>
 	</body
