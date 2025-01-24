@@ -126,7 +126,28 @@ and replace it with:
 <span class="text-break fs-3 fw-bold me-auto" x-text="$t('subscription')"></span>
 ```
 
+## Hide donate button
+If you need to remove donate button from bottom of the page you can remove button block. Simply find and delete this line in the file:
+```
+<a id="href-donate"><button type="button" class="btn my-btn mt-4 w-100" x-text="$t('donate')"></button></a>
+```
+
+## Hide support button
+If you need to remove support button from the top of the page you can remove button block. Simply find and delete this line in the file:
+```
+<li class="nav-item"><a class="nav-link my-nav-link fw-semibold px-2" id="href-support" rel="noopener noreferrer" target="_blank" x-text="$t('support')"></a></li>
+```
+
 After making changes, save the file and restart Marzban / Marzneshin.
+
+***
+<h3 align="center">Contributors:</h3>
+<p align="center">
+<a href="https://github.com/streletskiy/marzban-sub-page/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=streletskiy/marzban-sub-page" />
+</a>
+</p>
+<br>
 
 ***
 <p align="center">
