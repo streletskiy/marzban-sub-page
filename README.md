@@ -4,7 +4,7 @@
   Simple, beautiful, and user-friendly HTML template for <a href="https://github.com/Gozargah/Marzban">Marzban</a> and <a href="https://github.com/marzneshin/marzneshin">Marzneshin</a> subscription page based on Bootstrap CSS framework
   <br>
   <br>
-  Based on deeply rewrited <a href="https://github.com/dermv/marzbanify-template">dermw Marzbanify Template</a>
+  <a href="https://streletskiy.github.io/marzban-sub-page/"><strong>Live demo »</strong></a>
   <br>
   <br>
   <a href="https://github.com/streletskiy/marzban-sub-page/tree/main#features">Features</a>
@@ -127,3 +127,10 @@ and replace it with:
 ```
 
 After making changes, save the file and restart Marzban / Marzneshin.
+
+***
+<p align="center">
+  <br>
+  Based on deeply rewrited <a href="https://github.com/dermv/marzbanify-template">dermw Marzbanify Template</a>
+  <br>
+</p>
