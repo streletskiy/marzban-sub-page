@@ -34,6 +34,7 @@
 				document.getElementById("href-android-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
 				document.getElementById("href-windows-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-windows-invisibleman").href = `invxray://subscription/${linkFull}`;
+				document.getElementById("href-windows-clashvergerev").href = `clash://install-config?url${linkFull}&name=` + serviceName;
 				
 				// Change support and donate links below
 				document.getElementById("href-support").href = `https://t.me/gozargah_marzban`;
@@ -972,6 +973,42 @@
 												</div>
 											</div>
 										</div>
+										<hr class="divider">
+										<div class="accordion-item">
+											<h2 class="accordion-header">
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsClashVergeRev" aria-expanded="false" aria-controls="collapseOsWindowsClashVergeRev">
+													<svg class="my-icon"><use href="#clash-meta"></use></svg>
+													<span class="d-block w-100 text-center">
+														Clash Verge Rev
+													</span>
+												</button>
+											</h2>
+											<div id="collapseOsWindowsClashVergeRev" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
+												<div class="container pb-4">
+													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+													<p x-text="$t('getAppDescription')"></p>
+													<a id="clashvergerev" href="#">
+														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+													</a>
+													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('doRun')"></span> Clash Verge Rev</p>
+													<p x-text="$t('betterAdmin')"></p>
+													<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('addConfig')"></span></p>
+													<p x-text="$t('addConfigDescription')"></p>
+													<a id="href-windows-clashvergerev">
+														<button type="button" class="btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
+													</a>
+													<p x-text="$t('ClashVergeRevAddConf1')"></p>
+													<p x-text="$t('ClashVergeRevOnSysProxy')"></p>
+													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('tunWish')"></span></p>
+													<p x-text="$t('ClashVergeRevTun')"></p>
+													<p x-text="$t('ClashVergeRevOffSysProxy')"></p>
+													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+														<p x-text="$t('troubleWin1')"></p>
+														<p x-text="$t('troubleWin2')"></p>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -1157,6 +1194,12 @@
 					invManRun: 'Press the green "RUN" button on the main screen of the application',
 					invManTun: 'To ensure programs like Steam or Discord work through the proxy, enable TUN mode in the settings',
 					
+					//Clash Verge Rev
+					ClashVergeRevAddConf1: 'Click the button above — the app will open, and the subscription will be added automatically. If this doesn’t happen (the "Profiles" section is empty), close the app and try again or add the subscription manually through the "Profiles" section: in the "Profile URL" field, enter the link (copied from above) and click the import button.',  
+					ClashVergeRevOnSysProxy: 'Enable the System Proxy option in the app settings.',  
+					ClashVergeRevTun: 'To ensure that programs like Steam and Discord work through the proxy, enable the TUN mode in the settings.',  
+					ClashVergeRevOffSysProxy: 'Before enabling TUN mode, disable the System Proxy option in the app settings.',  
+					
 					//Linux/Other
 					linuxExampleV2rayA: 'For example you can use v2rayA',
 					linux1: 'If you want to set up on another device (router, TV, server, etc.), find a suitable application.',
@@ -1265,6 +1308,12 @@
 					invManRun: 'Нажать зеленую кнопку "RUN" на главном экране приложения',
 					invManTun: 'Чтобы через прокси работали такие программы, как Steam и Discord, включите в настройках режим TUN',
 					
+					//ClashVergeRev
+					ClashVergeRevAddConf1: 'Нажми кнопку выше — приложение откроется, и подписка добавится автоматически. Если этого не произошло (раздел "Профили" пустой), закрой приложение и попробуй снова или добавь подписку вручную через раздел "Профили": в строке "URL профиля" укажи ссылку (скопировав её выше) и нажми кнопку импорта.',
+					ClashVergeRevOnSysProxy: 'Включите в настройках приложения параметр Системный прокси',
+					ClashVergeRevTun: 'Чтобы через прокси работали такие программы, как Steam и Discord, включите в настройках режим TUN',
+					ClashVergeRevOffSysProxy: 'Перед включением режима Tun - Отключите в настройках приложения параметр Системный прокси',
+					
 					//Linux/Other
 					linux1: 'Если вы хотите провести настройку на другом устройстве (роутер, телевизор, сервер и т.п.) — найдите подходящее приложение.',
 					linuxExampleV2rayA: 'Например v2rayA',
@@ -1372,7 +1421,13 @@
 					invManAddConf2: '选择一个服务器并点击关闭图标',
 					invManRun: '在应用程序主屏幕按绿色的 "运行" 按钮',
 					invManTun: '要确保像 Steam 或 Discord 这样的程序通过代理工作，请在设置中启用 TUN 模式',
-				
+
+					//ClashVergeRev
+					ClashVergeRevAddConf1: '点击上方的按钮 — 应用将会打开，订阅会自动添加。如果没有发生（“配置文件”部分为空），请关闭应用并重试，或者通过“配置文件”部分手动添加订阅：在“配置文件 URL”字段中输入链接（从上方复制）并点击导入按钮。',  
+					ClashVergeRevOnSysProxy: '在应用设置中启用系统代理选项。',  
+					ClashVergeRevTun: '为了让 Steam 和 Discord 等程序通过代理运行，请在设置中启用 TUN 模式。',  
+					ClashVergeRevOffSysProxy: '在启用 TUN 模式之前，请先在应用设置中禁用系统代理选项。',  
+
 					//Linux/Other
 					linuxExampleV2rayA: '例如，您可以使用 v2rayA',
 					linux1: '如果您想在其他设备（路由器、电视、服务器等）上设置，请找到合适的应用程序。',
@@ -1481,6 +1536,12 @@
 					invManRun: 'دکمه سبز "RUN" را در صفحه اصلی برنامه فشار دهید',
 					invManTun: 'برای اطمینان از کارکرد برنامه‌هایی مثل Steam یا Discord از طریق پروکسی، حالت TUN را در تنظیمات فعال کنید',
 				
+					//InvisibleMan
+					invManAddConf1: 'می‌توانید هر چیزی را در فیلد "توضیحات" وارد کنید، اما وارد کردن آن الزامی است',
+					invManAddConf2: 'یکی از سرورها را انتخاب کنید و روی آیکون بستن کلیک کنید',
+					invManRun: 'دکمه سبز "RUN" را در صفحه اصلی برنامه فشار دهید',
+					invManTun: 'برای اطمینان از کارکرد برنامه‌هایی مثل Steam یا Discord از طریق پروکسی، حالت TUN را در تنظیمات فعال کنید',
+
 					//Linux/Other
 					linuxExampleV2rayA: 'به عنوان مثال، می‌توانید از v2rayA استفاده کنید',
 					linux1: 'اگر می‌خواهید تنظیمات را روی دستگاه دیگری (روتر، تلویزیون، سرور و غیره) انجام دهید، یک برنامه مناسب پیدا کنید.',
@@ -1709,7 +1770,7 @@
 					if ((!latest || !latest.tag_name) && (!latest || !latest.name)) {
 					throw new Error('The response does not contain the expected data.');
 					}
-					return latest.name || latest.tag_name;
+					return latest.tag_name || latest.name;
 				} 
 				catch (error) {
 					console.error('Error fetching the latest release name:', error);
@@ -1723,6 +1784,19 @@
 					const cmfa = document.getElementById('cmfa');
 					let cmfa_version = cmfaName.substring(1);
 					cmfa.href = `https://github.com/MetaCubeX/ClashMetaForAndroid/releases/download/${cmfaName}/cmfa-${cmfa_version}-meta-universal-release.apk`;
+				} 
+				catch (error) {
+					console.error('Failed to update link:', error);
+				}
+			})
+			
+			const clashvergerev_api = 'https://api.github.com/repos/clash-verge-rev/clash-verge-rev/releases/latest';	
+			document.addEventListener('DOMContentLoaded', async () => {
+				try {
+					const clashvergerevName = await getLatestReleaseName(clashvergerev_api);
+					const clashvergerev = document.getElementById('clashvergerev');
+					let clashvergerev_version = clashvergerevName.substring(1);
+					clashvergerev.href = `https://github.com/clash-verge-rev/clash-verge-rev/releases/download/${clashvergerevName}/Clash.Verge_${clashvergerev_version}_x64-setup.exe`;
 				} 
 				catch (error) {
 					console.error('Failed to update link:', error);
