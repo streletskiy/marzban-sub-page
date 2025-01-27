@@ -28,14 +28,22 @@
 				document.getElementById("href-ios-v2box").href = `v2box://install-sub?url=${linkFull}&name=` + serviceName;
 				document.getElementById("href-ios-shadowrocket").href = `sub://${link64}`;
 				document.getElementById("href-ios-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
+				document.getElementById("href-ios-happ").href = `happ://add/${linkFull}`;
 				document.getElementById("href-android-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-android-v2rayng").href = `v2rayng://install-config?url=${linkFull}&name=` + serviceName;
 				document.getElementById("href-android-cmfa").href = `clash://install-config?url${linkFull}&name=` + serviceName;
 				document.getElementById("href-android-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
+				document.getElementById("href-android-happ").href = `happ://add/${linkFull}`;
 				document.getElementById("href-windows-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-windows-invisibleman").href = `invxray://subscription/${linkFull}`;
 				document.getElementById("href-windows-clashvergerev").href = `clash://install-config?url${linkFull}&name=` + serviceName;
 				
+				// Happ routing deeplinks
+				document.getElementById("href-ios-happ-RoscomVPN").href = `https://routing.vpn.ru.com/`;
+				document.getElementById("href-ios-happ-ReFilter").href = `happ://routing/add/ewogICAgIk5hbWUiOiAiUmU6ZmlsdGVyIiwKICAgICJHbG9iYWxQcm94eSI6ICJmYWxzZSIsCiAgICAiUmVtb3RlRG5zIjogIjEuMS4xLjEiLAogICAgIkRvbWVzdGljRG5zIjogIjc3Ljg4LjguOCIsCiAgICAiR2VvaXB1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9pcC5kYXQiLAogICAgIkdlb3NpdGV1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9zaXRlLmRhdCIsCiAgICAiRG5zSG9zdHMiOiB7fSwKICAgICJEaXJlY3RTaXRlcyI6IFtdLAogICAgIkRpcmVjdElwIjogWwogICAgICAgICIxMC4wLjAuMC84IiwKICAgICAgICAiMTcyLjE2LjAuMC8xMiIsCiAgICAgICAgIjE5Mi4xNjguMC4wLzE2IiwKICAgICAgICAiMTY5LjI1NC4wLjAvMTYiLAogICAgICAgICIyMjQuMC4wLjAvNCIsCiAgICAgICAgIjI1NS4yNTUuMjU1LjI1NSIKICAgIF0sCiAgICAiUHJveHlTaXRlcyI6IFsKICAgICAgICAiZ2Vvc2l0ZTpyZWZpbHRlciIKICAgIF0sCiAgICAiUHJveHlJcCI6IFsKICAgICAgICAiZ2VvaXA6cmVmaWx0ZXIiCiAgICBdLAogICAgIkJsb2NrU2l0ZXMiOiBbXSwKICAgICJCbG9ja0lwIjogW10sCiAgICAiRG9tYWluU3RyYXRlZ3kiOiAiSVBPbkRlbWFuZCIKfQ==`;
+				document.getElementById("href-android-happ-RoscomVPN").href = `https://routing.vpn.ru.com/`;
+				document.getElementById("href-android-happ-ReFilter").href = `happ://routing/add/ewogICAgIk5hbWUiOiAiUmU6ZmlsdGVyIiwKICAgICJHbG9iYWxQcm94eSI6ICJmYWxzZSIsCiAgICAiUmVtb3RlRG5zIjogIjEuMS4xLjEiLAogICAgIkRvbWVzdGljRG5zIjogIjc3Ljg4LjguOCIsCiAgICAiR2VvaXB1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9pcC5kYXQiLAogICAgIkdlb3NpdGV1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9zaXRlLmRhdCIsCiAgICAiRG5zSG9zdHMiOiB7fSwKICAgICJEaXJlY3RTaXRlcyI6IFtdLAogICAgIkRpcmVjdElwIjogWwogICAgICAgICIxMC4wLjAuMC84IiwKICAgICAgICAiMTcyLjE2LjAuMC8xMiIsCiAgICAgICAgIjE5Mi4xNjguMC4wLzE2IiwKICAgICAgICAiMTY5LjI1NC4wLjAvMTYiLAogICAgICAgICIyMjQuMC4wLjAvNCIsCiAgICAgICAgIjI1NS4yNTUuMjU1LjI1NSIKICAgIF0sCiAgICAiUHJveHlTaXRlcyI6IFsKICAgICAgICAiZ2Vvc2l0ZTpyZWZpbHRlciIKICAgIF0sCiAgICAiUHJveHlJcCI6IFsKICAgICAgICAiZ2VvaXA6cmVmaWx0ZXIiCiAgICBdLAogICAgIkJsb2NrU2l0ZXMiOiBbXSwKICAgICJCbG9ja0lwIjogW10sCiAgICAiRG9tYWluU3RyYXRlZ3kiOiAiSVBPbkRlbWFuZCIKfQ==`;
+
 				// Change support and donate links below
 				document.getElementById("href-support").href = `https://t.me/gozargah_marzban`;
 				document.getElementById("href-donate").href = `https://github.com/Gozargah/Marzban#donation`;
@@ -239,6 +247,14 @@
 			</symbol>
 			<symbol id="singbox" viewBox="0 0 32 32">
 				<path d="M27 20.5C27.6076 20.1302 27.9978 19.2655 28 18.6463V9C28 9 28.0078 8.59766 27.5822 8.32719L14.9796 0.450533C14.9796 0.450533 13.5 -0.5 12.0584 0.450533L0.561526 8.12545C0.0257112 8.49456 0.00389706 9.16105 0.00389706 9.16105L-6.01943e-06 18.5C-6.01943e-06 18.5 -0.0137371 19.6716 0.499994 20L13 28L13.0471 17.0006L0.88928 9.30661C0.88928 9.30661 0.3336 8.95514 1.04756 8.54689L12.5 1C13.5318 0.372263 14.5593 0.970586 14.5593 0.970586L27.1156 8.65768C27.7201 8.91105 27.2738 9.10085 27.2738 9.10085L24.425 10.9058C24.425 10.9058 24.0203 11.2628 23.537 11.0184L10.5108 2.93515L10.0302 3.25102L23.5 11.5V15C23.5 15.5 23.1385 15.7448 23.1385 15.7448L19.3613 18.2599C19.3613 18.2599 19.014 18.5106 19 18V14.5L5.58401 6.16018L5.04136 6.52891L18.0774 14.6876C18.0774 14.6876 18.4613 14.8944 18.0216 15.133L14.7019 17.1149V27C14.7019 27 14.6993 27.637 14 28C14 28 14.5208 28.1278 15.4667 27.5678L27 20.5Z"/>
+			</symbol>
+			<symbol id="happ" viewBox="0 0 32 32">
+				<path d="M13.4,19.6l-7.9,7.9L5,30.4h6.6L13.4,19.6z" />
+				<path d="M13.2,13.5L14.6,5l-7.9,7.9L4.2,27.4l7.9-7.9l0.2-1.2h1l4.9-4.9H13.2z" />
+				<path d="M25.4,19.6L27.8,5l-7.9,7.9l-0.1,0.7h-0.6l-4.9,4.9h4.7l-1.5,9L25.4,19.6z" />
+				<path d="M18.7,27.5l-0.5,2.9h6.6l1.8-10.8L18.7,27.5z" />
+				<path d="M13.6,4.9l0.6-3.3H7.5L5.6,12.8L13.6,4.9z" />
+				<path d="M18.8,12.8l7.9-7.9l0.6-3.3h-6.6L18.8,12.8z" />
 			</symbol>
 			<symbol id="v2rayng" viewBox="0 0 32 32">
 				<path d="M0 1.86298V3.72596H1.8778H3.7556L3.80567 17.363L3.88078 31L18.4024 15.6987C26.3893 7.30288 32.9741 0.322916 32.9992 0.198717C33.0492 0.0993585 30.846 -4.76837e-07 28.1169 -4.76837e-07H23.1595L16.2742 6.38381L9.38899 12.7428L9.2638 6.43349L9.13862 0.124198L4.58183 0.049679L0 -4.76837e-07V1.86298Z"/>
@@ -596,6 +612,43 @@
 													</div>
 												</div>
 											</div>
+											<hr class="m-0">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHapp" aria-expanded="false" aria-controls="collapseOsIosHapp">
+														<svg class="my-icon"><use href="#happ"></use></svg>
+														<span class="d-block w-100 text-center">
+															Happ
+														</span>
+													</button>
+												</h2>
+												<div id="collapseOsIosHapp" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+													<div class="container pb-4">
+														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-happ">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('happRouting')"></span></p>
+														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingRoscomVPN')"></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-happ-RoscomVPN">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a><br>
+														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingReFilter')"></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-happ-ReFilter">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -736,6 +789,42 @@
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-android-singbox">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
+											<hr class="m-0">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidHapp" aria-expanded="false" aria-controls="collapseOsAndroidHapp">
+														<svg class="my-icon"><use href="#happ"></use></svg>
+														<span class="d-block w-100 text-center">
+															Happ
+														</span>
+													</button>
+												</h2>
+												<div id="collapseOsAndroidHapp" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
+													<div class="container pb-4">
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://play.google.com/store/apps/details?id=com.happproxy">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-happ">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('happRouting')"></span></p>
+														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingRoscomVPN')"></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-happ-RoscomVPN">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a><br>
+														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingReFilter')"></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-happ-ReFilter">
 															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
@@ -1129,6 +1218,11 @@
 					//v2box
 					v2boxStart: 'In the "Configs" tab, the subscription will appear. Click on the desired server and start it in the "Home" tab.',
 					
+					//Happ
+					happRouting: 'Add routing rules:',
+					happRoutingRoscomVPN: 'Custom Routing by RoscomVPN',
+					happRoutingReFilter: 'Alternative list of resources blocked in Russia Re:filter',
+
 					//Hiddify
 					hiddifyAdditional1: 'Select your country in the settings. Connections to addresses/sites in this country will be routed directly. If you want all connections to go through the proxy, select "Other" as the country.',
 					hiddifyAdditional2: 'Country settings section in the app: Top right corner, settings icon -> All settings -> Region',
@@ -1242,7 +1336,12 @@
 					
 					//v2box
 					v2boxStart: 'Во вкладке "Configs" появится подписка, тыкните на нужный сервер и запустите во вкладке "Home"',
-	
+
+					//Happ
+					happRouting: 'Добавить правила маршрутизации:',
+					happRoutingRoscomVPN: 'Кастомный роутинг RoscomVPN',
+					happRoutingReFilter: 'Альтернативный список заблокированных в РФ ресурсов Re:filter',
+
 					//Hiddify
 					hiddifyAdditional1: 'Выберите свою страну в настройках. Подключение к адресам/сайтам этой страны будет идти напрямую. Если вы хотите, чтобы подключение до всех адресов шло через прокси — выберите в качестве страны "Другой"',
 					hiddifyAdditional2: 'Раздел настроек страны в приложении: Правый верхний угол, иконка настроек -> Все параметры -> Регион',
@@ -1356,6 +1455,11 @@
 				
 					//v2box
 					v2boxStart: '在 "配置" 选项卡中，订阅将出现。点击所需的服务器并在 "主页" 选项卡中启动它。',
+					
+					//Happ
+					happRouting: '添加路由规则：',
+					happRoutingRoscomVPN: '自定义路由 RoscomVPN',
+					happRoutingReFilter: '俄罗斯受限资源的替代列表 Re:filter',
 				
 					//Hiddify
 					hiddifyAdditional1: '在设置中选择您的国家。对该国家的地址/站点的连接将直接路由。如果您希望所有连接通过代理，请选择 "其他" 作为国家。',
@@ -1470,6 +1574,11 @@
 				
 					//v2box
 					v2boxStart: 'در تب "تنظیمات"، اشتراک ظاهر خواهد شد. روی سرور موردنظر کلیک کرده و در تب "خانه" آن را شروع کنید.',
+					
+					//Happ
+					happRouting: 'افزودن قوانین مسیریابی:',
+					happRoutingRoscomVPN: 'مسیریابی سفارشی RoscomVPN',
+					happRoutingReFilter: 'فهرست جایگزین منابع مسدودشده در روسیه Re:filter',
 				
 					//Hiddify
 					hiddifyAdditional1: 'در تنظیمات، کشور خود را انتخاب کنید. اتصال به آدرس‌ها/سایت‌های این کشور مستقیماً انجام خواهد شد. اگر می‌خواهید تمام اتصالات از طریق پروکسی انجام شوند، "دیگر" را به عنوان کشور انتخاب کنید.',
