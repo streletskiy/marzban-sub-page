@@ -42,70 +42,37 @@
 			}
 		</script>
 		<style>
-			.bi {
-				width: 1em;
-				height: 1em;
-				vertical-align: -.125em;
-				fill: currentcolor;
-			}
-			
-			.light-subtle {
-				background-color: #e1e1e4;
-			}
-			
-			.my-icon {
-				width: 32px;
-				height: 32px;
-				fill: currentcolor;
-			}
-
-			.my-icon-small {
-				width: 24px;
-				height: 24px;
-				fill: currentcolor;
-			}	
-			
 			.my-block {
 				padding: 1rem;
 				padding-top: 0.5rem;
 				padding-bottom: 1.25rem;
-			}
-			
-			.my-block-big {
-				padding: 1.5rem;
-				padding-top: .5rem;
-			}
-			
-			.my-block, .my-block-big {
 				border-radius: var(--bs-border-radius-xl);
+				background-color: var(--bs-secondary-bg);
 			}
 			
 			.my-btn {
-				--bs-btn-bg: rgba(35, 131, 226, .15);
-				--bs-btn-color: #2383e2;
-				--bs-btn-hover-bg: rgba(35, 131, 226, .2);
+				--bs-btn-bg: rgba(var(--bs-my-btn-bg-rgb), .15);
+				--bs-btn-color: var(--bs-my-btn-bg);
+				--bs-btn-hover-bg: rgba(var(--bs-my-btn-bg-rgb), .2);
+				--bs-btn-hover-color: var(--bs-my-btn-bg);
+				--bs-btn-active-bg: rgba(var(--bs-my-btn-bg-rgb), .25);
+				--bs-btn-active-color: var(--bs-my-btn-bg);
+				--bs-btn-focus-shadow-rgb: var(--bs-my-btn-bg-rgb);
+				
 				--bs-btn-hover-border-color: transparent;
-				--bs-btn-hover-color: #2383e2;
-				--bs-btn-active-bg: rgba(35, 131, 226, .25);
 				--bs-btn-active-border-color: transparent;
-				--bs-btn-active-color: #2383e2;
 				--bs-btn-border-radius: var(--bs-border-radius-xl);
-				--bs-btn-focus-shadow-rgb: 35, 131, 226;
 				--bs-btn-font-weight: 600;
 			}
 			
 			.my-btn-accent {
-				--bs-btn-bg: rgba(255, 255, 255, 0.85);
-				--bs-btn-color: #282a36;
-				--bs-btn-hover-bg: rgba(255, 255, 255, 1.0);
-				--bs-btn-hover-border-color: transparent;
-				--bs-btn-hover-color: #282a36;
-				--bs-btn-active-bg: rgba(255, 255, 255, 1.0);
-				--bs-btn-active-border-color: transparent;
-				--bs-btn-active-color: #282a36;
-				--bs-btn-border-radius: var(--bs-border-radius-xl);
-				--bs-btn-focus-shadow-rgb: 35, 131, 226;
-				--bs-btn-font-weight: 600;
+				--bs-btn-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 0.85);
+				--bs-btn-color: var(--bs-body-bg);
+				--bs-btn-hover-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 1.0);
+				--bs-btn-hover-color: var(--bs-body-bg);
+				--bs-btn-active-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 1.0);
+				--bs-btn-active-color: var(--bs-body-bg);
+				--bs-btn-focus-shadow-rgb: var(--bs-my-btn-accent-bg-rgb);
 			}
 			
 			.my-color-green {
@@ -134,6 +101,13 @@
 				--bs-dropdown-item-padding-y: .5rem;
 				--bs-dropdown-padding-x: .35rem;
 				--bs-dropdown-padding-y: .35rem;
+				--bs-dropdown-link-hover-bg: var(--bs-secondary-bg);
+				--bs-dropdown-link-active-bg: var(--bs-secondary-bg);
+				--bs-dropdown-link-active-color: #fff;
+			
+				.my-dropdown-item-icon, .active .my-dropdown-item-check {
+					color: rgba(255, 255, 255, .5);
+				}
 			
 				li + li {
 					margin-top: .35rem;
@@ -148,41 +122,41 @@
 				}
 			}
 			
-			.my-modal {
-				background-color: #35384b;
-				color: #fff;
+			.my-icon {
+				width: 32px;
+				height: 32px;
+				fill: currentcolor;
+			}
+
+			.my-icon-small {
+				width: 24px;
+				height: 24px;
+				fill: currentcolor;
 			}
 			
-			.my-toast {
-				--bs-toast-bg: #2383e2;
-				--bs-toast-border-radius: var(--bs-border-radius-xl);
-				--bs-toast-border-width: 0;
-				--bs-toast-color: #fff;
-				--bs-toast-padding-x: 1rem;
+			.my-link-separate {
+				font-family: "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Emoji", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Segoe UI Symbol";
+				background-color: transparent;
 			}
 			
-			[data-bs-theme='dark'] {
-				--bs-body-bg: #282a36;
-				
-				.my-block, .my-block-big {
-					background-color: #35384b;
-				}
-			
-				.my-dropdown-menu {
-					--bs-dropdown-link-hover-bg: #35384b;
-					--bs-dropdown-link-active-bg: #35384b;
-					--bs-dropdown-link-active-color: #fff;
-				
-					.my-dropdown-item-icon, .active .my-dropdown-item-check {
-						color: rgba(255, 255, 255, .5);
-					}
-				}
-				
-				.my-nav-link {
-					--bs-nav-link-color: rgba(var(--bs-emphasis-color-rgb), .65);
-					--bs-nav-link-hover-color: rgba(var(--bs-emphasis-color-rgb), .9);
-				}
+			.my-link-separate:focus {
+				outline: none !important;
 			}
+			
+			.my-nav-link {
+				--bs-nav-link-color: rgba(var(--bs-emphasis-color-rgb), .65);
+				--bs-nav-link-hover-color: rgba(var(--bs-emphasis-color-rgb), .9);
+			}
+			
+			.my-warning {
+				color: #7a4d03;
+				background-color: #fff3cd;
+				padding: 1.5rem;
+				padding-top: 1.0rem;
+				padding-bottom: 0.5rem;
+				border-radius: var(--bs-border-radius-xl);
+			}
+		
 			.accordion {
 				--bs-accordion-btn-focus-box-shadow: transparent;
 				--bs-accordion-active-bg: tranparent;
@@ -191,7 +165,7 @@
 			
 			.accordion-item {
 				--bs-accordion-border-width: 0px;
-				background-color: #35384b;
+				background-color: var(--bs-secondary-bg);
 			}
 			
 			.accordion-button {
@@ -203,23 +177,24 @@
 				text-decoration: underline !important;
 			}
 			
-			.divider {
-				height: 2px;
-				padding: 0px;
-				margin : 0px;
-			}
-			
-			.link-separate {
-				font-family: "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Emoji", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Segoe UI Symbol";
-				background-color: transparent;
-			}
-			
-			.link-separate:focus {
-				outline: none !important;
+			.bi {
+				width: 1em;
+				height: 1em;
+				vertical-align: -.125em;
+				fill: currentcolor;
 			}
 			
 			.form-control:disabled {
 				background-color: transparent;
+			}
+			
+			[data-bs-theme='dark'] {
+				--bs-body-bg: #282a36;
+				--bs-secondary-bg: #35384b;
+				--bs-secondary-rgb: 53, 56, 75;
+				--bs-my-btn-bg: #2383e2;
+				--bs-my-btn-bg-rgb: 35, 131, 226;
+				--bs-my-btn-accent-bg-rgb: 255, 255, 255;
 			}
 		</style>
 	</head>
@@ -291,7 +266,7 @@
 			
 			<!-- Copied to clipboard notification -->
 			<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
-				<div class="toast my-toast" id="toast-copy-link" role="alert" aria-atomic="true" aria-live="assertive">
+				<div class="toast text-bg-primary border border-0 rounded-4" id="toast-copy-link" role="alert" aria-atomic="true" aria-live="assertive">
 					<div class="d-flex justify-content-between align-items-center">
 						<span class="toast-body fs-6 fw-semibold" x-text="$t('copiedToClipboard')"></span>
 						<button type="button" class="btn-close m-3" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -302,9 +277,9 @@
 			<!-- QR Modal -->
 			<div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel">
 				<div class="modal-sm modal-dialog modal-dialog-centered">
-					<div class="my-modal modal-content border border-0 rounded-4 shadow-lg">
+					<div class="text-bg-secondary modal-content border border-0 rounded-4 shadow-lg">
 						<div class="d-flex modal-header justify-content-between">
-							<h1 class="modal-title link-separate fw-bold fs-5" id="qrModalLabel"></h1>
+							<h1 class="modal-title my-link-separate fw-bold fs-5" id="qrModalLabel"></h1>
 							<button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body d-flex justify-content-center align-items-center">
@@ -451,7 +426,7 @@
 						<div class="accordion-body m-0 p-0 pb-2">
 							<div class="accordion" id="accordionOsIos">
 								<div class="accordion-item">
-									<hr class="divider">
+									<hr class="m-0">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHiddify" aria-expanded="false" aria-controls="collapseOsIosHiddify">
 											<svg class="my-icon-small"><use href="#hiddify"></use></svg>
@@ -466,12 +441,12 @@
 											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 											<p x-text="$t('getAppDescription')"></p>
 											<a href="https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 											</a>
 											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 											<p x-text="$t('addConfigDescription')"></p>
 											<a id="href-ios-hiddify">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 											</a>
 											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
 											<p x-text="$t('hiddifyAdditional1')"></p>
@@ -480,7 +455,7 @@
 										</div>
 									</div>
 								</div>
-								<hr class="divider">
+								<hr class="m-0">
 								<div class="accordion-item">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosAlt" aria-expanded="false" aria-controls="collapseOsIosAlt">
@@ -506,17 +481,17 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://apps.apple.com/us/app/streisand/id6450534064">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-ios-streisand">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosFoxray" aria-expanded="false" aria-controls="collapseOsIosFoxray">
@@ -532,17 +507,17 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://apps.apple.com/us/app/foxray/id6448898396">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-ios-foxray">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosV2box" aria-expanded="false" aria-controls="collapseOsIosV2box">
@@ -558,18 +533,18 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-ios-v2box">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 														<p x-text="$t('v2boxStart')"></p>
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosShadowrocket" aria-expanded="false" aria-controls="collapseOsIosShadowrocket">
@@ -585,17 +560,17 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://apps.apple.com/ca/app/shadowrocket/id932747118">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-ios-shadowrocket">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosSingbox" aria-expanded="false" aria-controls="collapseOsIosSingbox">
@@ -611,12 +586,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://apps.apple.com/us/app/sing-box/id6451272673">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-ios-singbox">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
 												</div>
@@ -641,7 +616,7 @@
 						<div class="accordion-body m-0 p-0 pb-2">
 							<div class="accordion" id="accordionOsAndroid">
 								<div class="accordion-item">
-									<hr class="divider">
+									<hr class="m-0">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidHiddify" aria-expanded="false" aria-controls="accordionOsAndroidHiddify">
 											<svg class="my-icon-small"><use href="#hiddify"></use></svg>
@@ -655,12 +630,12 @@
 											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 											<p x-text="$t('getAppDescription')"></p>
 											<a href="https://play.google.com/store/apps/details?id=app.hiddify.com">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 											</a>
 											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 											<p x-text="$t('addConfigDescription')"></p>
 											<a id="href-android-hiddify">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 											</a>
 											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
 											<p x-text="$t('hiddifyAdditional1')"></p>
@@ -669,7 +644,7 @@
 										</div>
 									</div>
 								</div>
-								<hr class="divider">
+								<hr class="m-0">
 								<div class="accordion-item">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidAlt" aria-expanded="false" aria-controls="accordionOsAndroidAlt">
@@ -694,12 +669,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-android-v2rayng">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
 														<p x-text="$t('v2rayNgUpdateSub')"></p>
@@ -714,7 +689,7 @@
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidCMFA" aria-expanded="false" aria-controls="accordionOsAndroidCMFA">
@@ -729,19 +704,19 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a id="cmfa" href="#">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('CMFAaddconfig')"></p>
 														<a id="href-android-cmfa">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
 														<p x-text="$t('CMFArunconfig')"></p>
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidSingbox" aria-expanded="false" aria-controls="collapseOsAndroidSingbox">
@@ -756,12 +731,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://play.google.com/store/apps/details?id=io.nekohasekai.sfa">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-android-singbox">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
 												</div>
@@ -785,7 +760,7 @@
 					<div id="collapseWindows" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
 						<div class="accordion" id="accordionOsWindows">
 							<div class="accordion-item">
-								<hr class="divider">
+								<hr class="m-0">
 								<h2 class="accordion-header">
 									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsHiddify" aria-expanded="false" aria-controls="accordionOsWindowsHiddify">
 										<svg class="my-icon-small"><use href="#hiddify"></use></svg>
@@ -799,18 +774,18 @@
 										<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 										<p x-text="$t('getAppDescription')"></p>
 										<a href="https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Windows-Setup-x64.exe">
-											<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 										</a>
 										<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 										<p x-text="$t('addConfigDescription')"></p>
 										<a id="href-windows-hiddify">
-											<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 										</a>
 										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
 										<p x-text="$t('hiddifyAdditional1')"></p>
 										<p x-text="$t('hiddifyAdditional2')"></p>
 										<p x-text="$t('hiddifyAdditional3')"></p>
-										<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+										<div class="my-warning">
 											<p x-text="$t('troubleWin1')"></p>
 											<p x-text="$t('troubleWin2')"></p>
 										</div>
@@ -820,7 +795,7 @@
 									</div>
 								</div>
 							</div>
-							<hr class="divider">
+							<hr class="m-0">
 							<div class="accordion-item">
 								<h2 class="accordion-header">
 									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsAlt" aria-expanded="false" aria-controls="accordionOsWindowsAlt">
@@ -845,7 +820,7 @@
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
 													<a href="https://github.com/MatsuriDayo/nekoray/releases/download/4.0.1/nekoray-4.0.1-2024-12-12-windows64.zip">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
 													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
 													<p x-text="$t('anyPlace')"></p>
@@ -853,7 +828,7 @@
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
+													<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
 														<script type="text/javascript">
 															document.write(linkFull);
 														</script>
@@ -862,7 +837,7 @@
 													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('tunWish')"></span></p>
 													<p x-text="$t('nekorayTun')"></p>
 													<a href="https://blancvpn.online/ru/help/NekoRay-windows-split-tunneling">
-														<button type="button" class="btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('nekoraySplit1')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('nekoraySplit1')"></button>
 													</a>
 													<p x-text="$t('nekoraySplit2')"></p>
 													<p x-text="$t('nekoraySplit3')"></p>
@@ -879,14 +854,14 @@
 													<p x-text="$t('nekorayRun1')"></p>
 													<p x-text="$t('nekorayRun2')"></p>
 													<p x-text="$t('nekorayRun3')"></p>
-													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+													<div class="my-warning">
 														<p x-text="$t('troubleWin1')"></p>
 														<p x-text="$t('troubleWin2')"></p>
 													</div>
 												</div>
 											</div>
 										</div>
-										<hr class="divider">
+										<hr class="m-0">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
 												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsV2rayN" aria-expanded="false" aria-controls="collapseOsWindowsV2rayN">
@@ -901,7 +876,7 @@
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
 													<a href="https://github.com/2dust/v2rayN/releases/download/7.4.2/v2rayN-windows-64-SelfContained-With-Core.7z">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
 													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
 													<p x-text="$t('anyPlace')"></p>
@@ -909,7 +884,7 @@
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
+													<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
 														<script type="text/javascript">
 															document.write(linkFull);
 														</script>
@@ -925,16 +900,16 @@
 													<p x-text="$t('v2rayNrun1')"></p>
 													<p x-text="$t('v2rayNrun2')"></p>
 													<a href="https://habr.com/en/articles/853796/">
-														<button type="button" class="btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('v2rayNabout')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('v2rayNabout')"></button>
 													</a>
-													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+													<div class="my-warning">
 														<p x-text="$t('troubleWin1')"></p>
 														<p x-text="$t('troubleWin2')"></p>
 													</div>
 												</div>
 											</div>
 										</div>
-										<hr class="divider">
+										<hr class="m-0">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
 												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsInvisibleman" aria-expanded="false" aria-controls="collapseOsWindowsInvisibleman">
@@ -949,7 +924,7 @@
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
 													<a href="https://github.com/InvisibleManVPN/InvisibleMan-XRayClient/releases/latest/download/InvisibleManXRay-x64.zip">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
 													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
 													<p x-text="$t('anyPlace')"></p>
@@ -958,7 +933,7 @@
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('addConfigDescription')"></p>
 													<a id="href-windows-invisibleman">
-														<button type="button" class="btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
 													</a>
 													<p x-text="$t('invManAddConf1')"></p>
 													<p x-text="$t('invManAddConf2')"></p>
@@ -966,14 +941,14 @@
 													<p x-text="$t('invManRun')"></p>
 													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
 													<p x-text="$t('invManTun')"></p>
-													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+													<div class="my-warning">
 														<p x-text="$t('troubleWin1')"></p>
 														<p x-text="$t('troubleWin2')"></p>
 													</div>
 												</div>
 											</div>
 										</div>
-										<hr class="divider">
+										<hr class="m-0">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
 												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsClashVergeRev" aria-expanded="false" aria-controls="collapseOsWindowsClashVergeRev">
@@ -988,21 +963,21 @@
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
 													<a id="clashvergerev" href="#">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
 													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('doRun')"></span> Clash Verge Rev</p>
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('addConfigDescription')"></p>
 													<a id="href-windows-clashvergerev">
-														<button type="button" class="btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
 													</a>
 													<p x-text="$t('ClashVergeRevAddConf1')"></p>
 													<p x-text="$t('ClashVergeRevOnSysProxy')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('tunWish')"></span></p>
 													<p x-text="$t('ClashVergeRevTun')"></p>
 													<p x-text="$t('ClashVergeRevOffSysProxy')"></p>
-													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+													<div class="my-warning">
 														<p x-text="$t('troubleWin1')"></p>
 														<p x-text="$t('troubleWin2')"></p>
 													</div>
@@ -1027,10 +1002,10 @@
 					<div id="collapseOther" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
 						<p x-text="$t('linux1')"></p>
 						<a href="https://v2raya.org/en/docs/prologue/installation/">
-							<button type="button" class="btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
+							<button type="button" class="btn my-btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
 						</a>
 						<p x-text="$t('linux2')"></p>
-						<button class="btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4" type="button">
+						<button class="btn my-btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4" type="button">
 							<script type="text/javascript">
 								document.write(linkFull);
 							</script>
@@ -1053,7 +1028,7 @@
 							<p x-text="$t('separateLinks2')"></p>
 							{% for link in links %}
 							<div class="input-group input-group-lg border border-0 text-bg-dark rounded-4 mb-3">	
-								<input class="form-control link-separate border border-0 ps-4" type="text" value="{{ link }}" disabled readonly>
+								<input class="form-control my-link-separate border border-0 ps-4" type="text" value="{{ link }}" disabled readonly>
 								<button class="btn my-btn btn-copy-link fs-5 mt-2 mb-2 rounded-3 pb-2 pt-1" data-link="{{ link }}">
 									<i class="bi bi-clipboard2-fill"></i>
 								</button>
@@ -1535,12 +1510,12 @@
 					invManAddConf2: 'یکی از سرورها را انتخاب کنید و روی آیکون بستن کلیک کنید',
 					invManRun: 'دکمه سبز "RUN" را در صفحه اصلی برنامه فشار دهید',
 					invManTun: 'برای اطمینان از کارکرد برنامه‌هایی مثل Steam یا Discord از طریق پروکسی، حالت TUN را در تنظیمات فعال کنید',
-				
-					//InvisibleMan
-					invManAddConf1: 'می‌توانید هر چیزی را در فیلد "توضیحات" وارد کنید، اما وارد کردن آن الزامی است',
-					invManAddConf2: 'یکی از سرورها را انتخاب کنید و روی آیکون بستن کلیک کنید',
-					invManRun: 'دکمه سبز "RUN" را در صفحه اصلی برنامه فشار دهید',
-					invManTun: 'برای اطمینان از کارکرد برنامه‌هایی مثل Steam یا Discord از طریق پروکسی، حالت TUN را در تنظیمات فعال کنید',
+
+					//ClashVergeRev
+					ClashVergeRevAddConf1: 'روی دکمه بالا کلیک کنید — برنامه باز می‌شود و اشتراک به صورت خودکار اضافه می‌شود. اگر این اتفاق نیفتاد (بخش "پروفایل‌ها" خالی بود)، برنامه را ببندید و دوباره تلاش کنید یا اشتراک را به صورت دستی از طریق بخش "پروفایل‌ها" اضافه کنید: در قسمت "URL پروفایل" لینک را وارد کنید (لینک را از بالا کپی کنید) و دکمه وارد کردن را فشار دهید.',  
+					ClashVergeRevOnSysProxy: 'در تنظیمات برنامه گزینه پروکسی سیستم را فعال کنید.',  
+					ClashVergeRevTun: 'برای اینکه برنامه‌هایی مانند Steam و Discord از طریق پروکسی کار کنند، حالت TUN را در تنظیمات فعال کنید.',  
+					ClashVergeRevOffSysProxy: 'قبل از فعال کردن حالت TUN، گزینه پروکسی سیستم را در تنظیمات برنامه غیرفعال کنید.',  
 
 					//Linux/Other
 					linuxExampleV2rayA: 'به عنوان مثال، می‌توانید از v2rayA استفاده کنید',
@@ -1695,7 +1670,7 @@
 				// --- Separate servers links block start ---
 				const copyButtons = document.querySelectorAll('.btn-copy-link');
 				const qrButtons = document.querySelectorAll('.btn-show-qr');
-				const inputs = document.querySelectorAll('.link-separate');
+				const inputs = document.querySelectorAll('.my-link-separate');
 			
 				// Decode server name from link
 				function extractName(url) {
@@ -1789,7 +1764,7 @@
 					console.error('Failed to update link:', error);
 				}
 			})
-			
+
 			const clashvergerev_api = 'https://api.github.com/repos/clash-verge-rev/clash-verge-rev/releases/latest';	
 			document.addEventListener('DOMContentLoaded', async () => {
 				try {
