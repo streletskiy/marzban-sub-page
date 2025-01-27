@@ -42,42 +42,12 @@
 			}
 		</script>
 		<style>
-			.bi {
-				width: 1em;
-				height: 1em;
-				vertical-align: -.125em;
-				fill: currentcolor;
-			}
-			
-			.light-subtle {
-				background-color: #e1e1e4;
-			}
-			
-			.my-icon {
-				width: 32px;
-				height: 32px;
-				fill: currentcolor;
-			}
-
-			.my-icon-small {
-				width: 24px;
-				height: 24px;
-				fill: currentcolor;
-			}	
-			
 			.my-block {
 				padding: 1rem;
 				padding-top: 0.5rem;
 				padding-bottom: 1.25rem;
-			}
-			
-			.my-block-big {
-				padding: 1.5rem;
-				padding-top: .5rem;
-			}
-			
-			.my-block, .my-block-big {
 				border-radius: var(--bs-border-radius-xl);
+				background-color: var(--bs-secondary-bg);
 			}
 			
 			.my-btn {
@@ -128,12 +98,25 @@
 				max-width: 64rem;
 			}
 			
+			.my-divider {
+				height: 2px;
+				padding: 0px;
+				margin : 0px;
+			}
+			
 			.my-dropdown-menu {
 				--bs-dropdown-border-radius: var(--bs-border-radius-xl);
 				--bs-dropdown-item-padding-x: .75rem;
 				--bs-dropdown-item-padding-y: .5rem;
 				--bs-dropdown-padding-x: .35rem;
 				--bs-dropdown-padding-y: .35rem;
+				--bs-dropdown-link-hover-bg: var(--bs-secondary-bg);
+				--bs-dropdown-link-active-bg: var(--bs-secondary-bg);
+				--bs-dropdown-link-active-color: #fff;
+			
+				.my-dropdown-item-icon, .active .my-dropdown-item-check {
+					color: rgba(255, 255, 255, .5);
+				}
 			
 				li + li {
 					margin-top: .35rem;
@@ -148,41 +131,41 @@
 				}
 			}
 			
-			.my-modal {
-				background-color: #35384b;
-				color: #fff;
+			.my-icon {
+				width: 32px;
+				height: 32px;
+				fill: currentcolor;
+			}
+
+			.my-icon-small {
+				width: 24px;
+				height: 24px;
+				fill: currentcolor;
 			}
 			
-			.my-toast {
-				--bs-toast-bg: #2383e2;
-				--bs-toast-border-radius: var(--bs-border-radius-xl);
-				--bs-toast-border-width: 0;
-				--bs-toast-color: #fff;
-				--bs-toast-padding-x: 1rem;
+			.my-link-separate {
+				font-family: "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Emoji", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Segoe UI Symbol";
+				background-color: transparent;
 			}
 			
-			[data-bs-theme='dark'] {
-				--bs-body-bg: #282a36;
-				
-				.my-block, .my-block-big {
-					background-color: #35384b;
-				}
-			
-				.my-dropdown-menu {
-					--bs-dropdown-link-hover-bg: #35384b;
-					--bs-dropdown-link-active-bg: #35384b;
-					--bs-dropdown-link-active-color: #fff;
-				
-					.my-dropdown-item-icon, .active .my-dropdown-item-check {
-						color: rgba(255, 255, 255, .5);
-					}
-				}
-				
-				.my-nav-link {
-					--bs-nav-link-color: rgba(var(--bs-emphasis-color-rgb), .65);
-					--bs-nav-link-hover-color: rgba(var(--bs-emphasis-color-rgb), .9);
-				}
+			.my-link-separate:focus {
+				outline: none !important;
 			}
+			
+			.my-nav-link {
+				--bs-nav-link-color: rgba(var(--bs-emphasis-color-rgb), .65);
+				--bs-nav-link-hover-color: rgba(var(--bs-emphasis-color-rgb), .9);
+			}
+			
+			.my-warning {
+				color: #7a4d03;
+				background-color: #fff3cd;
+				padding: 1.5rem;
+				padding-top: 1.0rem;
+				padding-bottom: 0.5rem;
+				border-radius: var(--bs-border-radius-xl);
+			}
+		
 			.accordion {
 				--bs-accordion-btn-focus-box-shadow: transparent;
 				--bs-accordion-active-bg: tranparent;
@@ -191,7 +174,7 @@
 			
 			.accordion-item {
 				--bs-accordion-border-width: 0px;
-				background-color: #35384b;
+				background-color: var(--bs-secondary-bg);
 			}
 			
 			.accordion-button {
@@ -203,23 +186,21 @@
 				text-decoration: underline !important;
 			}
 			
-			.divider {
-				height: 2px;
-				padding: 0px;
-				margin : 0px;
-			}
-			
-			.link-separate {
-				font-family: "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Emoji", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Segoe UI Symbol";
-				background-color: transparent;
-			}
-			
-			.link-separate:focus {
-				outline: none !important;
+			.bi {
+				width: 1em;
+				height: 1em;
+				vertical-align: -.125em;
+				fill: currentcolor;
 			}
 			
 			.form-control:disabled {
 				background-color: transparent;
+			}
+			
+			[data-bs-theme='dark'] {
+				--bs-body-bg: #282a36;
+				--bs-secondary-bg: #35384b;
+				--bs-secondary-rgb: 53, 56, 75;
 			}
 		</style>
 	</head>
@@ -291,7 +272,7 @@
 			
 			<!-- Copied to clipboard notification -->
 			<div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
-				<div class="toast my-toast" id="toast-copy-link" role="alert" aria-atomic="true" aria-live="assertive">
+				<div class="toast text-bg-primary border border-0 rounded-4" id="toast-copy-link" role="alert" aria-atomic="true" aria-live="assertive">
 					<div class="d-flex justify-content-between align-items-center">
 						<span class="toast-body fs-6 fw-semibold" x-text="$t('copiedToClipboard')"></span>
 						<button type="button" class="btn-close m-3" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -302,9 +283,9 @@
 			<!-- QR Modal -->
 			<div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel">
 				<div class="modal-sm modal-dialog modal-dialog-centered">
-					<div class="my-modal modal-content border border-0 rounded-4 shadow-lg">
+					<div class="text-bg-secondary modal-content border border-0 rounded-4 shadow-lg">
 						<div class="d-flex modal-header justify-content-between">
-							<h1 class="modal-title link-separate fw-bold fs-5" id="qrModalLabel"></h1>
+							<h1 class="modal-title my-link-separate fw-bold fs-5" id="qrModalLabel"></h1>
 							<button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body d-flex justify-content-center align-items-center">
@@ -451,7 +432,7 @@
 						<div class="accordion-body m-0 p-0 pb-2">
 							<div class="accordion" id="accordionOsIos">
 								<div class="accordion-item">
-									<hr class="divider">
+									<hr class="my-divider">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHiddify" aria-expanded="false" aria-controls="collapseOsIosHiddify">
 											<svg class="my-icon-small"><use href="#hiddify"></use></svg>
@@ -480,7 +461,7 @@
 										</div>
 									</div>
 								</div>
-								<hr class="divider">
+								<hr class="my-divider">
 								<div class="accordion-item">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosAlt" aria-expanded="false" aria-controls="collapseOsIosAlt">
@@ -516,7 +497,7 @@
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="my-divider">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosFoxray" aria-expanded="false" aria-controls="collapseOsIosFoxray">
@@ -542,7 +523,7 @@
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="my-divider">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosV2box" aria-expanded="false" aria-controls="collapseOsIosV2box">
@@ -569,7 +550,7 @@
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="my-divider">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosShadowrocket" aria-expanded="false" aria-controls="collapseOsIosShadowrocket">
@@ -595,7 +576,7 @@
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="my-divider">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosSingbox" aria-expanded="false" aria-controls="collapseOsIosSingbox">
@@ -641,7 +622,7 @@
 						<div class="accordion-body m-0 p-0 pb-2">
 							<div class="accordion" id="accordionOsAndroid">
 								<div class="accordion-item">
-									<hr class="divider">
+									<hr class="my-divider">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidHiddify" aria-expanded="false" aria-controls="accordionOsAndroidHiddify">
 											<svg class="my-icon-small"><use href="#hiddify"></use></svg>
@@ -669,7 +650,7 @@
 										</div>
 									</div>
 								</div>
-								<hr class="divider">
+								<hr class="my-divider">
 								<div class="accordion-item">
 									<h2 class="accordion-header">
 										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidAlt" aria-expanded="false" aria-controls="accordionOsAndroidAlt">
@@ -714,7 +695,7 @@
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="my-divider">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidCMFA" aria-expanded="false" aria-controls="accordionOsAndroidCMFA">
@@ -741,7 +722,7 @@
 													</div>
 												</div>
 											</div>
-											<hr class="divider">
+											<hr class="my-divider">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidSingbox" aria-expanded="false" aria-controls="collapseOsAndroidSingbox">
@@ -785,7 +766,7 @@
 					<div id="collapseWindows" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
 						<div class="accordion" id="accordionOsWindows">
 							<div class="accordion-item">
-								<hr class="divider">
+								<hr class="my-divider">
 								<h2 class="accordion-header">
 									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsHiddify" aria-expanded="false" aria-controls="accordionOsWindowsHiddify">
 										<svg class="my-icon-small"><use href="#hiddify"></use></svg>
@@ -810,7 +791,7 @@
 										<p x-text="$t('hiddifyAdditional1')"></p>
 										<p x-text="$t('hiddifyAdditional2')"></p>
 										<p x-text="$t('hiddifyAdditional3')"></p>
-										<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+										<div class="my-warning">
 											<p x-text="$t('troubleWin1')"></p>
 											<p x-text="$t('troubleWin2')"></p>
 										</div>
@@ -820,7 +801,7 @@
 									</div>
 								</div>
 							</div>
-							<hr class="divider">
+							<hr class="my-divider">
 							<div class="accordion-item">
 								<h2 class="accordion-header">
 									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsAlt" aria-expanded="false" aria-controls="accordionOsWindowsAlt">
@@ -879,14 +860,14 @@
 													<p x-text="$t('nekorayRun1')"></p>
 													<p x-text="$t('nekorayRun2')"></p>
 													<p x-text="$t('nekorayRun3')"></p>
-													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+													<div class="my-warning">
 														<p x-text="$t('troubleWin1')"></p>
 														<p x-text="$t('troubleWin2')"></p>
 													</div>
 												</div>
 											</div>
 										</div>
-										<hr class="divider">
+										<hr class="my-divider">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
 												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsV2rayN" aria-expanded="false" aria-controls="collapseOsWindowsV2rayN">
@@ -927,14 +908,14 @@
 													<a href="https://habr.com/en/articles/853796/">
 														<button type="button" class="btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('v2rayNabout')"></button>
 													</a>
-													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+													<div class="my-warning">
 														<p x-text="$t('troubleWin1')"></p>
 														<p x-text="$t('troubleWin2')"></p>
 													</div>
 												</div>
 											</div>
 										</div>
-										<hr class="divider">
+										<hr class="my-divider">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
 												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsInvisibleman" aria-expanded="false" aria-controls="collapseOsWindowsInvisibleman">
@@ -966,14 +947,14 @@
 													<p x-text="$t('invManRun')"></p>
 													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
 													<p x-text="$t('invManTun')"></p>
-													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+													<div class="my-warning">
 														<p x-text="$t('troubleWin1')"></p>
 														<p x-text="$t('troubleWin2')"></p>
 													</div>
 												</div>
 											</div>
 										</div>
-										<hr class="divider">
+										<hr class="my-divider">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
 												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsClashVergeRev" aria-expanded="false" aria-controls="collapseOsWindowsClashVergeRev">
@@ -1002,7 +983,7 @@
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('tunWish')"></span></p>
 													<p x-text="$t('ClashVergeRevTun')"></p>
 													<p x-text="$t('ClashVergeRevOffSysProxy')"></p>
-													<div class="card p-3 pb-1 border border-0 light-subtle text-dark rounded-4">
+													<div class="my-warning">
 														<p x-text="$t('troubleWin1')"></p>
 														<p x-text="$t('troubleWin2')"></p>
 													</div>
@@ -1053,7 +1034,7 @@
 							<p x-text="$t('separateLinks2')"></p>
 							{% for link in user.links %}
 							<div class="input-group input-group-lg border border-0 text-bg-dark rounded-4 mb-3">	
-								<input class="form-control link-separate border border-0 ps-4" type="text" value="{{ link }}" disabled readonly>
+								<input class="form-control my-link-separate border border-0 ps-4" type="text" value="{{ link }}" disabled readonly>
 								<button class="btn my-btn btn-copy-link fs-5 mt-2 mb-2 rounded-3 pb-2 pt-1" data-link="{{ link }}">
 									<i class="bi bi-clipboard2-fill"></i>
 								</button>
@@ -1695,7 +1676,7 @@
 				// --- Separate servers links block start ---
 				const copyButtons = document.querySelectorAll('.btn-copy-link');
 				const qrButtons = document.querySelectorAll('.btn-show-qr');
-				const inputs = document.querySelectorAll('.link-separate');
+				const inputs = document.querySelectorAll('.my-link-separate');
 			
 				// Decode server name from link
 				function extractName(url) {
