@@ -28,7 +28,12 @@
 - Automatic detection of the user's language.
 - QR code with subscription link.
 - Separate links and QR codes for each node, display name for each connection (including emoji symbols in all browsers).
-- Detailed guides are provided for Windows, Android, iOS, MacOS and Linux.
+- Detailed guides are provided for Windows, Android, iOS, MacOS and Linux apps:
+
+	- **iOS / macOS:** Hiddify, Streisand, FoxRay, V2Box, Shadowrocket, SingBox
+	- **Android:** Hiddify, V2RayNG, Clash Meta, SingBox
+	- **Windows:** Hiddify, NekoRay, v2rayN, InvisibleMan, Clash Verge Rev
+	- **Linux:** v2rayA
 
 # Installation
 
