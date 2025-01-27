@@ -51,31 +51,28 @@
 			}
 			
 			.my-btn {
-				--bs-btn-bg: rgba(35, 131, 226, .15);
-				--bs-btn-color: #2383e2;
-				--bs-btn-hover-bg: rgba(35, 131, 226, .2);
+				--bs-btn-bg: rgba(var(--bs-my-btn-bg-rgb), .15);
+				--bs-btn-color: var(--bs-my-btn-bg);
+				--bs-btn-hover-bg: rgba(var(--bs-my-btn-bg-rgb), .2);
+				--bs-btn-hover-color: var(--bs-my-btn-bg);
+				--bs-btn-active-bg: rgba(var(--bs-my-btn-bg-rgb), .25);
+				--bs-btn-active-color: var(--bs-my-btn-bg);
+				--bs-btn-focus-shadow-rgb: var(--bs-my-btn-bg-rgb);
+				
 				--bs-btn-hover-border-color: transparent;
-				--bs-btn-hover-color: #2383e2;
-				--bs-btn-active-bg: rgba(35, 131, 226, .25);
 				--bs-btn-active-border-color: transparent;
-				--bs-btn-active-color: #2383e2;
 				--bs-btn-border-radius: var(--bs-border-radius-xl);
-				--bs-btn-focus-shadow-rgb: 35, 131, 226;
 				--bs-btn-font-weight: 600;
 			}
 			
 			.my-btn-accent {
-				--bs-btn-bg: rgba(255, 255, 255, 0.85);
-				--bs-btn-color: #282a36;
-				--bs-btn-hover-bg: rgba(255, 255, 255, 1.0);
-				--bs-btn-hover-border-color: transparent;
-				--bs-btn-hover-color: #282a36;
-				--bs-btn-active-bg: rgba(255, 255, 255, 1.0);
-				--bs-btn-active-border-color: transparent;
-				--bs-btn-active-color: #282a36;
-				--bs-btn-border-radius: var(--bs-border-radius-xl);
-				--bs-btn-focus-shadow-rgb: 35, 131, 226;
-				--bs-btn-font-weight: 600;
+				--bs-btn-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 0.85);
+				--bs-btn-color: var(--bs-body-bg);
+				--bs-btn-hover-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 1.0);
+				--bs-btn-hover-color: var(--bs-body-bg);
+				--bs-btn-active-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 1.0);
+				--bs-btn-active-color: var(--bs-body-bg);
+				--bs-btn-focus-shadow-rgb: var(--bs-my-btn-accent-bg-rgb);
 			}
 			
 			.my-color-green {
@@ -195,6 +192,9 @@
 				--bs-body-bg: #282a36;
 				--bs-secondary-bg: #35384b;
 				--bs-secondary-rgb: 53, 56, 75;
+				--bs-my-btn-bg: #2383e2;
+				--bs-my-btn-bg-rgb: 35, 131, 226;
+				--bs-my-btn-accent-bg-rgb: 255, 255, 255;
 			}
 		</style>
 	</head>
@@ -441,12 +441,12 @@
 											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 											<p x-text="$t('getAppDescription')"></p>
 											<a href="https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 											</a>
 											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 											<p x-text="$t('addConfigDescription')"></p>
 											<a id="href-ios-hiddify">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 											</a>
 											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
 											<p x-text="$t('hiddifyAdditional1')"></p>
@@ -481,12 +481,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://apps.apple.com/us/app/streisand/id6450534064">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-ios-streisand">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
 												</div>
@@ -507,12 +507,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://apps.apple.com/us/app/foxray/id6448898396">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-ios-foxray">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
 												</div>
@@ -533,12 +533,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-ios-v2box">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 														<p x-text="$t('v2boxStart')"></p>
 													</div>
@@ -560,12 +560,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://apps.apple.com/ca/app/shadowrocket/id932747118">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-ios-shadowrocket">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
 												</div>
@@ -586,12 +586,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://apps.apple.com/us/app/sing-box/id6451272673">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-ios-singbox">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
 												</div>
@@ -630,12 +630,12 @@
 											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 											<p x-text="$t('getAppDescription')"></p>
 											<a href="https://play.google.com/store/apps/details?id=app.hiddify.com">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 											</a>
 											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 											<p x-text="$t('addConfigDescription')"></p>
 											<a id="href-android-hiddify">
-												<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 											</a>
 											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
 											<p x-text="$t('hiddifyAdditional1')"></p>
@@ -669,12 +669,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-android-v2rayng">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
 														<p x-text="$t('v2rayNgUpdateSub')"></p>
@@ -704,12 +704,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a id="cmfa" href="#">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('CMFAaddconfig')"></p>
 														<a id="href-android-cmfa">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
 														<p x-text="$t('CMFArunconfig')"></p>
@@ -731,12 +731,12 @@
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
 														<a href="https://play.google.com/store/apps/details?id=io.nekohasekai.sfa">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 														</a>
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-android-singbox">
-															<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
 												</div>
@@ -774,12 +774,12 @@
 										<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 										<p x-text="$t('getAppDescription')"></p>
 										<a href="https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Windows-Setup-x64.exe">
-											<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 										</a>
 										<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 										<p x-text="$t('addConfigDescription')"></p>
 										<a id="href-windows-hiddify">
-											<button type="button" class="btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 										</a>
 										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
 										<p x-text="$t('hiddifyAdditional1')"></p>
@@ -820,7 +820,7 @@
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
 													<a href="https://github.com/MatsuriDayo/nekoray/releases/download/4.0.1/nekoray-4.0.1-2024-12-12-windows64.zip">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
 													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
 													<p x-text="$t('anyPlace')"></p>
@@ -828,7 +828,7 @@
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
+													<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
 														<script type="text/javascript">
 															document.write(linkFull);
 														</script>
@@ -837,7 +837,7 @@
 													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('tunWish')"></span></p>
 													<p x-text="$t('nekorayTun')"></p>
 													<a href="https://blancvpn.online/ru/help/NekoRay-windows-split-tunneling">
-														<button type="button" class="btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('nekoraySplit1')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('nekoraySplit1')"></button>
 													</a>
 													<p x-text="$t('nekoraySplit2')"></p>
 													<p x-text="$t('nekoraySplit3')"></p>
@@ -876,7 +876,7 @@
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
 													<a href="https://github.com/2dust/v2rayN/releases/download/7.4.2/v2rayN-windows-64-SelfContained-With-Core.7z">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
 													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
 													<p x-text="$t('anyPlace')"></p>
@@ -884,7 +884,7 @@
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
+													<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
 														<script type="text/javascript">
 															document.write(linkFull);
 														</script>
@@ -900,7 +900,7 @@
 													<p x-text="$t('v2rayNrun1')"></p>
 													<p x-text="$t('v2rayNrun2')"></p>
 													<a href="https://habr.com/en/articles/853796/">
-														<button type="button" class="btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('v2rayNabout')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('v2rayNabout')"></button>
 													</a>
 													<div class="my-warning">
 														<p x-text="$t('troubleWin1')"></p>
@@ -924,7 +924,7 @@
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
 													<a href="https://github.com/InvisibleManVPN/InvisibleMan-XRayClient/releases/latest/download/InvisibleManXRay-x64.zip">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
 													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
 													<p x-text="$t('anyPlace')"></p>
@@ -933,7 +933,7 @@
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('addConfigDescription')"></p>
 													<a id="href-windows-invisibleman">
-														<button type="button" class="btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
 													</a>
 													<p x-text="$t('invManAddConf1')"></p>
 													<p x-text="$t('invManAddConf2')"></p>
@@ -963,14 +963,14 @@
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
 													<a id="clashvergerev" href="#">
-														<button type="button" class="btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 													</a>
 													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('doRun')"></span> Clash Verge Rev</p>
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('addConfigDescription')"></p>
 													<a id="href-windows-clashvergerev">
-														<button type="button" class="btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
 													</a>
 													<p x-text="$t('ClashVergeRevAddConf1')"></p>
 													<p x-text="$t('ClashVergeRevOnSysProxy')"></p>
@@ -1002,10 +1002,10 @@
 					<div id="collapseOther" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
 						<p x-text="$t('linux1')"></p>
 						<a href="https://v2raya.org/en/docs/prologue/installation/">
-							<button type="button" class="btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
+							<button type="button" class="btn my-btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
 						</a>
 						<p x-text="$t('linux2')"></p>
-						<button class="btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4" type="button">
+						<button class="btn my-btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4" type="button">
 							<script type="text/javascript">
 								document.write(linkFull);
 							</script>
