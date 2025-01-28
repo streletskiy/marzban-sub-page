@@ -28,14 +28,22 @@
 				document.getElementById("href-ios-v2box").href = `v2box://install-sub?url=${linkFull}&name=` + serviceName;
 				document.getElementById("href-ios-shadowrocket").href = `sub://${link64}`;
 				document.getElementById("href-ios-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
+				document.getElementById("href-ios-happ").href = `happ://add/${linkFull}`;
 				document.getElementById("href-android-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-android-v2rayng").href = `v2rayng://install-config?url=${linkFull}&name=` + serviceName;
 				document.getElementById("href-android-cmfa").href = `clash://install-config?url${linkFull}&name=` + serviceName;
 				document.getElementById("href-android-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
+				document.getElementById("href-android-happ").href = `happ://add/${linkFull}`;
 				document.getElementById("href-windows-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-windows-invisibleman").href = `invxray://subscription/${linkFull}`;
 				document.getElementById("href-windows-clashvergerev").href = `clash://install-config?url${linkFull}&name=` + serviceName;
 				
+				// Happ routing deeplinks
+				document.getElementById("href-ios-happ-RoscomVPN").href = `https://routing.vpn.ru.com/`;
+				document.getElementById("href-ios-happ-ReFilter").href = `happ://routing/add/ewogICAgIk5hbWUiOiAiUmU6ZmlsdGVyIiwKICAgICJHbG9iYWxQcm94eSI6ICJmYWxzZSIsCiAgICAiUmVtb3RlRG5zIjogIjEuMS4xLjEiLAogICAgIkRvbWVzdGljRG5zIjogIjc3Ljg4LjguOCIsCiAgICAiR2VvaXB1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9pcC5kYXQiLAogICAgIkdlb3NpdGV1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9zaXRlLmRhdCIsCiAgICAiRG5zSG9zdHMiOiB7fSwKICAgICJEaXJlY3RTaXRlcyI6IFtdLAogICAgIkRpcmVjdElwIjogWwogICAgICAgICIxMC4wLjAuMC84IiwKICAgICAgICAiMTcyLjE2LjAuMC8xMiIsCiAgICAgICAgIjE5Mi4xNjguMC4wLzE2IiwKICAgICAgICAiMTY5LjI1NC4wLjAvMTYiLAogICAgICAgICIyMjQuMC4wLjAvNCIsCiAgICAgICAgIjI1NS4yNTUuMjU1LjI1NSIKICAgIF0sCiAgICAiUHJveHlTaXRlcyI6IFsKICAgICAgICAiZ2Vvc2l0ZTpyZWZpbHRlciIKICAgIF0sCiAgICAiUHJveHlJcCI6IFsKICAgICAgICAiZ2VvaXA6cmVmaWx0ZXIiCiAgICBdLAogICAgIkJsb2NrU2l0ZXMiOiBbXSwKICAgICJCbG9ja0lwIjogW10sCiAgICAiRG9tYWluU3RyYXRlZ3kiOiAiSVBPbkRlbWFuZCIKfQ==`;
+				document.getElementById("href-android-happ-RoscomVPN").href = `https://routing.vpn.ru.com/`;
+				document.getElementById("href-android-happ-ReFilter").href = `happ://routing/add/ewogICAgIk5hbWUiOiAiUmU6ZmlsdGVyIiwKICAgICJHbG9iYWxQcm94eSI6ICJmYWxzZSIsCiAgICAiUmVtb3RlRG5zIjogIjEuMS4xLjEiLAogICAgIkRvbWVzdGljRG5zIjogIjc3Ljg4LjguOCIsCiAgICAiR2VvaXB1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9pcC5kYXQiLAogICAgIkdlb3NpdGV1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9zaXRlLmRhdCIsCiAgICAiRG5zSG9zdHMiOiB7fSwKICAgICJEaXJlY3RTaXRlcyI6IFtdLAogICAgIkRpcmVjdElwIjogWwogICAgICAgICIxMC4wLjAuMC84IiwKICAgICAgICAiMTcyLjE2LjAuMC8xMiIsCiAgICAgICAgIjE5Mi4xNjguMC4wLzE2IiwKICAgICAgICAiMTY5LjI1NC4wLjAvMTYiLAogICAgICAgICIyMjQuMC4wLjAvNCIsCiAgICAgICAgIjI1NS4yNTUuMjU1LjI1NSIKICAgIF0sCiAgICAiUHJveHlTaXRlcyI6IFsKICAgICAgICAiZ2Vvc2l0ZTpyZWZpbHRlciIKICAgIF0sCiAgICAiUHJveHlJcCI6IFsKICAgICAgICAiZ2VvaXA6cmVmaWx0ZXIiCiAgICBdLAogICAgIkJsb2NrU2l0ZXMiOiBbXSwKICAgICJCbG9ja0lwIjogW10sCiAgICAiRG9tYWluU3RyYXRlZ3kiOiAiSVBPbkRlbWFuZCIKfQ==`;
+
 				// Change support and donate links below
 				document.getElementById("href-support").href = `https://t.me/gozargah_marzban`;
 				document.getElementById("href-donate").href = `https://github.com/Gozargah/Marzban#donation`;
@@ -239,6 +247,14 @@
 			</symbol>
 			<symbol id="singbox" viewBox="0 0 32 32">
 				<path d="M27 20.5C27.6076 20.1302 27.9978 19.2655 28 18.6463V9C28 9 28.0078 8.59766 27.5822 8.32719L14.9796 0.450533C14.9796 0.450533 13.5 -0.5 12.0584 0.450533L0.561526 8.12545C0.0257112 8.49456 0.00389706 9.16105 0.00389706 9.16105L-6.01943e-06 18.5C-6.01943e-06 18.5 -0.0137371 19.6716 0.499994 20L13 28L13.0471 17.0006L0.88928 9.30661C0.88928 9.30661 0.3336 8.95514 1.04756 8.54689L12.5 1C13.5318 0.372263 14.5593 0.970586 14.5593 0.970586L27.1156 8.65768C27.7201 8.91105 27.2738 9.10085 27.2738 9.10085L24.425 10.9058C24.425 10.9058 24.0203 11.2628 23.537 11.0184L10.5108 2.93515L10.0302 3.25102L23.5 11.5V15C23.5 15.5 23.1385 15.7448 23.1385 15.7448L19.3613 18.2599C19.3613 18.2599 19.014 18.5106 19 18V14.5L5.58401 6.16018L5.04136 6.52891L18.0774 14.6876C18.0774 14.6876 18.4613 14.8944 18.0216 15.133L14.7019 17.1149V27C14.7019 27 14.6993 27.637 14 28C14 28 14.5208 28.1278 15.4667 27.5678L27 20.5Z"/>
+			</symbol>
+			<symbol id="happ" viewBox="0 0 32 32">
+				<path d="M13.4,19.6l-7.9,7.9L5,30.4h6.6L13.4,19.6z" />
+				<path d="M13.2,13.5L14.6,5l-7.9,7.9L4.2,27.4l7.9-7.9l0.2-1.2h1l4.9-4.9H13.2z" />
+				<path d="M25.4,19.6L27.8,5l-7.9,7.9l-0.1,0.7h-0.6l-4.9,4.9h4.7l-1.5,9L25.4,19.6z" />
+				<path d="M18.7,27.5l-0.5,2.9h6.6l1.8-10.8L18.7,27.5z" />
+				<path d="M13.6,4.9l0.6-3.3H7.5L5.6,12.8L13.6,4.9z" />
+				<path d="M18.8,12.8l7.9-7.9l0.6-3.3h-6.6L18.8,12.8z" />
 			</symbol>
 			<symbol id="v2rayng" viewBox="0 0 32 32">
 				<path d="M0 1.86298V3.72596H1.8778H3.7556L3.80567 17.363L3.88078 31L18.4024 15.6987C26.3893 7.30288 32.9741 0.322916 32.9992 0.198717C33.0492 0.0993585 30.846 -4.76837e-07 28.1169 -4.76837e-07H23.1595L16.2742 6.38381L9.38899 12.7428L9.2638 6.43349L9.13862 0.124198L4.58183 0.049679L0 -4.76837e-07V1.86298Z"/>
@@ -596,6 +612,43 @@
 													</div>
 												</div>
 											</div>
+											<hr class="m-0">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHapp" aria-expanded="false" aria-controls="collapseOsIosHapp">
+														<svg class="my-icon"><use href="#happ"></use></svg>
+														<span class="d-block w-100 text-center">
+															Happ
+														</span>
+													</button>
+												</h2>
+												<div id="collapseOsIosHapp" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+													<div class="container pb-4">
+														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-happ">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('happRouting')"></span></p>
+														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingRoscomVPN')"></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-happ-RoscomVPN">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a><br>
+														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingReFilter')"></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-ios-happ-ReFilter">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -736,6 +789,42 @@
 														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 														<p x-text="$t('addConfigDescription')"></p>
 														<a id="href-android-singbox">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
+											<hr class="m-0">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidHapp" aria-expanded="false" aria-controls="collapseOsAndroidHapp">
+														<svg class="my-icon"><use href="#happ"></use></svg>
+														<span class="d-block w-100 text-center">
+															Happ
+														</span>
+													</button>
+												</h2>
+												<div id="collapseOsAndroidHapp" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
+													<div class="container pb-4">
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://play.google.com/store/apps/details?id=com.happproxy">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-happ">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('happRouting')"></span></p>
+														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingRoscomVPN')"></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-happ-RoscomVPN">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a><br>
+														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingReFilter')"></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-happ-ReFilter">
 															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 														</a>
 													</div>
@@ -1129,6 +1218,11 @@
 					//v2box
 					v2boxStart: 'In the "Configs" tab, the subscription will appear. Click on the desired server and start it in the "Home" tab.',
 					
+					//Happ
+					happRouting: 'Add routing rules:',
+					happRoutingRoscomVPN: 'Custom routing RoscomVPN (for Russia)',
+					happRoutingReFilter: 'Alternative resource list Re:filter (for Russia)',
+
 					//Hiddify
 					hiddifyAdditional1: 'Select your country in the settings. Connections to addresses/sites in this country will be routed directly. If you want all connections to go through the proxy, select "Other" as the country.',
 					hiddifyAdditional2: 'Country settings section in the app: Top right corner, settings icon -> All settings -> Region',
@@ -1242,7 +1336,12 @@
 					
 					//v2box
 					v2boxStart: 'Во вкладке "Configs" появится подписка, тыкните на нужный сервер и запустите во вкладке "Home"',
-	
+
+					//Happ
+					happRouting: 'Добавить правила маршрутизации:',
+					happRoutingRoscomVPN: 'Кастомный роутинг RoscomVPN',
+					happRoutingReFilter: 'Альтернативный список ресурсов Re:filter',
+
 					//Hiddify
 					hiddifyAdditional1: 'Выберите свою страну в настройках. Подключение к адресам/сайтам этой страны будет идти напрямую. Если вы хотите, чтобы подключение до всех адресов шло через прокси — выберите в качестве страны "Другой"',
 					hiddifyAdditional2: 'Раздел настроек страны в приложении: Правый верхний угол, иконка настроек -> Все параметры -> Регион',
@@ -1254,8 +1353,8 @@
 					v2rayNgUpdateSub: 'Нажмите на три точечки справа сверху и выберите "Обновить подписку". После этого в списке появятся доступные серверы',
 
 					//cmfa
-					CMFAaddconfig: 'Нажмите кнопку ниже — откроется окно создания профиля. Потребуется указать период автообновления, например, 720 минут. Справа вверху нажми на кнопку "Сохранить".',
-					CMFArunconfig: 'Перейди в пункт "Профили" и выбери созданный профиль, затем вернись на главную страницу. Теперь ты можешь подключиться, нажав на кнопку "Остановлен", чтобы запустить VPN, или "Запущен", чтобы отключить его.',
+					CMFAaddconfig: 'Нажмите кнопку ниже — откроется окно создания профиля. Потребуется указать период автообновления, например, 720 минут. Справа вверху нажми на кнопку "Сохранить"',
+					CMFArunconfig: 'Перейдите в пункт "Профили" и выберите созданный профиль, затем вернитесь на главную страницу. Теперь вы можете подключиться, нажав на кнопку "Остановлен", чтобы запустить VPN, или "Запущен", чтобы отключить его',
 					
 					//v2rayN
 					v2rayNupdateSub: 'Нажмите сверху: Subscription Group -> Update Subscriptions without proxy',
@@ -1284,7 +1383,7 @@
 					invManTun: 'Чтобы через прокси работали такие программы, как Steam и Discord, включите в настройках режим TUN',
 					
 					//ClashVergeRev
-					ClashVergeRevAddConf1: 'Нажми кнопку выше — приложение откроется, и подписка добавится автоматически. Если этого не произошло (раздел "Профили" пустой), закрой приложение и попробуй снова или добавь подписку вручную через раздел "Профили": в строке "URL профиля" укажи ссылку (скопировав её выше) и нажми кнопку импорта.',
+					ClashVergeRevAddConf1: 'Нажмите кнопку выше — приложение откроется, и подписка добавится автоматически. Если этого не произошло (раздел "Профили" пустой), закройте приложение и попробуйте снова или добавьте подписку вручную через раздел "Профили": в строке "URL профиля" укажите ссылку (скопировав её выше) и нажмите кнопку импорта.',
 					ClashVergeRevOnSysProxy: 'Включите в настройках приложения параметр Системный прокси',
 					ClashVergeRevTun: 'Чтобы через прокси работали такие программы, как Steam и Discord, включите в настройках режим TUN',
 					ClashVergeRevOffSysProxy: 'Перед включением режима Tun - Отключите в настройках приложения параметр Системный прокси',
@@ -1356,6 +1455,11 @@
 				
 					//v2box
 					v2boxStart: '在 "配置" 选项卡中，订阅将出现。点击所需的服务器并在 "主页" 选项卡中启动它。',
+					
+					//Happ
+					happRouting: '添加路由规则：',
+					happRoutingRoscomVPN: '自定义路由 RoscomVPN（适用于俄罗斯）',
+					happRoutingReFilter: 'Re:filter 的备用资源列表（适用于俄罗斯）',
 				
 					//Hiddify
 					hiddifyAdditional1: '在设置中选择您的国家。对该国家的地址/站点的连接将直接路由。如果您希望所有连接通过代理，请选择 "其他" 作为国家。',
@@ -1368,8 +1472,8 @@
 					v2rayNgUpdateSub: '点击右上角的三个点，然后选择 "更新订阅"。之后，可用服务器将出现在列表中。',
 
 					//cmfa
-					CMFAaddconfig: '点击下面的按钮打开配置文件创建窗口。您需要指定自动更新周期，例如 720 分钟。点击右上角的“保存”按钮。',
-					CMFArunconfig: '进入“配置文件”部分，选择您创建的配置文件，然后返回主页。现在您可以通过点击“已停止”按钮来启动 VPN，或点击“运行中”按钮来断开连接。',
+					CMFAaddconfig: '点击下方按钮——将打开创建配置文件的窗口。需要指定自动更新周期，例如720分钟。点击右上角的“保存”按钮。',
+					CMFArunconfig: '进入“配置文件”部分并选择创建的配置文件，然后返回主页面。现在您可以通过点击“已停止”按钮启动VPN，或点击“已启动”按钮将其关闭。',
 				
 					//v2rayN
 					v2rayNupdateSub: '在顶部，点击：订阅组 -> 无代理更新订阅',
@@ -1398,7 +1502,7 @@
 					invManTun: '要确保像 Steam 或 Discord 这样的程序通过代理工作，请在设置中启用 TUN 模式',
 
 					//ClashVergeRev
-					ClashVergeRevAddConf1: '点击上方的按钮 — 应用将会打开，订阅会自动添加。如果没有发生（“配置文件”部分为空），请关闭应用并重试，或者通过“配置文件”部分手动添加订阅：在“配置文件 URL”字段中输入链接（从上方复制）并点击导入按钮。',  
+					ClashVergeRevAddConf1: '点击上方按钮——应用程序将打开，并自动添加订阅。如果没有发生（“配置文件”部分为空），请关闭应用程序并重试，或者通过“配置文件”部分手动添加订阅：在“配置文件 URL”字段中输入链接（从上方复制）并点击导入按钮。',
 					ClashVergeRevOnSysProxy: '在应用设置中启用系统代理选项。',  
 					ClashVergeRevTun: '为了让 Steam 和 Discord 等程序通过代理运行，请在设置中启用 TUN 模式。',  
 					ClashVergeRevOffSysProxy: '在启用 TUN 模式之前，请先在应用设置中禁用系统代理选项。',  
@@ -1470,6 +1574,11 @@
 				
 					//v2box
 					v2boxStart: 'در تب "تنظیمات"، اشتراک ظاهر خواهد شد. روی سرور موردنظر کلیک کرده و در تب "خانه" آن را شروع کنید.',
+					
+					//Happ
+					happRouting: 'افزودن قوانین مسیریابی:',
+					happRoutingRoscomVPN: 'مسیریابی سفارشی RoscomVPN (برای روسیه)',
+					happRoutingReFilter: 'لیست منابع جایگزین Re:filter (برای روسیه)',
 				
 					//Hiddify
 					hiddifyAdditional1: 'در تنظیمات، کشور خود را انتخاب کنید. اتصال به آدرس‌ها/سایت‌های این کشور مستقیماً انجام خواهد شد. اگر می‌خواهید تمام اتصالات از طریق پروکسی انجام شوند، "دیگر" را به عنوان کشور انتخاب کنید.',
@@ -1482,8 +1591,8 @@
 					v2rayNgUpdateSub: 'روی سه نقطه در گوشه بالا سمت راست کلیک کنید و گزینه "به‌روزرسانی اشتراک" را انتخاب کنید. سپس سرورهای موجود در لیست ظاهر می‌شوند.',
 
 					//cmfa
-					CMFAaddconfig: 'روی دکمه زیر کلیک کنید تا پنجره ایجاد پروفایل باز شود. باید دوره به‌روزرسانی خودکار را مشخص کنید، مثلاً ۷۲۰ دقیقه. روی دکمه "ذخیره" در بالا سمت راست کلیک کنید.',
-					CMFArunconfig: 'به بخش "پروفایل‌ها" بروید و پروفایل ایجادشده را انتخاب کنید، سپس به صفحه اصلی برگردید. اکنون می‌توانید با کلیک روی دکمه "متوقف‌شده" VPN را راه‌اندازی کنید یا با کلیک روی "در حال اجرا" آن را غیرفعال کنید.',
+					CMFAaddconfig: 'دکمه زیر را فشار دهید - پنجره ایجاد پروفایل باز می‌شود. باید دوره به‌روزرسانی خودکار را مشخص کنید، مثلاً 720 دقیقه. در بالا سمت راست روی دکمه «ذخیره» کلیک کنید.',
+					CMFArunconfig: 'به بخش «پروفایل‌ها» بروید و پروفایل ایجاد شده را انتخاب کنید، سپس به صفحه اصلی بازگردید. اکنون می‌توانید با فشار دادن دکمه «متوقف شده» VPN را راه‌اندازی کنید یا با فشار دادن دکمه «راه‌اندازی شده» آن را غیرفعال کنید.',
 				
 					//v2rayN
 					v2rayNupdateSub: 'در بالای صفحه کلیک کنید: گروه اشتراک -> به‌روزرسانی اشتراک‌ها بدون پروکسی',
@@ -1512,7 +1621,7 @@
 					invManTun: 'برای اطمینان از کارکرد برنامه‌هایی مثل Steam یا Discord از طریق پروکسی، حالت TUN را در تنظیمات فعال کنید',
 
 					//ClashVergeRev
-					ClashVergeRevAddConf1: 'روی دکمه بالا کلیک کنید — برنامه باز می‌شود و اشتراک به صورت خودکار اضافه می‌شود. اگر این اتفاق نیفتاد (بخش "پروفایل‌ها" خالی بود)، برنامه را ببندید و دوباره تلاش کنید یا اشتراک را به صورت دستی از طریق بخش "پروفایل‌ها" اضافه کنید: در قسمت "URL پروفایل" لینک را وارد کنید (لینک را از بالا کپی کنید) و دکمه وارد کردن را فشار دهید.',  
+					ClashVergeRevAddConf1: 'دکمه بالا را فشار دهید - برنامه باز می‌شود و اشتراک به صورت خودکار اضافه می‌شود. اگر این اتفاق نیفتاد (بخش «پروفایل‌ها» خالی است)، برنامه را ببندید و دوباره امتحان کنید یا اشتراک را به صورت دستی از طریق بخش «پروفایل‌ها» اضافه کنید: در قسمت «URL پروفایل» لینک را وارد کنید (از بالا کپی کنید) و دکمه وارد کردن را فشار دهید.',
 					ClashVergeRevOnSysProxy: 'در تنظیمات برنامه گزینه پروکسی سیستم را فعال کنید.',  
 					ClashVergeRevTun: 'برای اینکه برنامه‌هایی مانند Steam و Discord از طریق پروکسی کار کنند، حالت TUN را در تنظیمات فعال کنید.',  
 					ClashVergeRevOffSysProxy: 'قبل از فعال کردن حالت TUN، گزینه پروکسی سیستم را در تنظیمات برنامه غیرفعال کنید.',  
