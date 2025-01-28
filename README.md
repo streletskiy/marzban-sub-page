@@ -1,7 +1,7 @@
 <h3 align="center">Marzbanner - Marzban subscription page template</h3>
 
 <p align="center">
-  Simple, beautiful, and user-friendly HTML template for <a href="https://github.com/Gozargah/Marzban">Marzban</a> and <a href="https://github.com/marzneshin/marzneshin">Marzneshin</a> subscription page based on Bootstrap CSS framework
+  Simple, beautiful, and user-friendly HTML template for <a href="https://github.com/Gozargah/Marzban">Marzban</a> and <a href="https://github.com/marzneshin/marzneshin">Marzneshin</a> subscription page based on <a href="https://getbootstrap.com/docs/5.3/">Bootstrap 5 CSS framework</a>
   <br>
   <br>
   <a href="https://streletskiy.github.io/marzban-sub-page/"><strong>Live demo »</strong></a>
@@ -24,14 +24,18 @@
 
 - The design is simple and intuitive.
 - The code is minimal and with comments for easy editing.
-- Language switching: English, Russian (Русский), Chinese (中文) and Persian (فارسی).
+- Language switching: 
+	- **English**
+	- **Russian (Русский)**
+	- **Chinese (中文)**
+	- **Persian (فارسی)**
 - Automatic detection of the user's language.
 - QR code with subscription link.
 - Separate links and QR codes for each node, display name for each connection (including emoji symbols in all browsers).
 - Detailed guides are provided for Windows, Android, iOS, MacOS and Linux apps:
 
-	- **iOS / macOS:** Hiddify, Streisand, FoxRay, V2Box, Shadowrocket, SingBox
-	- **Android:** Hiddify, V2RayNG, Clash Meta, SingBox
+	- **iOS / macOS:** Hiddify, Streisand, FoxRay, V2Box, Shadowrocket, SingBox, Happ
+	- **Android:** Hiddify, V2RayNG, Clash Meta, SingBox, Happ
 	- **Windows:** Hiddify, NekoRay, v2rayN, InvisibleMan, Clash Verge Rev
 	- **Linux:** v2rayA
 
