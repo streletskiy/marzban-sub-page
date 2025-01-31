@@ -1153,7 +1153,7 @@
 			// Localization execute
 			document.addEventListener('alpine-i18n:ready', () => {
 				window.AlpineI18n.fallbackLocale = 'en';
-				window.AlpineI18n.create(getPreferredLanguage(), MESSAGES);
+				window.AlpineI18n.create(getPreferredLanguage(), messages);
 				document.documentElement.setAttribute('lang', getPreferredLanguage());
 				
 				const btnLang = document.getElementById('btn-lang');
@@ -1209,7 +1209,7 @@
 					let qrLink = linkFull;
 					qrCode.clear();
 					qrCode.makeCode(qrLink);
-					let subscriptionTitle = MESSAGES[getPreferredLanguage()]['subscription'];
+					let subscriptionTitle = messages[getPreferredLanguage()]['subscription'];
 					qrModalLabel.setAttribute('x-text', `'${subscriptionTitle}'`);
 				});
 				
