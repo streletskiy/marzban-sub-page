@@ -16,7 +16,7 @@
 
 <p>
   <picture>
-    <img alt="Marzban Subscription page template" src="./.github/assets/screen.png">
+    <img alt="Marzban Subscription page template" src="https://raw.githubusercontent.com/persizer/marzban-sub-page/refs/heads/main/.github/assets/screen.png">
   </picture>
 </p>
 
