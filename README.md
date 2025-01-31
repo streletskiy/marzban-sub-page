@@ -1,17 +1,17 @@
-<h3 align="center">Marzbanner - Marzban subscription page template</h3>
+<h3 align="center">Marzbanish - Marzban subscription page template</h3>
 
 <p align="center">
   Simple, beautiful, and user-friendly HTML template for <a href="https://github.com/Gozargah/Marzban">Marzban</a> and <a href="https://github.com/marzneshin/marzneshin">Marzneshin</a> subscription page based on <a href="https://getbootstrap.com/docs/5.3/">Bootstrap 5 CSS framework</a>
   <br>
   <br>
-  <a href="https://streletskiy.github.io/marzban-sub-page/"><strong>Live demo »</strong></a>
+  <a href="https://persizer.github.io/marzban-sub-page/"><strong>Live demo »</strong></a>
   <br>
   <br>
-  <a href="https://github.com/streletskiy/marzban-sub-page/tree/main#features">Features</a>
+  <a href="https://github.com/persizer/marzban-sub-page/tree/main#features">Features</a>
   ·
-  <a href="https://github.com/streletskiy/marzban-sub-page/tree/main#installation">Installation</a>
+  <a href="https://github.com/persizer/marzban-sub-page/tree/main#installation">Installation</a>
   ·
-  <a href="https://github.com/streletskiy/marzban-sub-page/tree/main#personalization">Personalization</a>
+  <a href="https://github.com/persizer/marzban-sub-page/tree/main#personalization">Personalization</a>
 </p>
 
 <p>
@@ -22,8 +22,8 @@
 
 # Features
 
-- The design is simple and intuitive.
-- The code is minimal and with comments for easy editing.
+- Simple and intuitive design.
+- Minimal code with comments for easy editing.
 - Language switching: 
 	- **English**
 	- **Russian (Русский)**
@@ -34,20 +34,20 @@
 - Separate links and QR codes for each node, display name for each connection (including emoji symbols in all browsers).
 - Detailed guides are provided for Windows, Android, iOS, MacOS and Linux apps:
 
-	- **iOS / macOS:** Hiddify, Streisand, FoxRay, V2Box, Shadowrocket, SingBox, Happ
-	- **Android:** Hiddify, V2RayNG, Clash Meta, SingBox, Happ
-	- **Windows:** Hiddify, NekoRay, v2rayN, InvisibleMan, Clash Verge Rev
+	- **iOS / macOS:** Happ, Streisand, FoxRay, V2Box
+	- **Android:** Happ, V2RayNG
+	- **Windows:** v2rayN
 	- **Linux:** v2rayA
 
 # Installation
 
 <h2>Marzban:</h2>
-Use the instruction below to install page to <a href="https://github.com/Gozargah/Marzban">Marzban</a>
+Use the instruction below to install the page to <a href="https://github.com/Gozargah/Marzban">Marzban</a>
 <h3>Install:</h3>
 
 1. Upload the file to the server.
 ```
-sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/streletskiy/marzban-sub-page/main/index.html
+sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/persizer/marzban-sub-page/main/index.html
 ```
 2. Enter these commands to automatically specify the file path to the subscription page.
 ```
@@ -64,12 +64,12 @@ SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"
 marzban restart
 ```
 <h3>Update:</h3>
-Re-upload the page file to the server (re-do first step from install):
+Reupload the page file to the server (redo first step from install):
 
 ```
-sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/streletskiy/marzban-sub-page/main/index.html
+sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/persizer/marzban-sub-page/main/index.html
 ```
-After update need to repeat personalization.
+After updating, you need to redo personalization steps.
 
 <h2>Marzneshin:</h2>
 Use the instruction below to install page to <a href="https://github.com/marzneshin/marzneshin">Marzneshin</a>
@@ -77,9 +77,9 @@ Use the instruction below to install page to <a href="https://github.com/marznes
 
 1. Upload the file to the server.
 ```
-sudo wget -N -P /var/lib/marzneshin/templates/subscription/ https://raw.githubusercontent.com/streletskiy/marzban-sub-page/main/marzneshin/index.html
+sudo wget -N -P /var/lib/marzneshin/templates/subscription/ https://raw.githubusercontent.com/persizer/marzban-sub-page/main/marzneshin/index.html
 ```
-2. Enter these commands to automatically specify the file path to the subscription page.
+1. Enter these commands to automatically specify the file path to the subscription page.
 ```
 echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzneshin/templates/"' | sudo tee -a /etc/opt/marzneshin/.env
 echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /etc/opt/marzneshin/.env
@@ -89,17 +89,17 @@ Or specify them manually by editing the Marzneshin `.env` file.
 CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzneshin/templates/"
 SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"
 ```
-3. Restart Marzneshin to apply the changes.
+1. Restart Marzneshin to apply the changes.
 ```
 marzneshin restart
 ```
 <h3>Update:</h3>
-Re-upload the page file to the server (re-do first step from install):
+Reupload the page file to the server (redo first step from install):
 
 ```
-sudo wget -N -P /var/lib/marzneshin/templates/subscription/ https://raw.githubusercontent.com/streletskiy/marzban-sub-page/main/marzneshin/index.html
+sudo wget -N -P /var/lib/marzneshin/templates/subscription/ https://raw.githubusercontent.com/persizer/marzban-sub-page/main/marzneshin/index.html
 ```
-After update need to repeat personalization.
+After updating, you need to redo personalization steps.
 
 # Personalization
 
@@ -107,9 +107,9 @@ To customize the favicons, logo, support and donate links, you need to edit the 
 
 Favicons:
 ```
-https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/apple-touch-icon.png
-https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/favicon-16x16.png
-https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/favicon-32x32.png
+https://raw.githubusercontent.com/persizer/marzban-sub-page/refs/heads/main/img/apple-touch-icon.png
+https://raw.githubusercontent.com/persizer/marzban-sub-page/refs/heads/main/img/favicon-16x16.png
+https://raw.githubusercontent.com/persizer/marzban-sub-page/refs/heads/main/img/favicon-32x32.png
 ```
 Support link:
 ```
@@ -121,46 +121,26 @@ https://github.com/Gozargah/Marzban#donation
 ```
 Logo:
 ```
-https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/logo.png
-```
-
-## Hide Username
-If you don't need to display the username, you can replace the subscription title.
-Simply find this line in the file:
-```
-<span class="text-break fs-3 fw-bold me-auto"><span x-text="$t('subscriptionFor')"></span> {{ user.username }}</span>
-```
-and replace it with:
-```
-<span class="text-break fs-3 fw-bold me-auto" x-text="$t('subscription')"></span>
+https://raw.githubusercontent.com/persizer/marzban-sub-page/refs/heads/main/img/logo.png
 ```
 
 ## Hide donate button
-If you need to remove donate button from bottom of the page you can remove button block. Simply find and delete this line in the file:
+If you need to remove the Donate button from bottom of the page, you can remove its `button` block. Simply find and delete this line in the file:
 ```
 <a id="href-donate"><button type="button" class="btn my-btn mt-4 w-100" x-text="$t('donate')"></button></a>
 ```
 
 ## Hide support button
-If you need to remove support button from the top of the page you can remove button block. Simply find and delete this line in the file:
+If you need to remove the Support button from the top of the page, you can remove its `button` block. Simply find and delete this line in the file:
 ```
 <li class="nav-item"><a class="nav-link my-nav-link fw-semibold px-2" id="href-support" rel="noopener noreferrer" target="_blank" x-text="$t('support')"></a></li>
 ```
 
 After making changes, save the file and restart Marzban / Marzneshin.
 
-***
-<h3 align="center">Contributors:</h3>
-<p align="center">
-<a href="https://github.com/streletskiy/marzban-sub-page/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=streletskiy/marzban-sub-page" />
-</a>
-</p>
-<br>
 
-***
 <p align="center">
   <br>
-  Based on deeply rewrited <a href="https://github.com/dermv/marzbanify-template">dermw Marzbanify Template</a>
+  Based on <a href="https://github.com/dermv/marzbanify-template">streletskiy's Marzbanify template</a>, which is based on <a href="https://github.com/dermv/marzbanify-template">dermw's Marzbanify Template</a>
   <br>
 </p>
