@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="theme-color" content="#282a36">
-		<title>{{ user.username }} - Sub Info</title>
+		<title>{{ user.username }} - Subscription</title>
 		<link href="https://raw.githubusercontent.com/dstreletskiy/marzban-sub-page/refs/heads/main/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
 		<link href="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
 		<link href="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
@@ -22,21 +22,12 @@
 			
 			function setHrefs() {
 				// Apps deeplinks
-				document.getElementById("href-ios-hiddify").href = `hiddify://import/${linkFull}`;
+				document.getElementById("href-ios-happ").href = `happ://add/${linkFull}`;
 				document.getElementById("href-ios-streisand").href = `streisand://import/${linkFull}`;
 				document.getElementById("href-ios-foxray").href = `foxray://yiguo.dev/sub/add/?url=${link64}#` + serviceName;
 				document.getElementById("href-ios-v2box").href = `v2box://install-sub?url=${linkFull}&name=` + serviceName;
-				document.getElementById("href-ios-shadowrocket").href = `sub://${link64}`;
-				document.getElementById("href-ios-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
-				document.getElementById("href-ios-happ").href = `happ://add/${linkFull}`;
-				document.getElementById("href-android-hiddify").href = `hiddify://import/${linkFull}`;
-				document.getElementById("href-android-v2rayng").href = `v2rayng://install-config?url=${linkFull}&name=` + serviceName;
-				document.getElementById("href-android-cmfa").href = `clash://install-config?url${linkFull}&name=` + serviceName;
-				document.getElementById("href-android-singbox").href = `sing-box://import-remote-profile?url=${linkFull}#` + serviceName;
 				document.getElementById("href-android-happ").href = `happ://add/${linkFull}`;
-				document.getElementById("href-windows-hiddify").href = `hiddify://import/${linkFull}`;
-				document.getElementById("href-windows-invisibleman").href = `invxray://subscription/${linkFull}`;
-				document.getElementById("href-windows-clashvergerev").href = `clash://install-config?url${linkFull}&name=` + serviceName;
+				document.getElementById("href-android-v2rayng").href = `v2rayng://install-config?url=${linkFull}&name=` + serviceName;
 				
 				// Happ routing deeplinks
 				document.getElementById("href-ios-happ-RoscomVPN").href = `https://routing.vpn.ru.com/`;
@@ -75,14 +66,14 @@
 			
 			.my-btn-accent {
 				--bs-btn-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 0.85);
-				--bs-btn-color: var(--bs-body-bg);
-				--bs-btn-hover-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 1.0);
-				--bs-btn-hover-color: var(--bs-body-bg);
-				--bs-btn-active-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 1.0);
+				--bs-btn-color: #fff;
+				--bs-btn-hover-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 1);
+				--bs-btn-hover-color: #fff;
+				--bs-btn-active-bg: rgba(var(--bs-my-btn-accent-bg-rgb), 0.9);
 				--bs-btn-active-color: var(--bs-body-bg);
 				--bs-btn-focus-shadow-rgb: var(--bs-my-btn-accent-bg-rgb);
 			}
-			
+
 			.my-color-green {
 				color: #1aad3a;
 			}
@@ -197,12 +188,12 @@
 			}
 			
 			[data-bs-theme='dark'] {
-				--bs-body-bg: #282a36;
-				--bs-secondary-bg: #35384b;
+				--bs-body-bg: #151515;
+				--bs-secondary-bg: #232323;
 				--bs-secondary-rgb: 53, 56, 75;
 				--bs-my-btn-bg: #2383e2;
 				--bs-my-btn-bg-rgb: 35, 131, 226;
-				--bs-my-btn-accent-bg-rgb: 255, 255, 255;
+				--bs-my-btn-accent-bg-rgb: 78, 78, 78;
 			}
 		</style>
 	</head>
@@ -218,11 +209,6 @@
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M2 8.5C0.895431 8.5 0 9.39543 0 10.5V14C0 15.1046 0.89543 16 2 16H5.5C6.60457 16 7.5 15.1046 7.5 14V10.5C7.5 9.39543 6.60457 8.5 5.5 8.5H2ZM2.5 10C1.94772 10 1.5 10.4477 1.5 11V13.5C1.5 14.0523 1.94772 14.5 2.5 14.5H5C5.55228 14.5 6 14.0523 6 13.5V11C6 10.4477 5.55228 10 5 10H2.5Z"/>
 				<path d="M2.25 11.25C2.25 10.9739 2.47386 10.75 2.75 10.75H4.75C5.02614 10.75 5.25 10.9739 5.25 11.25V13.25C5.25 13.5261 5.02614 13.75 4.75 13.75H2.75C2.47386 13.75 2.25 13.5261 2.25 13.25V11.25Z"/>
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 8.5C9.39543 8.5 8.5 9.39543 8.5 10.5V14C8.5 15.1046 9.39543 16 10.5 16H14C15.1046 16 16 15.1046 16 14V10.5C16 9.39543 15.1046 8.5 14 8.5H10.5ZM11 10C10.4477 10 10 10.4477 10 11V13.5C10 14.0523 10.4477 14.5 11 14.5H13.5C14.0523 14.5 14.5 14.0523 14.5 13.5V11C14.5 10.4477 14.0523 10 13.5 10H11Z"/>
-			</symbol>
-			<symbol id="hiddify" viewBox="0 0 32 32" >
-				<path d="M26.8191 2.1691C25.0243 3.36662 23.3928 4.49636 23.2092 4.67711C22.6993 5.1742 22.6789 8.38265 23.1684 8.90233C23.6375 9.44461 30.2046 9.44461 30.6737 8.90233C30.9388 8.6086 31 7.88557 31 4.63192C31 1.37828 30.9388 0.655248 30.6737 0.361516C30.5105 0.158163 30.3066 0 30.225 0C30.1434 0 28.6138 0.971575 26.8191 2.1691Z" />
-				<path d="M15.398 9.39942C13.6033 10.5969 11.9717 11.7267 11.7882 11.9074C11.4618 12.2464 11.4211 12.8338 11.4211 18.1888C11.4211 22.4818 11.3599 24.1538 11.1763 24.3571C10.85 24.7187 8.72895 24.7187 8.40263 24.3571C8.23947 24.1764 8.15789 22.8885 8.15789 20.0867C8.15789 16.6749 8.11711 16.0197 7.83158 15.7034C7.64803 15.5 7.3625 15.387 7.17895 15.4774C6.70987 15.6808 1.40724 19.2055 0.673026 19.8156L0 20.3579V25.3061C0 29.4862 0.0407895 30.2996 0.326316 30.5933C0.591447 30.887 1.22368 30.9548 4.07895 30.9548C8.21908 30.9548 8.15789 31 8.15789 28.605C8.15789 27.6334 8.25987 26.8652 8.40263 26.707C8.72895 26.3455 10.85 26.3455 11.1763 26.707C11.3191 26.8652 11.4211 27.6334 11.4211 28.605C11.4211 31 11.3599 30.9548 15.5 30.9548C18.3553 30.9548 18.9875 30.887 19.2526 30.5933C19.5382 30.277 19.5789 28.9213 19.5789 19.0926C19.5789 9.26385 19.5382 7.90817 19.2526 7.59184C19.0895 7.38849 18.8855 7.23032 18.8039 7.23032C18.7224 7.23032 17.1928 8.2019 15.398 9.39942Z" />
-				<path d="M23.1684 11.4329C22.8829 11.7267 22.8421 12.9242 22.8421 21.0131C22.8421 29.102 22.8829 30.2996 23.1684 30.5933C23.6375 31.1356 30.2046 31.1356 30.6737 30.5933C30.9592 30.2996 31 29.102 31 21.0131C31 12.9242 30.9592 11.7267 30.6737 11.4329C30.4086 11.1392 29.7763 11.0714 26.9211 11.0714C24.0658 11.0714 23.4336 11.1392 23.1684 11.4329Z" />
 			</symbol>
 			<symbol id="streisand" viewBox="0 0 32 32">
 				<path d="M18.4091 4.40211C19.8954 3.36294 21.3589 2.33315 22.8308 1.31461C23.3975 0.92258 23.9623 0.519918 24.5701 0.193536C24.8231 0.0578559 25.1956 0.0522285 25.495 0.0991225C25.68 0.127884 25.9192 0.345472 25.9663 0.519917C26.0074 0.671229 25.8617 0.936336 25.7146 1.05576C25.1819 1.48843 24.6178 1.88735 24.057 2.28813C22.6504 3.29229 21.2386 4.29082 19.7483 5.34812C20.3673 5.74203 20.9353 6.11718 21.5177 6.47045C22.1713 6.86686 22.1811 6.86373 22.8151 6.4073C24.4106 5.25746 25.9944 4.09324 27.601 2.95715C27.8768 2.76207 28.2298 2.61639 28.5657 2.56825C28.7586 2.54073 29.1069 2.7108 29.1723 2.87087C29.2455 3.05094 29.1566 3.40546 29.0017 3.53614C28.2441 4.17577 27.452 4.77851 26.6519 5.37063C25.6048 6.14594 24.5394 6.89875 23.4224 7.70407C23.6577 7.87227 23.8747 8.00732 24.0662 8.16989C24.5976 8.62069 25.1852 9.03023 25.6264 9.55294C26.2885 10.337 26.3205 11.3374 26.3101 12.2897C26.2963 13.5689 26.2022 14.8501 26.0865 16.1256C26.0264 16.7877 25.5133 17.2348 25.0329 17.6618C24.7734 17.8919 24.4721 18.0814 24.178 18.2727C23.8786 18.4678 23.9047 18.626 24.1819 18.8217C25.4623 19.7277 26.7382 20.6399 28.0102 21.5565C28.3553 21.8048 28.688 22.0705 29.0148 22.3406C29.237 22.5244 29.4194 22.7439 29.252 23.0459C29.0867 23.3441 28.7834 23.5023 28.4683 23.4092C28.1115 23.3035 27.767 23.1128 27.4618 22.9002C26.0303 21.9011 24.6159 20.88 23.1897 19.8734C23.0112 19.7477 22.8099 19.6439 22.6047 19.5632C22.3027 19.4444 22.0491 19.3975 21.7458 19.6864C21.3432 20.0697 20.834 20.3529 20.3569 20.6599C20.0667 20.8463 20.1372 20.9832 20.3693 21.1439C21.7667 22.1149 23.1766 23.0703 24.5512 24.0707C25.0937 24.4658 25.8002 24.7147 26.0539 25.4131C26.0728 25.465 26.0905 25.5169 26.1133 25.5819C25.865 25.7063 25.6336 25.8352 25.3917 25.9408C25.0414 26.094 24.7544 25.9221 24.4819 25.7401C23.2609 24.9248 22.0445 24.1032 20.8229 23.2885C20.1778 22.859 19.5215 22.445 18.8784 22.0124C18.6457 21.8554 18.4868 21.8923 18.2568 22.0505C17.4142 22.6295 16.6109 23.2716 15.5913 23.5767C14.5814 23.8794 13.6448 23.7093 12.7702 23.1972C12.1885 22.8564 11.6284 22.4775 11.0832 22.0849C10.7858 21.8704 10.5538 21.8629 10.2538 22.073C8.76157 23.1141 7.25889 24.1413 5.75882 25.1718C5.45619 25.3793 5.17317 25.6388 4.83656 25.7683C4.52674 25.887 4.15417 25.9039 3.81494 25.8827C3.65742 25.8727 3.39139 25.6682 3.38943 25.5482C3.38486 25.3231 3.46656 25.0111 3.63519 24.8816C4.41301 24.2845 5.23331 23.7381 6.03792 23.1735C6.98698 22.5082 7.93735 21.8435 8.88511 21.1758C9.01191 21.0864 9.12564 20.9801 9.27597 20.8563C8.77856 20.4999 8.3256 20.1741 7.87133 19.8502C7.68832 19.7196 7.51838 19.5557 7.31314 19.4713C6.88371 19.2944 6.54709 19.5514 6.23204 19.7733C4.68361 20.8631 3.15151 21.9742 1.59262 23.0497C1.33313 23.2285 0.971023 23.3341 0.651401 23.3454C0.466425 23.3516 0.18602 23.1353 0.108239 22.9559C0.0454907 22.8114 0.159222 22.4963 0.303019 22.3863C1.44555 21.5084 2.61293 20.6606 3.77442 19.8052C4.24699 19.4576 4.71956 19.1093 5.19801 18.7698C5.42547 18.6085 5.42482 18.4559 5.22023 18.2846C4.97447 18.0783 4.75028 17.84 4.48033 17.6694C3.55676 17.0854 3.24694 16.2125 3.22603 15.2265C3.19661 13.8559 3.19335 12.4841 3.22603 11.1142C3.24825 10.1794 3.68879 9.42102 4.47445 8.84954C4.88885 8.54816 5.29083 8.23054 5.69738 7.91916C5.92027 7.74847 5.95099 7.64217 5.66797 7.44522C4.02933 6.30538 2.4103 5.13929 0.789315 3.97632C0.599111 3.84001 0.427861 3.67744 0.261841 3.51488C-0.163669 3.09846 -0.0682397 2.68892 0.531134 2.59388C0.831147 2.54636 1.23117 2.6364 1.4802 2.80647C2.87568 3.75685 4.23784 4.75225 5.61306 5.72952C6.05557 6.04403 6.51049 6.3429 6.9458 6.66553C7.25104 6.89187 7.49811 6.68303 7.71446 6.56174C8.1988 6.28975 8.64784 5.96149 9.11387 5.65887C9.48121 5.42002 9.49559 5.32311 9.14459 5.06863C7.39876 3.80312 5.64836 2.54324 3.89991 1.28148C3.87638 1.26459 3.84958 1.25084 3.8254 1.23396C3.51689 1.01387 3.2208 0.768143 3.38682 0.354851C3.50382 0.0634829 4.18163 -0.109712 4.54765 0.078489C5.03003 0.326714 5.4928 0.616207 5.9353 0.925707C7.46151 1.99364 8.97792 3.07408 10.4917 4.15826C10.7394 4.33521 10.9584 4.37022 11.2192 4.1964C11.597 3.94505 12.0107 3.73747 12.3657 3.46048C13.6932 2.42381 15.6207 2.44445 17.2495 3.60679C17.6293 3.87815 18.0202 4.13638 18.4091 4.40211ZM14.9226 17.6537C15.8449 17.7162 16.6868 17.488 17.4404 16.9616C19.6516 15.4172 21.8445 13.8484 24.0819 12.3397C25.4368 11.4256 25.41 9.6311 24.2061 8.72323C23.5642 8.23929 22.8681 7.82099 22.2014 7.36581C20.902 6.47983 19.5902 5.6101 18.3143 4.69348C17.109 3.82688 15.8521 3.11909 14.2749 3.35544C13.6677 3.44673 12.9931 3.56302 12.5081 3.88628C10.1656 5.44566 7.89094 7.0982 5.56273 8.67884C4.17117 9.6236 4.27052 11.4043 5.46992 12.2884C6.32617 12.9199 7.23797 13.4814 8.12102 14.0798C9.37532 14.9289 10.6427 15.7617 11.8735 16.6414C12.7859 17.2936 13.7494 17.7338 14.9226 17.6537ZM11.2767 21.1833C11.4081 21.3152 12.1238 21.8035 12.4454 22.0105C12.948 22.3331 13.4337 22.1887 13.5049 21.6228C13.582 21.0088 13.603 20.3623 13.4807 19.7608C13.4043 19.3832 13.0938 18.9624 12.7598 18.7335C10.2969 17.046 7.8027 15.4003 5.31501 13.7459C4.79342 13.3989 4.30516 13.5496 4.2313 14.1392C4.15548 14.7394 4.15025 15.3672 4.25026 15.9618C4.30843 16.3082 4.58034 16.6671 4.85551 16.9222C5.21566 17.2554 5.66535 17.5049 6.09544 17.7606C6.20067 17.8232 6.30852 17.6825 6.37388 17.62C5.97713 17.2304 5.74117 17.0891 5.32089 16.8471C4.77904 16.5351 4.55288 16.0556 4.49863 15.4978C4.46334 15.1315 4.48948 14.7544 4.53785 14.388C4.60909 13.8509 4.76139 13.7953 5.21435 14.0979C7.55302 15.6567 9.89169 17.2167 12.2297 18.7767C13.1846 19.4138 13.5468 20.4967 13.165 21.5628C13.0631 21.8473 12.9069 21.9217 12.6363 21.7241C12.3755 21.5334 11.9532 21.2114 11.6676 21.0595C11.5604 21.0007 11.5231 21.1833 11.2767 21.1833ZM17.7116 21.3771C17.7077 21.3258 17.3888 21.207 17.2705 21.2664C17.0345 21.3852 16.8279 21.5553 16.6051 21.6979C16.258 21.9204 16.0933 21.8729 16.0377 21.4709C15.9776 21.0357 15.9063 20.5737 15.9992 20.1554C16.0861 19.7627 16.2815 19.2825 16.5979 19.0643C19.0771 17.3542 21.5987 15.7004 24.1021 14.0216C24.4113 13.814 24.6022 13.9072 24.6348 14.2136C24.6878 14.7063 24.7172 15.209 24.6721 15.7004C24.6263 16.2044 24.3322 16.5939 23.8622 16.8665C23.4714 17.0935 23.1086 17.3649 22.7341 17.6168C22.7419 17.6637 23.0589 17.7894 23.1635 17.7306C23.4838 17.5499 23.7694 17.3136 24.0884 17.131C24.759 16.749 25.0231 16.1494 25.076 15.4516C25.1041 15.0846 25.0806 14.7082 25.0296 14.3424C24.9165 13.5271 24.4838 13.3526 23.7832 13.8197C21.4099 15.4022 19.0372 16.9853 16.6645 18.5691C15.6599 19.2394 15.2481 20.6887 15.7501 21.7791C15.9449 22.2031 16.2789 22.31 16.6855 22.0586C17.0351 21.8429 17.3705 21.6053 17.7116 21.3771ZM10.2139 20.1041C9.47075 19.6076 8.73281 19.1043 7.97787 18.6247C7.89094 18.5697 7.75172 18.7304 7.61642 18.7454C8.34783 19.3363 9.04394 19.8409 9.77338 20.3085C9.88188 20.3779 10.2035 20.1597 10.2139 20.1041ZM19.0006 20.1028C19.0032 20.1504 19.3111 20.296 19.4039 20.2366C20.1444 19.7646 20.87 19.2719 21.6007 18.7854C21.5935 18.7448 21.2621 18.6097 21.1654 18.6716C20.4346 19.1356 19.7196 19.6226 19.0006 20.1028Z"/>
@@ -240,14 +226,6 @@
 				<path d="M21.7945 15.0242C21.0325 14.6803 20.2525 14.3612 19.509 13.9787C19.4059 13.9259 19.2847 13.7809 19.2827 13.6768C19.2656 12.6588 19.2723 11.6402 19.2723 10.576C20.0645 10.7895 20.8245 11.1713 21.576 11.4973C21.6656 11.5361 21.7836 11.6506 21.7847 11.7313C21.7987 12.8084 21.7945 13.8855 21.7945 15.0242Z"/>
 				<path d="M19.3442 9.9645C20.2594 9.66571 21.1445 9.37624 22.0312 9.08988C22.0855 9.07227 22.1544 9.06347 22.2072 9.08004C23.1172 9.36692 24.0256 9.65794 24.9397 10.023C24.3602 10.2364 23.761 10.4083 23.2063 10.6734C22.4859 11.0167 21.8173 11.0271 21.0958 10.6734C20.5675 10.414 19.7779 10.356 19.3442 9.9645Z"/>
 			</symbol>
-			<symbol id="shadowrocket" viewBox="0 0 32 32">
-				<path d="M21.9297 23.7404C19.723 23.3556 17.5164 22.9708 15.2717 22.5791C14.4346 24.2077 12.9509 24.888 11.0333 24.8811C9.12343 24.8743 7.61681 24.2352 6.73414 22.5379C4.5503 22.9227 2.34363 23.3075 0 23.7198C0.0608736 22.9021 0.0837012 22.1324 0.19023 21.3697C0.448943 19.5349 1.27074 17.9269 2.70127 16.58C2.95237 16.3464 3.0589 16.099 3.03607 15.7348C2.84584 12.6219 3.21869 9.5777 4.55791 6.68468C5.56993 4.49945 7.05373 2.60971 9.07016 1.08418C9.57998 0.699357 10.1278 0.355768 10.6985 0.067153C10.904 -0.0359237 11.2997 -0.0153082 11.5051 0.0946402C12.8063 0.836792 13.9781 1.74387 14.9292 2.82274C16.0478 4.08714 16.9609 5.48899 17.6077 7.01452C18.7719 9.77698 19.198 12.6288 19.0078 15.563C18.9773 15.9959 19.0915 16.3258 19.4415 16.6625C21.2525 18.3736 21.9601 20.4832 21.983 22.8059C21.983 23.0739 21.9906 23.3487 21.9982 23.6167C22.0058 23.6305 21.9906 23.6442 21.9297 23.7404ZM20.1035 21.9263C20.1415 21.8232 20.1568 21.7957 20.1568 21.7682C20.1644 21.7064 20.1644 21.6377 20.1568 21.5758C20.0426 19.6723 19.3121 18.0162 17.7827 16.6694C17.6229 16.5319 17.4555 16.3052 17.4631 16.1265C17.5772 14.2986 17.6533 12.4707 17.0826 10.6841C16.7631 9.68077 16.5348 8.64313 16.0935 7.68796C15.1347 5.61268 13.7803 3.77791 11.6953 2.45853C11.0714 2.05997 11.0105 2.05997 10.4018 2.48602C7.82226 4.27268 6.21671 6.64345 5.33405 9.43339C4.67966 11.5224 4.51986 13.6527 4.69488 15.8104C4.72531 16.1815 4.60356 16.4357 4.30681 16.6831C3.43936 17.3909 2.84584 18.2705 2.45016 19.26C2.12297 20.0778 1.94795 20.923 1.93274 21.8576C3.89591 21.5071 5.77538 21.1704 7.66246 20.8337C7.78421 21.0604 7.88313 21.2666 7.99727 21.459C8.62883 22.5035 9.5952 23.1014 10.9268 23.1426C12.3041 23.1838 13.3237 22.6203 14.0314 21.5621C14.4651 20.9093 14.4651 20.9093 15.3097 21.0604C15.3478 21.0673 15.3782 21.0742 15.4162 21.0811C16.9837 21.3628 18.536 21.6445 20.1035 21.9263Z"/>
-				<path d="M10.9725 34C9.84633 32.4538 8.7506 30.9695 8.42341 29.176C8.17991 27.8497 9.03975 26.5716 10.3638 26.1181C11.2616 25.8088 12.2813 26.1387 12.9509 26.9289C13.5748 27.6711 13.7727 28.5232 13.5824 29.4096C13.2096 31.1276 12.1671 32.5569 10.9725 34ZM10.8736 31.7598C10.9801 31.7598 11.0866 31.7598 11.1855 31.7529C11.528 30.997 11.9008 30.2549 12.2128 29.4852C12.4411 28.9217 12.2356 28.3857 11.8856 27.9047C11.5127 27.3825 10.8355 27.3344 10.3409 27.7673C9.89198 28.159 9.64088 28.6675 9.81589 29.1966C10.1126 30.0625 10.5159 30.9008 10.8736 31.7598Z"/>
-				<path d="M10.9421 7.64677C12.8976 7.59867 14.4195 9.02113 14.4271 10.6429C14.4347 12.3814 12.9357 13.7627 11.041 13.7695C9.14628 13.7764 7.70814 12.4433 7.64727 10.7116C7.594 9.21354 9.22237 7.56431 10.9421 7.64677ZM12.8824 10.7528C12.8976 9.79077 12.0986 9.01425 11.0714 9.00051C10.0061 8.98677 9.06258 9.74266 9.0778 10.7253C9.09302 11.6736 9.89959 12.4227 10.9421 12.4364C12.0454 12.4433 12.8672 11.7355 12.8824 10.7528Z"/>
-			</symbol>
-			<symbol id="singbox" viewBox="0 0 32 32">
-				<path d="M27 20.5C27.6076 20.1302 27.9978 19.2655 28 18.6463V9C28 9 28.0078 8.59766 27.5822 8.32719L14.9796 0.450533C14.9796 0.450533 13.5 -0.5 12.0584 0.450533L0.561526 8.12545C0.0257112 8.49456 0.00389706 9.16105 0.00389706 9.16105L-6.01943e-06 18.5C-6.01943e-06 18.5 -0.0137371 19.6716 0.499994 20L13 28L13.0471 17.0006L0.88928 9.30661C0.88928 9.30661 0.3336 8.95514 1.04756 8.54689L12.5 1C13.5318 0.372263 14.5593 0.970586 14.5593 0.970586L27.1156 8.65768C27.7201 8.91105 27.2738 9.10085 27.2738 9.10085L24.425 10.9058C24.425 10.9058 24.0203 11.2628 23.537 11.0184L10.5108 2.93515L10.0302 3.25102L23.5 11.5V15C23.5 15.5 23.1385 15.7448 23.1385 15.7448L19.3613 18.2599C19.3613 18.2599 19.014 18.5106 19 18V14.5L5.58401 6.16018L5.04136 6.52891L18.0774 14.6876C18.0774 14.6876 18.4613 14.8944 18.0216 15.133L14.7019 17.1149V27C14.7019 27 14.6993 27.637 14 28C14 28 14.5208 28.1278 15.4667 27.5678L27 20.5Z"/>
-			</symbol>
 			<symbol id="happ" viewBox="0 0 32 32">
 				<path d="M13.4,19.6l-7.9,7.9L5,30.4h6.6L13.4,19.6z" />
 				<path d="M13.2,13.5L14.6,5l-7.9,7.9L4.2,27.4l7.9-7.9l0.2-1.2h1l4.9-4.9H13.2z" />
@@ -258,24 +236,6 @@
 			</symbol>
 			<symbol id="v2rayng" viewBox="0 0 32 32">
 				<path d="M0 1.86298V3.72596H1.8778H3.7556L3.80567 17.363L3.88078 31L18.4024 15.6987C26.3893 7.30288 32.9741 0.322916 32.9992 0.198717C33.0492 0.0993585 30.846 -4.76837e-07 28.1169 -4.76837e-07H23.1595L16.2742 6.38381L9.38899 12.7428L9.2638 6.43349L9.13862 0.124198L4.58183 0.049679L0 -4.76837e-07V1.86298Z"/>
-			</symbol>
-			<symbol id="clash-meta" viewBox="0 0 48 48">
-				<path stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" d="M15.1 35.17H5.686m9.282 2.993l-8.846 3.163M24 16.874c.801 0 2.551.256 2.551.256L37.746 6.674s3.295.341 4.754.852V31.63c-1.42.653-4.574 1.108-6.45 1.108V17.11l-7.756 7.302S25.708 23.56 24 23.56s-4.294.853-4.294.853L11.95 17.11v15.627c-1.876 0-5.03-.455-6.45-1.108V7.526c1.458-.511 4.754-.852 4.754-.852L21.45 17.13s1.75-.256 2.551-.256m.625 17.245L24 35.265l-.626-1.146M32.9 35.17h9.414m-9.282 2.993l8.846 3.163"/>
-			</symbol>
-			<symbol id="invisibleman" viewBox="0 0 32 32">
-				<path d="M8.5 11C8.5 10.6 9 10 10.5 9.5L19 7C19.6667 6.83333 21.5 6.43431 21.5 7C21.5 7.5 18.5 9 15.5 10C12.5 11 8.5 11.4 8.5 11Z" />
-				<path d="M12 7.5C11 7.83333 10.5 8.33333 10.5 8.5C10 7 10 4.5 11 4C12 3.5 12.0849 4.47169 13.5 4C15 3.5 14.5 3 15.5 3C16 3 16 3 16.5 3.5C16.9 3.9 17.6667 5.33333 18 6C17.8333 6.16667 17.2 6.6 16 7C14.5 7.5 13.2154 7.09485 12 7.5Z" />
-				<path d="M12 15.5C12.5 18.5 13.5 24.4 13.5 24C13.5 23.6 14.1667 22.5 14.5 22V21.5L13.5 20L15 18.5L13.5 17.5L12.5 15.5L15 18.5L17.5 15.5L16.5 17.5L15 18.5L16.5 20L15.5 21.5V22L16.5 24C17 21 18 15.1 18 15.5C18 16 19 17 21 17.5C22.6 17.9 25 19 26 19.5L27 25C23.5 29.5 18.3 30.5 15.5 30.5C10.5 30.5 4.5 27 3.5 25C3.38868 24.7774 3.83333 20.5 4.5 19.5C5.16667 19.1667 6.9 18.4 8.5 18C10.5 17.5 12 16 12 15.5Z" />
-				<path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 30C23.5081 30 30 23.5081 30 15.5C30 7.49187 23.5081 1 15.5 1C7.49187 1 1 7.49187 1 15.5C1 23.5081 7.49187 30 15.5 30ZM15.5 31C24.0604 31 31 24.0604 31 15.5C31 6.93959 24.0604 0 15.5 0C6.93959 0 0 6.93959 0 15.5C0 24.0604 6.93959 31 15.5 31Z" />
-			</symbol>
-			<symbol id="nekoray" viewBox="0 0 32 32">
-				<path d="M0.77158 19.6532C1.52367 20.5154 4.29887 20.6244 4.33021 19.6532C4.36155 18.6819 3.22398 18.9629 2.45939 18.9299C1.50364 18.8885 1.36129 17.7855 1.36129 16.7187C1.36129 15.4374 5.00126 13.2882 5.59098 18.0619C6.1807 22.8356 4.49289 22.4016 5.00127 26.576C5.59683 31.4664 11.3661 30.8951 16.1042 30.9984C20.8423 31.1017 24.6246 26.1007 23.6282 22.5256C23.2708 21.2435 22.0217 21.6508 21.5336 22.195C21.5811 20.8862 21.5214 18.5372 21.0659 17.0493C20.6104 15.5614 19.412 13.55 18.8698 12.7303C21.0659 12.7303 22.6427 11.664 23.4655 10.1884C24.2883 8.71281 23.6282 7.25395 22.8961 6.20002L22.907 6.16284C23.4398 4.35148 24.5173 0.687469 23.7095 0.227733C22.8961 -0.23517 19.9814 1.53654 18.6257 2.48026C17.9208 2.30116 16.3035 1.94296 15.4738 1.94296C14.6441 1.94296 13.0811 2.30116 12.4032 2.48026C10.9527 1.35055 7.83597 -0.681541 6.97376 0.227733C5.89601 1.36433 8.23454 6.20002 8.23454 6.20002C7.50248 7.41927 7.35489 8.98323 7.78716 10.2504C8.31588 11.8003 10.6137 12.7303 12.4439 12.7303C12.1728 13.2262 10.8903 15.0489 10.3697 17.0493L10.3656 17.0651C9.84771 19.0552 9.57772 20.0927 9.98335 22.195C9.98335 22.195 8.45542 20.9511 7.78716 22.8356C6.97376 25.1295 10.7764 29.0146 10.7764 29.0146C5.52998 28.6632 6.54673 24.0342 6.97376 22.195C7.4008 20.3558 7.92951 18.4339 6.54673 15.5614C5.10381 12.564 2.03906 13.4651 0.77158 14.8588C-0.468859 16.2227 -0.0214871 18.7439 0.77158 19.6532Z" />
-				<path d="M25 7.5C23.8 7.5 22.8333 8.16667 22.5 8.5V9C22.8333 8.66667 23.8 8 25 8C26.2 8 27.8333 8.33333 28.5 8.5V8C27.8333 7.83333 26.2 7.5 25 7.5Z" />
-				<path d="M24.9151 10.25C23.8758 9.65 22.7053 9.74402 22.25 9.86602L22 10.299C22.4553 10.177 23.6258 10.083 24.6651 10.683C25.7043 11.283 26.9521 12.3884 27.4462 12.866L27.6962 12.433C27.2021 11.9553 25.9543 10.85 24.9151 10.25Z" />
-				<path d="M24.803 8.64705C23.6439 8.33646 22.5377 8.73022 22.1294 8.96593L22 9.44889C22.4082 9.21319 23.5145 8.81943 24.6736 9.13001C25.8327 9.44059 27.3242 10.1853 27.925 10.5188L28.0544 10.0359C27.4536 9.70234 25.9622 8.95763 24.803 8.64705Z" />
-				<path d="M6.5 7C7.7 7 8.66667 7.88889 9 8.33333V9C8.66667 8.55556 7.7 7.66667 6.5 7.66667C5.3 7.66667 3.66667 8.11111 3 8.33333V7.66667C3.66667 7.44444 5.3 7 6.5 7Z" />
-				<path d="M6.30917 10.25C7.26846 9.65 8.34892 9.74402 8.76923 9.86602L9 10.299C8.57969 10.177 7.49923 10.083 6.53994 10.683C5.58065 11.283 4.4288 12.3884 3.97278 12.866L3.74201 12.433C4.19803 11.9553 5.34988 10.85 6.30917 10.25Z" />
-				<path d="M6.41257 8.64705C7.48252 8.33646 8.5037 8.73022 8.88054 8.96593L9 9.44889C8.62315 9.21319 7.60198 8.81943 6.53203 9.13001C5.46208 9.44059 4.0854 10.1853 3.5308 10.5188L3.41134 10.0359C3.96594 9.70234 5.34262 8.95763 6.41257 8.64705Z" />
 			</symbol>
 		</svg>
 		<div class="container my-container py-3 pb-5" x-data>
@@ -309,6 +269,7 @@
 			<header class="d-flex flex-wrap align-items-center gap-2 mb-5 justify-content-between">
 				<img src="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/logo.png" alt="Logo" width="32" height="32">
 				<ul class="nav align-items-center">
+					<li class="nav-item"><a class="nav-link my-nav-link fw-semibold px-2" id="href-donate" rel="noopener noreferrer" target="_blank" x-text="$t('donate')"></a></li>
 					<li class="nav-item"><a class="nav-link my-nav-link fw-semibold px-2" id="href-support" rel="noopener noreferrer" target="_blank" x-text="$t('support')"></a></li>
 					<li class="nav-item">
 						<div class="dropdown">
@@ -348,7 +309,7 @@
 			
 			<!-- Subscription username and buttons -->
 			<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-				<span class="text-break fs-3 fw-bold"><span x-text="$t('subscriptionFor')"></span> {{ user.username }}</span>
+				<span class="text-break fs-3 fw-bold"><span x-text="$t('subscription')"></span> ({{ user.username }})</span>
 				<div>
 					<button class="btn my-btn btn-copy-sub-link" type="button" x-text="$t('copyLink')"></button>
 					<button class="btn my-btn btn-show-qr-sub" id="btn-show-qr-sub" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true">
@@ -444,30 +405,37 @@
 								<div class="accordion-item">
 									<hr class="m-0">
 									<h2 class="accordion-header">
-										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHiddify" aria-expanded="false" aria-controls="collapseOsIosHiddify">
-											<svg class="my-icon-small"><use href="#hiddify"></use></svg>
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHapp" aria-expanded="false" aria-controls="collapseOsIosHapp">
+											<svg class="my-icon-small"><use href="#happ"></use></svg>
 											<span class="d-block w-100 text-center">
-												Hiddify🔥
+												Happ 🔥
 											</span>
 										</button>
 									</h2>
-									<div id="collapseOsIosHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsIos">
+									<div id="collapseOsIosHapp" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
 										<div class="container pb-4">
 											<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
 											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 											<p x-text="$t('getAppDescription')"></p>
-											<a href="https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532">
+											<a href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215">
 												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 											</a>
 											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 											<p x-text="$t('addConfigDescription')"></p>
-											<a id="href-ios-hiddify">
+											<a id="href-ios-happ">
 												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 											</a>
-											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
-											<p x-text="$t('hiddifyAdditional1')"></p>
-											<p x-text="$t('hiddifyAdditional2')"></p>
-											<p x-text="$t('hiddifyAdditional3')"></p>
+											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('happRouting')"></span></p>
+											<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingRoscomVPN')"></p>
+											<p x-text="$t('addConfigDescription')"></p>
+											<a id="href-ios-happ-RoscomVPN">
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											</a><br>
+											<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingReFilter')"></p>
+											<p x-text="$t('addConfigDescription')"></p>
+											<a id="href-ios-happ-ReFilter">
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											</a>
 										</div>
 									</div>
 								</div>
@@ -560,95 +528,6 @@
 													</div>
 												</div>
 											</div>
-											<hr class="m-0">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosShadowrocket" aria-expanded="false" aria-controls="collapseOsIosShadowrocket">
-														<svg class="my-icon"><use href="#shadowrocket"></use></svg>
-														<span class="d-block w-100 text-center">
-															Shadowrocket
-														</span>
-													</button>
-												</h2>
-												<div id="collapseOsIosShadowrocket" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
-													<div class="container pb-4">
-														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 14+</b></p>
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a href="https://apps.apple.com/ca/app/shadowrocket/id932747118">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-ios-shadowrocket">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-													</div>
-												</div>
-											</div>
-											<hr class="m-0">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosSingbox" aria-expanded="false" aria-controls="collapseOsIosSingbox">
-														<svg class="my-icon"><use href="#singbox"></use></svg>
-														<span class="d-block w-100 text-center">
-															SingBox
-														</span>
-													</button>
-												</h2>
-												<div id="collapseOsIosSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
-													<div class="container pb-4">
-														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a href="https://apps.apple.com/us/app/sing-box/id6451272673">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-ios-singbox">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-													</div>
-												</div>
-											</div>
-											<hr class="m-0">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHapp" aria-expanded="false" aria-controls="collapseOsIosHapp">
-														<svg class="my-icon"><use href="#happ"></use></svg>
-														<span class="d-block w-100 text-center">
-															Happ
-														</span>
-													</button>
-												</h2>
-												<div id="collapseOsIosHapp" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
-													<div class="container pb-4">
-														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a href="https://apps.apple.com/us/app/happ-proxy-utility/id6504287215">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-ios-happ">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('happRouting')"></span></p>
-														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingRoscomVPN')"></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-ios-happ-RoscomVPN">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a><br>
-														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingReFilter')"></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-ios-happ-ReFilter">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-													</div>
-												</div>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -668,166 +547,73 @@
 					<div id="collapseAndroid" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
 						<div class="accordion-body m-0 p-0 pb-2">
 							<div class="accordion" id="accordionOsAndroid">
+								<p x-text="$t('selectApp')"></p>
 								<div class="accordion-item">
 									<hr class="m-0">
 									<h2 class="accordion-header">
-										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidHiddify" aria-expanded="false" aria-controls="accordionOsAndroidHiddify">
-											<svg class="my-icon-small"><use href="#hiddify"></use></svg>
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidHapp" aria-expanded="false" aria-controls="collapseOsAndroidHapp">
+											<svg class="my-icon"><use href="#happ"></use></svg>
 											<span class="d-block w-100 text-center">
-												Hiddify🔥
+												Happ 🔥
 											</span>
 										</button>
 									</h2>
-									<div id="accordionOsAndroidHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsAndroid">
+									<div id="collapseOsAndroidHapp" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
 										<div class="container pb-4">
 											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 											<p x-text="$t('getAppDescription')"></p>
-											<a href="https://play.google.com/store/apps/details?id=app.hiddify.com">
+											<a href="https://play.google.com/store/apps/details?id=com.happproxy">
 												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 											</a>
 											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
 											<p x-text="$t('addConfigDescription')"></p>
-											<a id="href-android-hiddify">
+											<a id="href-android-happ">
 												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
 											</a>
-											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
-											<p x-text="$t('hiddifyAdditional1')"></p>
-											<p x-text="$t('hiddifyAdditional2')"></p>
-											<p x-text="$t('hiddifyAdditional3')"></p>
+											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('happRouting')"></span></p>
+											<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingRoscomVPN')"></p>
+											<p x-text="$t('addConfigDescription')"></p>
+											<a id="href-android-happ-RoscomVPN">
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											</a><br>
+											<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingReFilter')"></p>
+											<p x-text="$t('addConfigDescription')"></p>
+											<a id="href-android-happ-ReFilter">
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											</a>
 										</div>
 									</div>
 								</div>
-								<hr class="m-0">
 								<div class="accordion-item">
+									<hr class="m-0">
 									<h2 class="accordion-header">
-										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidAlt" aria-expanded="false" aria-controls="accordionOsAndroidAlt">
-											<i class="bi bi-plus-circle-fill mb-2"></i>
-											<span class="d-block w-100 text-center" x-text="$t('otherApps')"></span>
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidV2rayng" aria-expanded="false" aria-controls="accordionOsAndroidV2rayng">
+											<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
+											<span class="d-block w-100 text-center">
+												v2rayNG
+											</span>
 										</button>
 									</h2>
-									<div id="accordionOsAndroidAlt" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
-										<p x-text="$t('selectApp')"></p>
-										<div class="accordion mt-2" id="accordionOsAndroidAltList">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidV2rayng" aria-expanded="false" aria-controls="accordionOsAndroidV2rayng">
-														<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
-														<span class="d-block w-100 text-center">
-															V2RayNG
-														</span>
-													</button>
-												</h2>
-												<div id="accordionOsAndroidV2rayng" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
-													<div class="container pb-4">
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-android-v2rayng">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
-														<p x-text="$t('v2rayNgUpdateSub')"></p>
-														<div class="row align-items-center">
-															<div class="col">
-																<img id="imgV2rayNg1" src="" width="100%" class="rounded img-fluid">
-															</div>
-															<div class="col">
-																<img id="imgV2rayNg2"src="" width="100%" class="rounded img-fluid">
-															</div>
-														</div>
-													</div>
+									<div id="accordionOsAndroidV2rayng" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroid">
+										<div class="container pb-4">
+											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+											<p x-text="$t('getAppDescription')"></p>
+											<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+											<p x-text="$t('addConfigDescription')"></p>
+											<a id="href-android-v2rayng">
+												<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											</a>
+											<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
+											<p x-text="$t('v2rayNgUpdateSub')"></p>
+											<div class="row align-items-center">
+												<div class="col">
+													<img id="imgV2rayNg1" src="" width="100%" class="rounded img-fluid">
 												</div>
-											</div>
-											<hr class="m-0">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidCMFA" aria-expanded="false" aria-controls="accordionOsAndroidCMFA">
-														<svg class="my-icon"><use href="#clash-meta"></use></svg>
-														<span class="d-block w-100 text-center">
-															Clash Meta
-														</span>
-													</button>
-												</h2>
-												<div id="accordionOsAndroidCMFA" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
-													<div class="container pb-4">
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a id="cmfa" href="#">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('CMFAaddconfig')"></p>
-														<a id="href-android-cmfa">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
-														<p x-text="$t('CMFArunconfig')"></p>
-													</div>
-												</div>
-											</div>
-											<hr class="m-0">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidSingbox" aria-expanded="false" aria-controls="collapseOsAndroidSingbox">
-														<svg class="my-icon"><use href="#singbox"></use></svg>
-														<span class="d-block w-100 text-center">
-															SingBox
-														</span>
-													</button>
-												</h2>
-												<div id="collapseOsAndroidSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
-													<div class="container pb-4">
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a href="https://play.google.com/store/apps/details?id=io.nekohasekai.sfa">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-android-singbox">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-													</div>
-												</div>
-											</div>
-											<hr class="m-0">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidHapp" aria-expanded="false" aria-controls="collapseOsAndroidHapp">
-														<svg class="my-icon"><use href="#happ"></use></svg>
-														<span class="d-block w-100 text-center">
-															Happ
-														</span>
-													</button>
-												</h2>
-												<div id="collapseOsAndroidHapp" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
-													<div class="container pb-4">
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a href="https://play.google.com/store/apps/details?id=com.happproxy">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-android-happ">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('happRouting')"></span></p>
-														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingRoscomVPN')"></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-android-happ-RoscomVPN">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a><br>
-														<p class="fs-5 fw-bold mt-4" x-text="$t('happRoutingReFilter')"></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-android-happ-ReFilter">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-													</div>
+												<div class="col">
+													<img id="imgV2rayNg2"src="" width="100%" class="rounded img-fluid">
 												</div>
 											</div>
 										</div>
@@ -851,227 +637,47 @@
 							<div class="accordion-item">
 								<hr class="m-0">
 								<h2 class="accordion-header">
-									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsHiddify" aria-expanded="false" aria-controls="accordionOsWindowsHiddify">
-										<svg class="my-icon-small"><use href="#hiddify"></use></svg>
+									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsV2rayN" aria-expanded="false" aria-controls="collapseOsWindowsV2rayN">
+										<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
 										<span class="d-block w-100 text-center">
-											Hiddify🔥
+											v2rayN 🔥
 										</span>
 									</button>
 								</h2>
-								<div id="accordionOsWindowsHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsWindows">
+								<div id="collapseOsWindowsV2rayN" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindows">
 									<div class="container pb-4">
 										<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 										<p x-text="$t('getAppDescription')"></p>
-										<a href="https://github.com/hiddify/hiddify-next/releases/latest/download/Hiddify-Windows-Setup-x64.exe">
+										<a href="https://github.com/2dust/v2rayN/releases/download/latest/v2rayN-windows-64-SelfContained.zip">
 											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 										</a>
-										<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-										<p x-text="$t('addConfigDescription')"></p>
-										<a id="href-windows-hiddify">
-											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+										<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
+										<p x-text="$t('anyPlace')"></p>
+										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('runFile')"></span> v2rayN.exe</p>
+										<p x-text="$t('betterAdmin')"></p>
+										<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
+										<p x-text="$t('copyLinkBelow')"></p>
+										<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
+											<script type="text/javascript">
+												document.write(linkFull);
+											</script>
+										</button>
+										<p x-text="$t('openAndPaste')"></p>
+										<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('doUpdate')"></span></p>
+										<p x-text="$t('v2rayNupdateSub')"></p>
+										<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
+										<p x-text="$t('v2rayNtun1')"/></p>
+										<p x-text="$t('v2rayNtun2')"/></p>
+										<p x-text="$t('v2rayNtun3')"/></p>
+										<p class="fs-5 fw-bold mt-4">7. <span x-text="$t('doRun')"></span></p>
+										<p x-text="$t('v2rayNrun1')"></p>
+										<p x-text="$t('v2rayNrun2')"></p>
+										<a href="https://habr.com/en/articles/853796/">
+											<button type="button" class="btn my-btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('v2rayNabout')"></button>
 										</a>
-										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
-										<p x-text="$t('hiddifyAdditional1')"></p>
-										<p x-text="$t('hiddifyAdditional2')"></p>
-										<p x-text="$t('hiddifyAdditional3')"></p>
 										<div class="my-warning">
 											<p x-text="$t('troubleWin1')"></p>
 											<p x-text="$t('troubleWin2')"></p>
-										</div>
-										<p class="fs-5 fw-bold mt-4">4. VPN-mode:</p>
-										<p x-text="$t('hiddifyTun1')"></p>
-										<p x-text="$t('hiddifyTun2')"></p>
-									</div>
-								</div>
-							</div>
-							<hr class="m-0">
-							<div class="accordion-item">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsAlt" aria-expanded="false" aria-controls="accordionOsWindowsAlt">
-										<i class="bi bi-plus-circle-fill mb-2"></i>
-										<span class="d-block w-100 text-center" x-text="$t('otherApps')"></span>
-									</button>
-								</h2>
-								<div id="accordionOsWindowsAlt" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindows">
-									<p x-text="$t('selectApp')"></p>
-									<div class="accordion mt-2" id="accordionOsWindowsAltList">
-										<div class="accordion-item">
-											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsNekoray" aria-expanded="false" aria-controls="collapseOsWindowsNekoray">
-													<svg class="my-icon"><use href="#nekoray"></use></svg>
-													<span class="d-block w-100 text-center">
-														NekoRay
-													</span>
-												</button>
-											</h2>
-											<div id="collapseOsWindowsNekoray" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
-												<div class="container pb-4">
-													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-													<p x-text="$t('getAppDescription')"></p>
-													<a href="https://github.com/MatsuriDayo/nekoray/releases/download/4.0.1/nekoray-4.0.1-2024-12-12-windows64.zip">
-														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-													</a>
-													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
-													<p x-text="$t('anyPlace')"></p>
-													<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('runFile')"></span> nekobox.exe</p>
-													<p x-text="$t('betterAdmin')"></p>
-													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
-													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
-														<script type="text/javascript">
-															document.write(linkFull);
-														</script>
-													</button>
-													<p x-text="$t('openAndPaste')"></p>
-													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('tunWish')"></span></p>
-													<p x-text="$t('nekorayTun')"></p>
-													<a href="https://blancvpn.online/ru/help/NekoRay-windows-split-tunneling">
-														<button type="button" class="btn my-btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('nekoraySplit1')"></button>
-													</a>
-													<p x-text="$t('nekoraySplit2')"></p>
-													<p x-text="$t('nekoraySplit3')"></p>
-													<div class="card p-3 pb-1 border border-0 rounded-4 mb-3">
-													<code>
-														<p>{"rules": [{"outbound": "proxy","process_name": </p>
-														<p>[ "Discord.exe", "Update.exe", "chrome.exe", "firefox.exe", "msedge.exe", "opera.exe", "browser.exe", "yandexbrowser.exe", "brave.exe", "vivaldi.exe", "librewolf.exe" ] </p>
-														<p>}]}</p>
-													</code>
-													</div>
-													<p x-text="$t('nekoraySplit4')"></p>
-													<p x-text="$t('nekoraySplit5')"></p>
-													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('doRun')"></span></p>
-													<p x-text="$t('nekorayRun1')"></p>
-													<p x-text="$t('nekorayRun2')"></p>
-													<p x-text="$t('nekorayRun3')"></p>
-													<div class="my-warning">
-														<p x-text="$t('troubleWin1')"></p>
-														<p x-text="$t('troubleWin2')"></p>
-													</div>
-												</div>
-											</div>
-										</div>
-										<hr class="m-0">
-										<div class="accordion-item">
-											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsV2rayN" aria-expanded="false" aria-controls="collapseOsWindowsV2rayN">
-													<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
-													<span class="d-block w-100 text-center">
-														v2rayN
-													</span>
-												</button>
-											</h2>
-											<div id="collapseOsWindowsV2rayN" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
-												<div class="container pb-4">
-													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-													<p x-text="$t('getAppDescription')"></p>
-													<a href="https://github.com/2dust/v2rayN/releases/download/7.4.2/v2rayN-windows-64-SelfContained-With-Core.7z">
-														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-													</a>
-													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
-													<p x-text="$t('anyPlace')"></p>
-													<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('runFile')"></span> v2rayN.exe</p>
-													<p x-text="$t('betterAdmin')"></p>
-													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
-													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
-														<script type="text/javascript">
-															document.write(linkFull);
-														</script>
-													</button>
-													<p x-text="$t('openAndPaste')"></p>
-													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('doUpdate')"></span></p>
-													<p x-text="$t('v2rayNupdateSub')"></p>
-													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
-													<p x-text="$t('v2rayNtun1')"/></p>
-													<p x-text="$t('v2rayNtun2')"/></p>
-													<p x-text="$t('v2rayNtun3')"/></p>
-													<p class="fs-5 fw-bold mt-4">7. <span x-text="$t('doRun')"></span></p>
-													<p x-text="$t('v2rayNrun1')"></p>
-													<p x-text="$t('v2rayNrun2')"></p>
-													<a href="https://habr.com/en/articles/853796/">
-														<button type="button" class="btn my-btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('v2rayNabout')"></button>
-													</a>
-													<div class="my-warning">
-														<p x-text="$t('troubleWin1')"></p>
-														<p x-text="$t('troubleWin2')"></p>
-													</div>
-												</div>
-											</div>
-										</div>
-										<hr class="m-0">
-										<div class="accordion-item">
-											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsInvisibleman" aria-expanded="false" aria-controls="collapseOsWindowsInvisibleman">
-													<svg class="my-icon"><use href="#invisibleman"></use></svg>
-													<span class="d-block w-100 text-center">
-														InvisibleMan
-													</span>
-												</button>
-											</h2>
-											<div id="collapseOsWindowsInvisibleman" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
-												<div class="container pb-4">
-													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-													<p x-text="$t('getAppDescription')"></p>
-													<a href="https://github.com/InvisibleManVPN/InvisibleMan-XRayClient/releases/latest/download/InvisibleManXRay-x64.zip">
-														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-													</a>
-													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('unpack')"></span></p>
-													<p x-text="$t('anyPlace')"></p>
-													<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('runFile')"></span> Invisible Man XRay.exe</p>
-													<p x-text="$t('betterAdmin')"></p>
-													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
-													<p x-text="$t('addConfigDescription')"></p>
-													<a id="href-windows-invisibleman">
-														<button type="button" class="btn my-btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
-													</a>
-													<p x-text="$t('invManAddConf1')"></p>
-													<p x-text="$t('invManAddConf2')"></p>
-													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('doRun')"></span></p>
-													<p x-text="$t('invManRun')"></p>
-													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
-													<p x-text="$t('invManTun')"></p>
-													<div class="my-warning">
-														<p x-text="$t('troubleWin1')"></p>
-														<p x-text="$t('troubleWin2')"></p>
-													</div>
-												</div>
-											</div>
-										</div>
-										<hr class="m-0">
-										<div class="accordion-item">
-											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsClashVergeRev" aria-expanded="false" aria-controls="collapseOsWindowsClashVergeRev">
-													<svg class="my-icon"><use href="#clash-meta"></use></svg>
-													<span class="d-block w-100 text-center">
-														Clash Verge Rev
-													</span>
-												</button>
-											</h2>
-											<div id="collapseOsWindowsClashVergeRev" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
-												<div class="container pb-4">
-													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-													<p x-text="$t('getAppDescription')"></p>
-													<a id="clashvergerev" href="#">
-														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-													</a>
-													<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('doRun')"></span> Clash Verge Rev</p>
-													<p x-text="$t('betterAdmin')"></p>
-													<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('addConfig')"></span></p>
-													<p x-text="$t('addConfigDescription')"></p>
-													<a id="href-windows-clashvergerev">
-														<button type="button" class="btn my-btn my-btn-accent w-100 mb-4" x-text="$t('addConfigApp')"></button>
-													</a>
-													<p x-text="$t('ClashVergeRevAddConf1')"></p>
-													<p x-text="$t('ClashVergeRevOnSysProxy')"></p>
-													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('tunWish')"></span></p>
-													<p x-text="$t('ClashVergeRevTun')"></p>
-													<p x-text="$t('ClashVergeRevOffSysProxy')"></p>
-													<div class="my-warning">
-														<p x-text="$t('troubleWin1')"></p>
-														<p x-text="$t('troubleWin2')"></p>
-													</div>
-												</div>
-											</div>
 										</div>
 									</div>
 								</div>
@@ -1133,15 +739,6 @@
 				<!-- Separate servers links end -->
 				
 			</div>
-			
-			<!-- FAQ/Info -->
-			<div class="mt-4 fs-3 fw-bold" x-text="$t('faq')"></div>
-			<div class="my-block mt-3 pt-4 pb-2">
-				<p x-text="$t('faq1')"></p>
-				<p x-text="$t('faq2')"></p>
-			</div>
-			
-			<a id="href-donate"><button type="button" class="btn my-btn mt-4 w-100" x-text="$t('donate')"></button></a>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"></script>
 		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -1160,10 +757,11 @@
 				}
 			};
 						
-			// Localizations strings
-			const MESSAGES = {
+			// Localization strings
+			const messages = {
 				en: {
 					support: 'Support',
+					donate: 'Donate',
 					system: 'System',
 					light: 'Light',
 					dark: 'Dark',
@@ -1184,20 +782,19 @@
 					monthly: 'Monthly',
 					yearly: 'Yearly',
 					subscription: 'Subscription',
-					subscriptionFor: 'Subscription for',
 					copyLink: 'Copy subscription link',
 					copiedToClipboard: 'Copied to clipboard',
 					separateLinksTitle: 'List of Available Servers',
 					separateLinks1: 'In this section, you can access your configurations individually, allowing you to share each one via QR code or simply copy them',
 					separateLinks2: 'This can be useful if, for example, you need to set up a connection to a specific server on a particular device',
 					
-					//Guide
+					// Guide
 					guide: 'Guide:',
 					otherApps: 'Other apps',
 					additional: 'Additional:',
 					otherDevices: 'Other devices',
 					selectApp: 'Select one of the apps:',
-					needVersion: 'Need version',
+					needVersion: 'Needs',
 					getApp: 'Download the app:',
 					getAppDescription: 'Click the link below to download the app:',
 					downloadApp: 'Download',
@@ -1215,29 +812,18 @@
 					troubleWin1: 'If the internet does not work after starting the program, go to the Windows system settings, open the "Network & Internet" section, then "Proxy Server," activate the "Use a proxy server" toggle, and save.',
 					troubleWin2: 'Also, if the internet does not work after turning off the program, you need to disable the "Use a proxy server" option.',
 			
-					//v2box
+					// V2Box
 					v2boxStart: 'In the "Configs" tab, the subscription will appear. Click on the desired server and start it in the "Home" tab.',
 					
-					//Happ
+					// Happ
 					happRouting: 'Add routing rules:',
 					happRoutingRoscomVPN: 'Custom routing RoscomVPN (for Russia)',
 					happRoutingReFilter: 'Alternative resource list Re:filter (for Russia)',
-
-					//Hiddify
-					hiddifyAdditional1: 'Select your country in the settings. Connections to addresses/sites in this country will be routed directly. If you want all connections to go through the proxy, select "Other" as the country.',
-					hiddifyAdditional2: 'Country settings section in the app: Top right corner, settings icon -> All settings -> Region',
-					hiddifyAdditional3: 'Press the large round button to start',
-					hiddifyTun1: 'Enable "VPN Mode" in the settings to make programs that do not use the OS system proxy work through the proxy (e.g., Steam or Discord), if necessary:',
-					hiddifyTun2: 'To do this, go to (on the left) Configuration Settings -> Operating Mode -> Select "VPN (experimental)" -> Restart the program as an administrator',
 					
-					//v2rayNg
+					// v2rayNG
 					v2rayNgUpdateSub: 'Tap the three dots in the top-right corner and select "Update subscription." After that, the available servers will appear in the list.',
 
-					//cmfa
-					CMFAaddconfig: 'Click the button below to open the profile creation window. You will need to specify the auto-update period, for example, 720 minutes. Click the "Save" button in the upper right corner.',
-					CMFArunconfig: 'Go to the "Profiles" section and select the profile you created, then return to the main page. Now you can connect by clicking the "Stopped" button to start the VPN or the "Running" button to disconnect it.',
-					
-					//v2rayN
+					// v2rayN
 					v2rayNupdateSub: 'At the top, click: Subscription Group -> Update Subscriptions without proxy',
 					v2rayNtun1: 'At the top, select settings for Russia if you are in the Russian Federation: Settings -> Regional presets setting -> Russia',
 					v2rayNtun2: 'At the bottom, in the "Routing" section, you can select the "Everything except Russia" mode — all traffic except torrents and all Russian IPs is routed through the proxy/VPN',
@@ -1246,43 +832,15 @@
 					v2rayNrun2: 'If you have not enabled TUN mode, enable "System Proxy Mode" at the top',
 					v2rayNabout: 'Read more about v2rayN',
 					
-					//NekoRay
-					nekorayTun: 'Check the "TUN Mode" toggle at the top to make programs that do not use the OS system proxy work through the proxy (e.g., Steam or Discord), if necessary',
-					nekoraySplit1: 'Instructions for setting up split tunneling in NekoRay',
-					nekoraySplit2: 'Go to "Settings" -> "Route Settings" -> "Basic Routes" -> "Custom Routes"',
-					nekoraySplit3: 'Paste the JSON configuration. For example, these rules for Discord and popular browsers:',
-					nekoraySplit4: 'For "Outbound by default," select the bypass mode. Click OK',
-					nekoraySplit5: 'Go to "Settings" -> "Route Settings" -> "General" and select "ipv4_only" for both "Domain Strategy" and "Server Address Selection Strategy." Click OK',
-					nekorayRun1: 'Select one of the servers, right-click on it, and click "Start"',
-					nekorayRun2: 'If something isn’t working, check whether you have enabled the "TUN Mode" or "System Proxy Mode" toggle. One of these must be enabled.',
-					nekorayRun3: 'If the internet is not working, wait a couple of minutes for the program to initialize everything necessary or try a different mode (TUN/System Proxy)',
-					
-					//InvisibleMan
-					invManAddConf1: 'You can write anything in the "Remarks" field, but it is mandatory to enter',
-					invManAddConf2: 'Select one of the servers and click the close icon',
-					invManRun: 'Press the green "RUN" button on the main screen of the application',
-					invManTun: 'To ensure programs like Steam or Discord work through the proxy, enable TUN mode in the settings',
-					
-					//Clash Verge Rev
-					ClashVergeRevAddConf1: 'Click the button above — the app will open, and the subscription will be added automatically. If this doesn’t happen (the "Profiles" section is empty), close the app and try again or add the subscription manually through the "Profiles" section: in the "Profile URL" field, enter the link (copied from above) and click the import button.',  
-					ClashVergeRevOnSysProxy: 'Enable the System Proxy option in the app settings.',  
-					ClashVergeRevTun: 'To ensure that programs like Steam and Discord work through the proxy, enable the TUN mode in the settings.',  
-					ClashVergeRevOffSysProxy: 'Before enabling TUN mode, disable the System Proxy option in the app settings.',  
-					
-					//Linux/Other
+					// Linux/Other
 					linuxExampleV2rayA: 'For example you can use v2rayA',
 					linux1: 'If you want to set up on another device (router, TV, server, etc.), find a suitable application.',
 					linux2: 'You need to paste the following link as the "Subscription link":',
-					copyLinkBelow: 'Copy the following link:',
-					
-					//Footer
-					faq: 'FAQ:',
-					faq1: '1. Subscription — a link in a special format that the application uses to download the data necessary for connection from the server',
-					faq2: '2. The same subscription can be used on multiple devices simultaneously',
-					donate: 'Donate',
+					copyLinkBelow: 'Copy the following link:'
 				},
 				ru: {
 					support: 'Поддержка',
+					donate: 'Поддержать сервис',
 					system: 'Системная',
 					light: 'Светлая',
 					dark: 'Темная',
@@ -1303,14 +861,13 @@
 					monthly: 'Ежемесячно',
 					yearly: 'Ежегодно',
 					subscription: 'Подписка',
-					subscriptionFor: 'Подписка для',
 					copyLink: 'Скопировать ссылку подписки',
 					copiedToClipboard: 'Скопировано в буфер обмена',
 					separateLinksTitle: 'Список доступных серверов',
 					separateLinks1: 'В этом разделе вы получаете доступ к своим конфигурациям по отдельности, что позволяет делиться каждой из них с помощью QR-кода или просто копировать их',
 					separateLinks2: 'Может пригодиться, если, например, нужно настроить подключение только к конкретному серверу на определенном устройстве',
 					
-					//Guide
+					// Guide
 					guide: 'Инструкция:',
 					additional: 'Дополнительно:',
 					otherApps: 'Другие приложения',
@@ -1321,7 +878,7 @@
 					getAppDescription: 'Нажмите на ссылку ниже, чтобы загрузить программу:',
 					downloadApp: 'Скачать',
 					addConfig: 'Добавьте настройки:',
-					addConfigDescription: 'Нажмите на ссылку ниже, чтобы добавить конфигурации в программу:',
+					addConfigDescription: 'Нажмите на ссылку ниже, чтобы добавить конфигурацию в программу:',
 					addConfigApp: 'Добавить в приложение',
 					doUpdate: 'Обновите',
 					doRun: 'Запустите:',
@@ -1334,29 +891,18 @@
 					troubleWin1: 'Если после включения программы интернет не работает, то перейдите в системные настройки Windows, откройте раздел «Сеть и Интернет», затем «Прокси-сервер» и активируйте переключатель «Использовать прокси-сервер» и сохраните.',
 					troubleWin2: 'Также если после отключения программы у вас не работает интернет, то необходимо отключить параметр «Использовать прокси-сервер».',
 					
-					//v2box
+					// v2box
 					v2boxStart: 'Во вкладке "Configs" появится подписка, тыкните на нужный сервер и запустите во вкладке "Home"',
 
-					//Happ
+					// Happ
 					happRouting: 'Добавить правила маршрутизации:',
 					happRoutingRoscomVPN: 'Кастомный роутинг RoscomVPN',
 					happRoutingReFilter: 'Альтернативный список ресурсов Re:filter',
-
-					//Hiddify
-					hiddifyAdditional1: 'Выберите свою страну в настройках. Подключение к адресам/сайтам этой страны будет идти напрямую. Если вы хотите, чтобы подключение до всех адресов шло через прокси — выберите в качестве страны "Другой"',
-					hiddifyAdditional2: 'Раздел настроек страны в приложении: Правый верхний угол, иконка настроек -> Все параметры -> Регион',
-					hiddifyAdditional3: 'Нажмите большую круглую кнопку для запуска',
-					hiddifyTun1: 'Включите "Режим VPN" в настройках, чтобы программы, не использующие системный прокси ОС, работали через прокси (например Steam или Discord), если необходимо:',
-					hiddifyTun2: 'Для этого зайдите (слева) в Параметры конфигурации -> Режим работы -> Выберите "VPN (экспериментальный)" -> Перезапустите программу от имени администратора',
 					
-					//v2rayNg
+					// v2rayNG
 					v2rayNgUpdateSub: 'Нажмите на три точечки справа сверху и выберите "Обновить подписку". После этого в списке появятся доступные серверы',
 
-					//cmfa
-					CMFAaddconfig: 'Нажмите кнопку ниже — откроется окно создания профиля. Потребуется указать период автообновления, например, 720 минут. Справа вверху нажми на кнопку "Сохранить"',
-					CMFArunconfig: 'Перейдите в пункт "Профили" и выберите созданный профиль, затем вернитесь на главную страницу. Теперь вы можете подключиться, нажав на кнопку "Остановлен", чтобы запустить VPN, или "Запущен", чтобы отключить его',
-					
-					//v2rayN
+					// v2rayN
 					v2rayNupdateSub: 'Нажмите сверху: Subscription Group -> Update Subscriptions without proxy',
 					v2rayNtun1: 'Выберите сверху настройки для России, если вы в РФ: Settings -> Regional presets setting -> Russia',
 					v2rayNtun2: 'Снизу в разделе "Routing" можно выбрать режим "Всё, кроме РФ" — в прокси/VPN направляется весь трафик, кроме торрентов и всех российских IP',
@@ -1364,44 +910,16 @@
 					v2rayNrun1: 'Выбрать один из серверов в списке, нажать на него правой кнопкой мыши и выбрать "Set as active server"',
 					v2rayNrun2: 'Если вы не включали TUN-режим, включите "Режим системного прокси" сверху',
 					v2rayNabout: 'Читать подробнее про v2rayN',
-					
-					//NekoRay
-					nekorayTun: 'Поставьте галочку "Режим TUN" сверху, чтобы программы, не использующие системный прокси ОС, работали через прокси (например Discord), если необходимо',
-					nekoraySplit1: 'Инструкция по настройке раздельного туннелирования в NekoRay',
-					nekoraySplit2: 'Зайдите в «Настройка» -> «Настройка маршрутов» -> «Базовые маршруты» -> «Кастомные маршруты»',
-					nekoraySplit3: 'Вставьте JSON конфигурацию. Например, эти правила для Discord и популярных браузеров:',
-					nekoraySplit4: 'Outbound по умолчанию» выберите режим bypass. Нажмите ОК',
-					nekoraySplit5: 'Зайдите в «Настройка» -> «Настройка маршрутов» -> «Общие» и выберите в пунктах "Стратегия доменов" и "Стратегия выбора адреса сервера" параметр "ipv4_only". Нажмите ОК',
-					nekorayRun1: 'Выбрать один из серверов, нажать правой кнопкой мыши и нажать "Запустить"',
-					nekorayRun2: 'Если у вас что-то не заработало — проверьте включиили ли вы галочку "Режим TUN" или "Режим системного прокси". Одна из галочек обязательно должна быть включена',
-					nekorayRun3: 'Если интернет не работает, подождите пару минут, пока программа запустит всё необходимое или попробуйте другой режим (TUN/Системный прокси)',
-					
-					//InvisibleMan
-					invManAddConf1: 'В поле "Remarks" можно написать что-угодно, но обязательно нужно написать',
-					invManAddConf2: 'Выбрать один из серверов и нажать крестик',
-					invManRun: 'Нажать зеленую кнопку "RUN" на главном экране приложения',
-					invManTun: 'Чтобы через прокси работали такие программы, как Steam и Discord, включите в настройках режим TUN',
-					
-					//ClashVergeRev
-					ClashVergeRevAddConf1: 'Нажмите кнопку выше — приложение откроется, и подписка добавится автоматически. Если этого не произошло (раздел "Профили" пустой), закройте приложение и попробуйте снова или добавьте подписку вручную через раздел "Профили": в строке "URL профиля" укажите ссылку (скопировав её выше) и нажмите кнопку импорта.',
-					ClashVergeRevOnSysProxy: 'Включите в настройках приложения параметр Системный прокси',
-					ClashVergeRevTun: 'Чтобы через прокси работали такие программы, как Steam и Discord, включите в настройках режим TUN',
-					ClashVergeRevOffSysProxy: 'Перед включением режима Tun - Отключите в настройках приложения параметр Системный прокси',
-					
-					//Linux/Other
+
+					// Linux/Other
 					linux1: 'Если вы хотите провести настройку на другом устройстве (роутер, телевизор, сервер и т.п.) — найдите подходящее приложение.',
 					linuxExampleV2rayA: 'Например v2rayA',
 					linux2: 'В качестве "Subscription link" нужно вставить следующую ссылку:',
-					copyLinkBelow: 'Скопируйте следующую ссылку:',
-					
-					//Footer
-					faq: 'Ответы на вопросы:',
-					faq1: '1. Подписка — ссылка в специальном формате, по которой приложение загружает с сервера данные, необходимые для подключения',
-					faq2: '2. Одну и ту же подписку можно использовать сразу на нескольких устройствах',
-					donate: 'Поддержать сервис',
+					copyLinkBelow: 'Скопируйте следующую ссылку:'
 				},
 				zh: {
 					support: '支持',
+					donate: '捐赠',
 					system: '系统',
 					light: '浅色',
 					dark: '深色',
@@ -1422,14 +940,13 @@
 					monthly: '每月',
 					yearly: '每年',
 					subscription: '订阅',
-					subscriptionFor: '订阅用于',
 					copyLink: '复制订阅链接',
 					copiedToClipboard: '已复制到剪贴板',
 					separateLinksTitle: '可用服务器列表',
 					separateLinks1: '在此部分中，您可以单独访问配置，允许您通过二维码分享每个配置或直接复制它们',
 					separateLinks2: '例如，如果您需要在特定设备上设置特定服务器的连接，这将非常有用',
 				
-					//Guide
+					// Guide
 					guide: '指南：',
 					otherApps: '其他应用程序',
 					additional: '附加：',
@@ -1453,29 +970,18 @@
 					troubleWin1: '如果在启动程序后互联网无法使用，请进入 Windows 系统设置，打开 "网络和互联网" 部分，然后 "代理服务器"，启用 "使用代理服务器" 切换，并保存。',
 					troubleWin2: '此外，如果在关闭程序后互联网无法使用，您需要禁用 "使用代理服务器" 选项。',
 				
-					//v2box
+					// v2box
 					v2boxStart: '在 "配置" 选项卡中，订阅将出现。点击所需的服务器并在 "主页" 选项卡中启动它。',
 					
-					//Happ
+					// Happ
 					happRouting: '添加路由规则：',
 					happRoutingRoscomVPN: '自定义路由 RoscomVPN（适用于俄罗斯）',
 					happRoutingReFilter: 'Re:filter 的备用资源列表（适用于俄罗斯）',
 				
-					//Hiddify
-					hiddifyAdditional1: '在设置中选择您的国家。对该国家的地址/站点的连接将直接路由。如果您希望所有连接通过代理，请选择 "其他" 作为国家。',
-					hiddifyAdditional2: '应用程序中的国家设置部分：右上角，设置图标 -> 所有设置 -> 地区',
-					hiddifyAdditional3: '按下大圆按钮以启动',
-					hiddifyTun1: '在设置中启用 "VPN 模式"，以便让不使用操作系统系统代理的程序通过代理工作（例如 Steam 或 Discord），如果需要：',
-					hiddifyTun2: '为此，转到（左侧）配置设置 -> 操作模式 -> 选择 "VPN（实验）" -> 以管理员身份重新启动程序',
-				
-					//v2rayNg
+					// v2rayNG
 					v2rayNgUpdateSub: '点击右上角的三个点，然后选择 "更新订阅"。之后，可用服务器将出现在列表中。',
-
-					//cmfa
-					CMFAaddconfig: '点击下方按钮——将打开创建配置文件的窗口。需要指定自动更新周期，例如720分钟。点击右上角的“保存”按钮。',
-					CMFArunconfig: '进入“配置文件”部分并选择创建的配置文件，然后返回主页面。现在您可以通过点击“已停止”按钮启动VPN，或点击“已启动”按钮将其关闭。',
 				
-					//v2rayN
+					// v2rayN
 					v2rayNupdateSub: '在顶部，点击：订阅组 -> 无代理更新订阅',
 					v2rayNtun1: '在顶部，如果你在默认地区，请选择设置：设置 -> 区域预设设置 -> 默认',
 					v2rayNtun2: '在底部的“路由”部分，你可以选择“除了中国以外的所有内容”模式——所有流量（除了种子和所有中国的IP）通过代理/VPN路由',
@@ -1483,44 +989,16 @@
 					v2rayNrun1: '从列表中选择一个服务器，右键单击它，然后选择 "设置为活动服务器"',
 					v2rayNrun2: '如果您未启用 TUN 模式，请在顶部启用 "系统代理模式"',
 					v2rayNabout: '了解更多关于 v2rayN 的信息',
-				
-					//NekoRay
-					nekorayTun: '检查顶部的 "TUN 模式" 切换，以便让不使用操作系统系统代理的程序通过代理工作（例如 Steam 或 Discord），如果需要',
-					nekoraySplit1: '在 NekoRay 中设置分流的说明',
-					nekoraySplit2: '转到 "设置" -> "路由设置" -> "基本路由" -> "自定义路由"',
-					nekoraySplit3: '粘贴 JSON 配置。例如，这些规则适用于 Discord 和流行的浏览器：',
-					nekoraySplit4: '对于 "默认出站"，选择绕过模式。点击确定',
-					nekoraySplit5: '转到 "设置" -> "路由设置" -> "通用" 并为 "域名策略" 和 "服务器地址选择策略" 都选择 "ipv4_only"。点击确定',
-					nekorayRun1: '选择一个服务器，右键单击它，然后点击 "启动"',
-					nekorayRun2: '如果某些功能无法正常工作，请检查是否启用了 "TUN 模式" 或 "系统代理模式" 切换。这两者之一必须启用。',
-					nekorayRun3: '如果互联网无法使用，请等待几分钟以初始化必要内容或尝试切换模式（TUN/系统代理）',
-				
-					//InvisibleMan
-					invManAddConf1: '您可以在 "备注" 字段中填写任意内容，但必须填写',
-					invManAddConf2: '选择一个服务器并点击关闭图标',
-					invManRun: '在应用程序主屏幕按绿色的 "运行" 按钮',
-					invManTun: '要确保像 Steam 或 Discord 这样的程序通过代理工作，请在设置中启用 TUN 模式',
 
-					//ClashVergeRev
-					ClashVergeRevAddConf1: '点击上方按钮——应用程序将打开，并自动添加订阅。如果没有发生（“配置文件”部分为空），请关闭应用程序并重试，或者通过“配置文件”部分手动添加订阅：在“配置文件 URL”字段中输入链接（从上方复制）并点击导入按钮。',
-					ClashVergeRevOnSysProxy: '在应用设置中启用系统代理选项。',  
-					ClashVergeRevTun: '为了让 Steam 和 Discord 等程序通过代理运行，请在设置中启用 TUN 模式。',  
-					ClashVergeRevOffSysProxy: '在启用 TUN 模式之前，请先在应用设置中禁用系统代理选项。',  
-
-					//Linux/Other
+					// Linux/Other
 					linuxExampleV2rayA: '例如，您可以使用 v2rayA',
 					linux1: '如果您想在其他设备（路由器、电视、服务器等）上设置，请找到合适的应用程序。',
 					linux2: '您需要将以下链接粘贴为 "订阅链接"：',
-					copyLinkBelow: '复制以下链接：',
-				
-					//Footer
-					faq: '常见问题解答：',
-					faq1: '1. 订阅——一种特殊格式的链接，应用程序使用它从服务器下载连接所需的数据',
-					faq2: '2. 相同的订阅可以在多个设备上同时使用',
-					donate: '捐赠',
+					copyLinkBelow: '复制以下链接：'
 				},
 				fa: {
 					support: 'پشتیبانی',
+					donate: 'کمک مالی',
 					system: 'سیستم',
 					light: 'روشن',
 					dark: 'تاریک',
@@ -1541,14 +1019,13 @@
 					monthly: 'ماهانه',
 					yearly: 'سالانه',
 					subscription: 'اشتراک',
-					subscriptionFor: 'اشتراک برای',
 					copyLink: 'کپی لینک اشتراک',
 					copiedToClipboard: 'کپی شد',
 					separateLinksTitle: 'لیست سرورهای موجود',
 					separateLinks1: 'در این بخش می‌توانید به تنظیمات خود به صورت جداگانه دسترسی داشته باشید و هرکدام را از طریق کد QR به اشتراک بگذارید یا فقط کپی کنید',
 					separateLinks2: 'این می‌تواند زمانی مفید باشد که به عنوان مثال نیاز دارید اتصال به یک سرور خاص را روی یک دستگاه خاص تنظیم کنید',
 				
-					//Guide
+					// Guide
 					guide: 'راهنما:',
 					otherApps: 'برنامه‌های دیگر',
 					additional: 'اضافی:',
@@ -1572,29 +1049,18 @@
 					troubleWin1: 'اگر اینترنت پس از شروع برنامه کار نمی‌کند، به تنظیمات سیستم ویندوز بروید، بخش "Network & Internet" را باز کنید، سپس "Proxy Server"، گزینه "استفاده از پروکسی سرور" را فعال کنید و ذخیره کنید.',
 					troubleWin2: 'همچنین، اگر اینترنت پس از خاموش کردن برنامه کار نمی‌کند، باید گزینه "استفاده از پروکسی سرور" را غیرفعال کنید.',
 				
-					//v2box
+					// V2Box
 					v2boxStart: 'در تب "تنظیمات"، اشتراک ظاهر خواهد شد. روی سرور موردنظر کلیک کرده و در تب "خانه" آن را شروع کنید.',
 					
-					//Happ
+					// Happ
 					happRouting: 'افزودن قوانین مسیریابی:',
 					happRoutingRoscomVPN: 'مسیریابی سفارشی RoscomVPN (برای روسیه)',
 					happRoutingReFilter: 'لیست منابع جایگزین Re:filter (برای روسیه)',
 				
-					//Hiddify
-					hiddifyAdditional1: 'در تنظیمات، کشور خود را انتخاب کنید. اتصال به آدرس‌ها/سایت‌های این کشور مستقیماً انجام خواهد شد. اگر می‌خواهید تمام اتصالات از طریق پروکسی انجام شوند، "دیگر" را به عنوان کشور انتخاب کنید.',
-					hiddifyAdditional2: 'بخش تنظیمات کشور در برنامه: گوشه بالا سمت راست، آیکون تنظیمات -> تمام تنظیمات -> منطقه',
-					hiddifyAdditional3: 'دکمه بزرگ دایره‌ای را برای شروع فشار دهید',
-					hiddifyTun1: 'برای کارکرد برنامه‌هایی که از پروکسی سیستم عامل استفاده نمی‌کنند (مثل Steam یا Discord)، "حالت VPN" را در تنظیمات فعال کنید:',
-					hiddifyTun2: 'برای این کار، به تنظیمات (سمت چپ) بروید -> حالت عملکرد -> "VPN (تجربی)" را انتخاب کنید -> برنامه را به عنوان مدیر مجدداً راه‌اندازی کنید',
-				
-					//v2rayNg
+					// v2rayNG
 					v2rayNgUpdateSub: 'روی سه نقطه در گوشه بالا سمت راست کلیک کنید و گزینه "به‌روزرسانی اشتراک" را انتخاب کنید. سپس سرورهای موجود در لیست ظاهر می‌شوند.',
 
-					//cmfa
-					CMFAaddconfig: 'دکمه زیر را فشار دهید - پنجره ایجاد پروفایل باز می‌شود. باید دوره به‌روزرسانی خودکار را مشخص کنید، مثلاً 720 دقیقه. در بالا سمت راست روی دکمه «ذخیره» کلیک کنید.',
-					CMFArunconfig: 'به بخش «پروفایل‌ها» بروید و پروفایل ایجاد شده را انتخاب کنید، سپس به صفحه اصلی بازگردید. اکنون می‌توانید با فشار دادن دکمه «متوقف شده» VPN را راه‌اندازی کنید یا با فشار دادن دکمه «راه‌اندازی شده» آن را غیرفعال کنید.',
-				
-					//v2rayN
+					// v2rayN
 					v2rayNupdateSub: 'در بالای صفحه کلیک کنید: گروه اشتراک -> به‌روزرسانی اشتراک‌ها بدون پروکسی',
 					v2rayNtun1: 'در بالا، اگر در ایران هستید، تنظیمات را انتخاب کنید: تنظیمات -> تنظیمات پیش‌فرض منطقه -> ایران',
 					v2rayNtun2: 'در پایین، در بخش «مسیر‌یابی»، می‌توانید حالت «همه چیز به جز ایران» را انتخاب کنید — تمام ترافیک به جز تورنت‌ها و همه آدرس‌های IP ایران از طریق پروکسی/VPN مسیریابی می‌شود',
@@ -1603,40 +1069,11 @@
 					v2rayNrun2: 'اگر حالت TUN را فعال نکرده‌اید، در بالا گزینه "حالت پروکسی سیستم" را روشن کنید',
 					v2rayNabout: 'بیشتر درباره v2rayN بخوانید',
 				
-					//NekoRay
-					nekorayTun: 'برای کارکرد برنامه‌هایی که از پروکسی سیستم عامل استفاده نمی‌کنند (مثل Steam یا Discord)، گزینه "حالت TUN" را در بالا بررسی کنید.',
-					nekoraySplit1: 'دستورالعمل برای تنظیم تقسیم تونل در NekoRay',
-					nekoraySplit2: 'به "تنظیمات" -> "تنظیمات مسیر" -> "مسیرهای پایه" -> "مسیرهای سفارشی" بروید',
-					nekoraySplit3: 'تنظیمات JSON را جای‌گذاری کنید. به عنوان مثال، این قوانین برای Discord و مرورگرهای محبوب:',
-					nekoraySplit4: 'برای "پیش‌فرض خروجی"، حالت عبور را انتخاب کنید. تایید را کلیک کنید',
-					nekoraySplit5: 'به "تنظیمات" -> "تنظیمات مسیر" -> "عمومی" بروید و "ipv4_only" را برای هر دو گزینه "استراتژی دامنه" و "استراتژی انتخاب آدرس سرور" انتخاب کنید. تایید را کلیک کنید',
-					nekorayRun1: 'یکی از سرورها را انتخاب کنید، روی آن راست کلیک کرده و "شروع" را کلیک کنید',
-					nekorayRun2: 'اگر چیزی کار نمی‌کند، بررسی کنید که آیا گزینه "حالت TUN" یا "حالت پروکسی سیستم" فعال شده است. یکی از این دو باید فعال باشد.',
-					nekorayRun3: 'اگر اینترنت کار نمی‌کند، چند دقیقه صبر کنید تا برنامه همه چیز لازم را تنظیم کند یا یک حالت دیگر (TUN/حالت پروکسی سیستم) را امتحان کنید',
-				
-					//InvisibleMan
-					invManAddConf1: 'می‌توانید هر چیزی را در فیلد "توضیحات" وارد کنید، اما وارد کردن آن الزامی است',
-					invManAddConf2: 'یکی از سرورها را انتخاب کنید و روی آیکون بستن کلیک کنید',
-					invManRun: 'دکمه سبز "RUN" را در صفحه اصلی برنامه فشار دهید',
-					invManTun: 'برای اطمینان از کارکرد برنامه‌هایی مثل Steam یا Discord از طریق پروکسی، حالت TUN را در تنظیمات فعال کنید',
-
-					//ClashVergeRev
-					ClashVergeRevAddConf1: 'دکمه بالا را فشار دهید - برنامه باز می‌شود و اشتراک به صورت خودکار اضافه می‌شود. اگر این اتفاق نیفتاد (بخش «پروفایل‌ها» خالی است)، برنامه را ببندید و دوباره امتحان کنید یا اشتراک را به صورت دستی از طریق بخش «پروفایل‌ها» اضافه کنید: در قسمت «URL پروفایل» لینک را وارد کنید (از بالا کپی کنید) و دکمه وارد کردن را فشار دهید.',
-					ClashVergeRevOnSysProxy: 'در تنظیمات برنامه گزینه پروکسی سیستم را فعال کنید.',  
-					ClashVergeRevTun: 'برای اینکه برنامه‌هایی مانند Steam و Discord از طریق پروکسی کار کنند، حالت TUN را در تنظیمات فعال کنید.',  
-					ClashVergeRevOffSysProxy: 'قبل از فعال کردن حالت TUN، گزینه پروکسی سیستم را در تنظیمات برنامه غیرفعال کنید.',  
-
-					//Linux/Other
+					// Linux/Other
 					linuxExampleV2rayA: 'به عنوان مثال، می‌توانید از v2rayA استفاده کنید',
 					linux1: 'اگر می‌خواهید تنظیمات را روی دستگاه دیگری (روتر، تلویزیون، سرور و غیره) انجام دهید، یک برنامه مناسب پیدا کنید.',
 					linux2: 'باید لینک زیر را به عنوان "لینک اشتراک" جای‌گذاری کنید:',
-					copyLinkBelow: 'لینک زیر را کپی کنید:',
-				
-					//Footer
-					faq: 'پرسش‌های متداول:',
-					faq1: '1. اشتراک — لینکی با یک فرمت خاص که برنامه از آن برای دانلود داده‌های لازم برای اتصال از سرور استفاده می‌کند',
-					faq2: '2. همان اشتراک می‌تواند همزمان روی چندین دستگاه استفاده شود',
-					donate: 'کمک مالی',
+					copyLinkBelow: 'لینک زیر را کپی کنید:'
 				},
 			};
 			
@@ -1769,10 +1206,10 @@
 				
 				// Change QR modal header to subscription localization string and show sub link QR
 				qrButtonSub.addEventListener('click', () => {
-					qrLink = linkFull;
+					let qrLink = linkFull;
 					qrCode.clear();
 					qrCode.makeCode(qrLink);
-					subscriptionTitle = MESSAGES[getPreferredLanguage()]['subscription'];
+					let subscriptionTitle = MESSAGES[getPreferredLanguage()]['subscription'];
 					qrModalLabel.setAttribute('x-text', `'${subscriptionTitle}'`);
 				});
 				
@@ -1825,7 +1262,7 @@
 					qrButtons.addEventListener('click', () => {
 						const separateLink = qrButtons.dataset.link;
 						const name = extractName(separateLink);
-						qrLink = separateLink;
+						let qrLink = separateLink;
 						qrCode.clear();
 						qrCode.makeCode(qrLink);
 						
