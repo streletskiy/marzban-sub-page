@@ -38,6 +38,7 @@
 				document.getElementById("href-windows-hiddify").href = `hiddify://import/${linkFull}`;
 				document.getElementById("href-windows-invisibleman").href = `invxray://subscription/${linkFull}`;
 				document.getElementById("href-windows-clashvergerev").href = `clash://install-config?url${linkFull}&name=` + serviceName;
+				document.getElementById("href-linux-clashvergerev").href = `clash://install-config?url${linkFull}&name=` + serviceName;
 				
 				// Happ routing deeplinks
 				document.getElementById("href-ios-happ-RoscomVPN").href = `https://routing.vpn.ru.com/`;
@@ -1107,24 +1108,73 @@
 				</div>
 				<div class="accordion-item rounded-4 px-3 mb-2">
 					<h2 class="accordion-header">
-						<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOther" aria-expanded="false" aria-controls="collapseOther">
+						<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLinux" aria-expanded="false" aria-controls="collapseLinux">
 							<i class="bi bi-terminal-fill mb-2"></i>
 							<span class="d-block w-100 text-center">
 								Linux / <span x-text="$t('otherDevices')"></span>
 							</span>
 						</button>
 					</h2>
-					<div id="collapseOther" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
-						<p x-text="$t('linux1')"></p>
-						<a href="https://v2raya.org/en/docs/prologue/installation/">
-							<button type="button" class="btn my-btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
-						</a>
-						<p x-text="$t('linux2')"></p>
-						<button class="btn my-btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4" type="button">
-							<script type="text/javascript">
-								document.write(linkFull);
-							</script>
-						</button>
+					<div id="collapseLinux" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
+						<div class="accordion" id="accordionOsLinux">
+							<div class="accordion-item">
+								<hr class="m-0">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsLinuxClashVergeRev" aria-expanded="false" aria-controls="accordionOsLinuxClashVergeRev">
+										<svg class="my-icon-small"><use href="#clash-meta"></use></svg>
+										<span class="d-block w-100 text-center">
+											Clash Verge Rev🔥
+										</span>
+									</button>
+								</h2>
+								<div id="accordionOsLinuxClashVergeRev" class="accordion-collapse collapse show" data-bs-parent="#accordionOsLinuxClashVergeRev">
+									<div class="container pb-4">
+										<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+										<p x-text="$t('getAppDescription')"></p>
+										<a href="https://github.com/clash-verge-rev/clash-verge-rev/releases">
+											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+										</a>
+										<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('doRun')"></span> Clash Verge Rev </p>
+										<p x-text="$t('betterAdmin')"></p>
+										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('addConfig')"></span></p>
+										<p x-text="$t('addConfigDescription')"></p>
+										<a id="href-linux-clashvergerev">
+											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+										</a>
+										<p x-text="$t('ClashVergeRevAddConf1')"></p>
+										<p x-text="$t('ClashVergeRevOnSysProxy')"></p>
+										<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('tunWish')"></span></p>
+										<p x-text="$t('ClashVergeRevTun')"></p>
+										<p x-text="$t('ClashVergeRevOffSysProxy')"></p>
+										<div class="my-warning">
+											<p x-text="$t('troubleWin1')"></p>
+											<p x-text="$t('troubleWin2')"></p>
+										</div>
+									</div>
+								</div>
+								<hr class="m-0">
+								<div class="accordion-item">
+									<h2 class="accordion-header">
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsLinuxAlt" aria-expanded="false" aria-controls="accordionOsLinuxAlt">
+											<i class="bi bi-plus-circle-fill mb-2"></i>
+											<span class="d-block w-100 text-center" x-text="$t('otherDevices')"></span>
+										</button>
+									</h2>
+									<div id="accordionOsLinuxAlt" class="accordion-collapse collapse" data-bs-parent="#accordionOsLinux">
+										<p x-text="$t('linux1')"></p>
+										<a href="https://v2raya.org/en/docs/prologue/installation/">
+											<button type="button" class="btn my-btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
+										</a>
+										<p x-text="$t('linux2')"></p>
+										<button class="btn my-btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4" type="button">
+											<script type="text/javascript">
+												document.write(linkFull);
+											</script>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				
