@@ -35,9 +35,9 @@
 - Detailed guides are provided for Windows, Android, iOS, MacOS and Linux apps:
 
 	- **iOS / macOS:** Hiddify, Streisand, FoxRay, V2Box, Shadowrocket, SingBox, Happ
-	- **Android:** Hiddify, V2RayNG, Clash Meta, SingBox, Happ
+	- **Android:** Hiddify, V2RayNG, V2RayTun, Clash Meta, SingBox, Happ
 	- **Windows:** Hiddify, NekoRay, v2rayN, InvisibleMan, Clash Verge Rev
-	- **Linux:** v2rayA
+	- **Linux:** Clash Verge Rev, v2rayA
 
 # Installation
 
