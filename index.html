@@ -169,7 +169,7 @@
 		
 			.accordion {
 				--bs-accordion-btn-focus-box-shadow: transparent;
-				--bs-accordion-active-bg: tranparent;
+				--bs-accordion-active-bg: transparent;
 				--bs-accordion-active-color: #fff;
 			}
 			
@@ -278,6 +278,9 @@
 				<path d="M6.5 7C7.7 7 8.66667 7.88889 9 8.33333V9C8.66667 8.55556 7.7 7.66667 6.5 7.66667C5.3 7.66667 3.66667 8.11111 3 8.33333V7.66667C3.66667 7.44444 5.3 7 6.5 7Z" />
 				<path d="M6.30917 10.25C7.26846 9.65 8.34892 9.74402 8.76923 9.86602L9 10.299C8.57969 10.177 7.49923 10.083 6.53994 10.683C5.58065 11.283 4.4288 12.3884 3.97278 12.866L3.74201 12.433C4.19803 11.9553 5.34988 10.85 6.30917 10.25Z" />
 				<path d="M6.41257 8.64705C7.48252 8.33646 8.5037 8.73022 8.88054 8.96593L9 9.44889C8.62315 9.21319 7.60198 8.81943 6.53203 9.13001C5.46208 9.44059 4.0854 10.1853 3.5308 10.5188L3.41134 10.0359C3.96594 9.70234 5.34262 8.95763 6.41257 8.64705Z" />
+			</symbol>
+			<symbol id="clash-verge-rev" viewBox="0 0 22 22">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M11.007 22C6.01025 22 0.413848 19.6085 0.0141045 14.2017C-0.0891418 12.8053 0.39302 11.8257 0.853709 10.8897C0.907577 10.7802 0.961152 10.6714 1.01346 10.5625C0.347223 7.78979 -0.385635 1.82844 2.01282 0.164802C3.51185 -0.87497 7.0096 3.28412 8.00897 4.84377C9.00832 4.32389 10.5074 4.32389 11.007 4.32389C12.0064 4.32389 12.5061 4.32389 14.0051 4.84377C15.171 3.11082 18.0026 -0.251107 20.0013 0.164802C22.0654 0.594314 21.401 6.70141 21.1077 9.39799C21.0459 9.96537 21.0006 10.3818 21.0006 10.5625C21.0864 10.7409 21.1721 10.904 21.2553 11.0623C21.6571 11.8266 22 12.479 22 14.2017C22 16.2813 19.0019 22 11.007 22ZM8.86995 16.1663C8.39444 16.9904 6.84049 16.9834 5.3991 16.1507C3.95771 15.318 3.17471 13.9749 3.65022 13.1507C4.12573 12.3266 5.67969 12.3336 7.12107 13.1663C8.56246 13.999 9.34546 15.3421 8.86995 16.1663ZM18.0871 13.1507C18.5626 13.9749 17.7796 15.318 16.3382 16.1507C14.8968 16.9834 13.3429 16.9904 12.8674 16.1663C12.3919 15.3421 13.1749 13.999 14.6163 13.1663C16.0576 12.3336 17.6116 12.3266 18.0871 13.1507ZM11.007 19.1585C10.0077 19.1585 8.14148 17.6696 9.508 17.6585H12.5061C14.0051 17.6585 12.0064 19.1585 11.007 19.1585Z"/>
 			</symbol>
 		</svg>
 		<div class="container my-container py-3 pb-5" x-data>
@@ -748,7 +751,7 @@
 											<div class="accordion-item">
 												<h2 class="accordion-header">
 												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidV2raytun" aria-expanded="false" aria-controls="collapseOsAndroidV2raytun">
-														<svg class="my-icon"><use href="#v2box"></use></svg>
+														<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
 														<span class="d-block w-100 text-center">
 															V2RayTun
 														</span>
@@ -1068,7 +1071,7 @@
 										<div class="accordion-item">
 											<h2 class="accordion-header">
 												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsClashVergeRev" aria-expanded="false" aria-controls="collapseOsWindowsClashVergeRev">
-													<svg class="my-icon"><use href="#clash-meta"></use></svg>
+													<svg class="my-icon-small"><use href="#clash-verge-rev"></use></svg>
 													<span class="d-block w-100 text-center">
 														Clash Verge Rev
 													</span>
@@ -1121,7 +1124,7 @@
 								<hr class="m-0">
 								<h2 class="accordion-header">
 									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsLinuxClashVergeRev" aria-expanded="false" aria-controls="accordionOsLinuxClashVergeRev">
-										<svg class="my-icon-small"><use href="#clash-meta"></use></svg>
+										<svg class="my-icon-small"><use href="#clash-verge-rev"></use></svg>
 										<span class="d-block w-100 text-center">
 											Clash Verge Rev🔥
 										</span>
@@ -1135,21 +1138,13 @@
 											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
 										</a>
 										<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('doRun')"></span> Clash Verge Rev </p>
-										<p x-text="$t('betterAdmin')"></p>
 										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('addConfig')"></span></p>
 										<p x-text="$t('addConfigDescription')"></p>
 										<a id="href-linux-clashvergerev">
-											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+											<button type="button" class="btn my-btn my-btn-accent w-100 mb-3" x-text="$t('addConfigApp')"></button>
 										</a>
 										<p x-text="$t('ClashVergeRevAddConf1')"></p>
 										<p x-text="$t('ClashVergeRevOnSysProxy')"></p>
-										<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('tunWish')"></span></p>
-										<p x-text="$t('ClashVergeRevTun')"></p>
-										<p x-text="$t('ClashVergeRevOffSysProxy')"></p>
-										<div class="my-warning">
-											<p x-text="$t('troubleWin1')"></p>
-											<p x-text="$t('troubleWin2')"></p>
-										</div>
 									</div>
 								</div>
 								<hr class="m-0">
@@ -1163,7 +1158,7 @@
 									<div id="accordionOsLinuxAlt" class="accordion-collapse collapse" data-bs-parent="#accordionOsLinux">
 										<p x-text="$t('linux1')"></p>
 										<a href="https://v2raya.org/en/docs/prologue/installation/">
-											<button type="button" class="btn my-btn my-btn-accent w-100 mb-2" x-text="$t('linuxExampleV2rayA')"></button>
+											<button type="button" class="btn my-btn my-btn-accent w-100 mb-3" x-text="$t('linuxExampleV2rayA')"></button>
 										</a>
 										<p x-text="$t('linux2')"></p>
 										<button class="btn my-btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4" type="button">
@@ -1459,7 +1454,7 @@
 					invManTun: 'Чтобы через прокси работали такие программы, как Steam и Discord, включите в настройках режим TUN',
 					
 					//ClashVergeRev
-					ClashVergeRevAddConf1: 'Нажмите кнопку выше — приложение откроется, и подписка добавится автоматически. Если этого не произошло (раздел "Профили" пустой), закройте приложение и попробуйте снова или добавьте подписку вручную через раздел "Профили": в строке "URL профиля" укажите ссылку (скопировав её выше) и нажмите кнопку импорта.',
+					ClashVergeRevAddConf1: 'Нажмите кнопку выше — приложение откроется, и подписка добавится автоматически. Если этого не произошло (раздел "Профили" пустой), закройте приложение и попробуйте снова или добавьте подписку вручную через раздел "Профили": в строке "URL профиля" укажите ссылку (скопировав её выше) и нажмите кнопку импорта',
 					ClashVergeRevOnSysProxy: 'Включите в настройках приложения параметр Системный прокси',
 					ClashVergeRevTun: 'Чтобы через прокси работали такие программы, как Steam и Discord, включите в настройках режим TUN',
 					ClashVergeRevOffSysProxy: 'Перед включением режима Tun - Отключите в настройках приложения параметр Системный прокси',
