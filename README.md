@@ -1,7 +1,7 @@
 <h3 align="center">Marzbanner - Marzban subscription page template</h3>
 
 <p align="center">
-  Simple, beautiful, and user-friendly HTML template for <a href="https://github.com/Gozargah/Marzban">Marzban</a> and <a href="https://github.com/marzneshin/marzneshin">Marzneshin</a> subscription page based on <a href="https://getbootstrap.com/docs/5.3/">Bootstrap 5 CSS framework</a>
+  Simple, beautiful, and user-friendly HTML template for <a href="https://github.com/Gozargah/Marzban">Marzban</a> subscription page based on <a href="https://getbootstrap.com/docs/5.3/">Bootstrap 5 CSS framework</a>
   <br>
   <br>
   <a href="https://streletskiy.github.io/marzban-sub-page/"><strong>Live demo »</strong></a>
@@ -68,36 +68,6 @@ Re-upload the page file to the server (re-do first step from install):
 
 ```
 sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/streletskiy/marzban-sub-page/main/index.html
-```
-After update need to repeat personalization.
-
-<h2>Marzneshin:</h2>
-Use the instruction below to install page to <a href="https://github.com/marzneshin/marzneshin">Marzneshin</a>
-<h3>Install:</h3>
-
-1. Upload the file to the server.
-```
-sudo wget -N -P /var/lib/marzneshin/templates/subscription/ https://raw.githubusercontent.com/streletskiy/marzban-sub-page/main/marzneshin/index.html
-```
-2. Enter these commands to automatically specify the file path to the subscription page.
-```
-echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzneshin/templates/"' | sudo tee -a /etc/opt/marzneshin/.env
-echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /etc/opt/marzneshin/.env
-```
-Or specify them manually by editing the Marzneshin `.env` file.
-```
-CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzneshin/templates/"
-SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"
-```
-3. Restart Marzneshin to apply the changes.
-```
-marzneshin restart
-```
-<h3>Update:</h3>
-Re-upload the page file to the server (re-do first step from install):
-
-```
-sudo wget -N -P /var/lib/marzneshin/templates/subscription/ https://raw.githubusercontent.com/streletskiy/marzban-sub-page/main/marzneshin/index.html
 ```
 After update need to repeat personalization.
 
