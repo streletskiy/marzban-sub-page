@@ -21,7 +21,7 @@
 			}
 			
 			function formatDateIsoToDDMMYYYY(isoString) {
-				const date = new Date(isoString);
+				const date = new Date(isoString * 1000);
 				return date.toLocaleDateString('ru-RU');
 			}
 			
@@ -98,7 +98,7 @@
 						if (!data.expire) {
 							expireText.textContent = setXTextAttr(expireText, 'forever');
 						} else {
-							expireText.innerHTML = `${tr('until')} ${formatDateIsoToDDMMYYYY(data.expire)}`;
+							expireText.innerHTML = `${formatDateIsoToDDMMYYYY(data.expire)}`;
 						}
 			
 						// User traffic
@@ -1396,7 +1396,6 @@
 					expired: 'Expired',
 					disabled: 'Disabled',
 					duration: 'Duration',
-					until: 'Until',
 					forever: 'Forever',
 					traffic: 'Traffic',
 					trafficReset: 'Traffic Reset',
@@ -1514,7 +1513,6 @@
 					expired: 'Истекла',
 					disabled: 'Отключена',
 					duration: 'Срок',
-					until: 'До',
 					forever: 'Навсегда',
 					traffic: 'Трафик',
 					trafficReset: 'Сброс трафика',
@@ -1632,7 +1630,6 @@
 					expired: '已过期',
 					disabled: '已禁用',
 					duration: '持续时间',
-					until: '直到',
 					forever: '永久',
 					traffic: '流量',
 					trafficReset: '流量重置',
@@ -1750,7 +1747,6 @@
 					expired: 'منقضی شده',
 					disabled: 'غیرفعال',
 					duration: 'مدت زمان',
-					until: 'تا',
 					forever: 'همیشگی',
 					traffic: 'ترافیک',
 					trafficReset: 'بازنشانی ترافیک',
