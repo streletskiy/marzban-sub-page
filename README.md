@@ -122,8 +122,8 @@ After making changes, save the file and restart Marzban / Marzneshin.
 # Using attributes in url
 You can use the following attributes placed in url to override some page content:
 - sub — link to other marzban subscription page. Override all user info and connection links on page when specified.
-- support — link in support button. Use yout link with https:// to override link, or use **null** to remove this button
-- donate — link in donate button. Use yout link with https:// to override link, or use **null** to remove this button
+- support — link in support button. Use your link with https:// to override button link, or use **null** to remove this button
+- donate — link in donate button. Use your link with https:// to override button link, or use **null** to remove this button
 
 Example with overriding:
 ```
