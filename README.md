@@ -119,6 +119,17 @@ If you need to remove support button from the top of the page you can remove but
 
 After making changes, save the file and restart Marzban / Marzneshin.
 
+# Using attributes in url
+You can use the following attributes placed in url to override some page content:
+- sub — link to other marzban subscription page. Override all user info and connection links on page when specified.
+- support — link in support button
+- donate — link in donate button
+
+Example:
+```
+https://streletskiy.com/marzban-sub-page/?support=https://example.com/&donate=https://example.com/&sub=https://example.com/
+```
+
 ***
 <h3 align="center">Contributors:</h3>
 <p align="center">
