@@ -241,14 +241,26 @@
 				function updateLinksFromUrlParams() {
 					const urlParams = new URLSearchParams(window.location.search);
 				
-					const supportLink = urlParams.get('support') || 'https://t.me/gozargah_marzban';
-					const donateLink = urlParams.get('donate') || 'https://github.com/Gozargah/Marzban#donation';
+					const supportParam = urlParams.get('support');
+					const donateParam = urlParams.get('donate');
 				
 					const supportElem = document.getElementById("href-support");
-					if (supportElem) supportElem.href = supportLink;
+					if (supportElem) {
+						if (supportParam === 'null') {
+							supportElem.remove();
+						} else {
+							supportElem.href = supportParam || 'https://t.me/gozargah_marzban';
+						}
+					}
 				
 					const donateElem = document.getElementById("href-donate");
-					if (donateElem) donateElem.href = donateLink;
+					if (donateElem) {
+						if (donateParam === 'null') {
+							donateElem.remove();
+						} else {
+							donateElem.href = donateParam || 'https://github.com/Gozargah/Marzban#donation';
+						}
+					}
 				}
 				
 				window.addEventListener('DOMContentLoaded', updateLinksFromUrlParams);
