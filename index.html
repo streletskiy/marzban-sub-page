@@ -4,17 +4,209 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="theme-color" content="#282a36">
-		<title>{{ user.username }} - Sub Info</title>
+		<title>Marzban Sub Info page</title>
 		<link href="https://raw.githubusercontent.com/dstreletskiy/marzban-sub-page/refs/heads/main/img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
 		<link href="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
 		<link href="https://raw.githubusercontent.com/streletskiy/marzban-sub-page/refs/heads/main/img/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
 		<link rel="stylesheet" id="dynamic-stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 		<script>
+			// Use JS instead of server side formatting
+			function formatBytes(bytes) {
+				if (bytes === null) return '∞';
+				if (bytes === 0) return '0 B';
+				const sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
+				const i = Math.floor(Math.log(bytes) / Math.log(1024));
+				return parseFloat((bytes / Math.pow(1024, i)).toFixed(2)) + ' ' + sizes[i];
+			}
+			
+			function formatDateIsoToDDMMYYYY(isoString) {
+				const date = new Date(isoString);
+				return date.toLocaleDateString('ru-RU');
+			}
+			
+			function getSubData() {
+				const urlParams = new URLSearchParams(window.location.search);
+
+				if (urlParams.has('demo')) {
+					return Promise.resolve(demo);
+				}
+			
+				const sub = urlParams.get('sub');
+				const url = sub ? `${sub.replace(/\/$/, '')}/info` : `${window.location.href.replace(/\/$/, '')}/info`;
+			
+				return fetch(url)
+					.then(res => {
+						if (!res.ok) throw new Error("JSON loading error");
+						return res.json();
+					})
+					.catch(err => {
+						console.warn('Не удалось загрузить данные по URL, использую demo:', err);
+						return demo;
+					});
+			}
+			
+			function setXTextAttr(elem, key) {
+				elem.setAttribute('x-text', `$t('${key}')`);
+			}
+			
+			var subData = null;
+			var linkFull = null;
+			var link64 = null;
+			var qrLink = null;
 			var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}}
-			const linkFull = "{{ user.subscription_url }}";
-			var qrLink = linkFull;
-			const link64 = Base64.encode(linkFull);
+			
+			function populateSubscriptionInfo() {
+				getSubData()
+					.then(data => {
+						subData = data;
+						linkFull = subData.subscription_url;
+						qrLink = linkFull;
+						link64 = Base64.encode(linkFull);
+						// User name
+						document.getElementById('user-username').textContent = data.username;
+						document.title = `${data.username} - Sub Info`;
+			
+						// User status
+						const statusIcon = document.getElementById('status-icon');
+						const statusText = document.getElementById('status-text');
+						switch (data.status) {
+							case 'active':
+								statusIcon.className = 'bi my-color-green fs-4 mb-3 bi-emoji-smile-fill';
+								setXTextAttr(statusText, 'active');
+								break;
+							case 'limited':
+								statusIcon.className = 'bi my-color-red fs-4 mb-3 bi-emoji-frown-fill';
+								setXTextAttr(statusText, 'limited');
+								break;
+							case 'expired':
+								statusIcon.className = 'bi my-color-red fs-4 mb-3 bi-emoji-frown-fill';
+								setXTextAttr(statusText, 'expired');
+								break;
+							case 'disabled':
+								statusIcon.className = 'bi my-color-red fs-4 mb-3 bi-emoji-frown-fill';
+								setXTextAttr(statusText, 'disabled');
+								break;
+							default:
+								statusIcon.className = 'bi fs-4 mb-3 bi-question-circle';
+								statusText.removeAttribute('x-text');
+								statusText.textContent = data.status;
+						}
+			
+						// User expire
+						const expireText = document.getElementById('expire-text');
+						if (!data.expire) {
+							expireText.textContent = setXTextAttr(expireText, 'forever');
+						} else {
+							expireText.innerHTML = `${tr('until')} ${formatDateIsoToDDMMYYYY(data.expire)}`;
+						}
+			
+						// User traffic
+						const trafficText = document.getElementById('traffic-text');
+						const used = formatBytes(data.used_traffic);
+						const total = data.data_limit ? formatBytes(data.data_limit) : '∞';
+						trafficText.innerHTML = `${used} / ${total}`;
+			
+						// User traffic reset
+						const strategyText = document.getElementById('reset-strategy');
+						const map = {
+							'no_reset': 'no',
+							'day': 'daily',
+							'week': 'weekly',
+							'month': 'monthly',
+							'year': 'yearly'
+						};
+						const key = map[data.data_limit_reset_strategy] || 'unknown';
+						setXTextAttr(strategyText, key);
+			
+						// User links
+						if (data.status === 'active' && Array.isArray(data.links) && data.links.length > 0) {
+							const container = document.getElementById('separate-links-container');
+							const linksList = document.getElementById('separate-links-list');
+							container.style.display = 'block';
+							linksList.innerHTML = '';
+			
+							data.links.forEach(link => {
+								const block = document.createElement('div');
+								block.className = 'input-group input-group-lg border border-0 text-bg-dark rounded-4 mb-3';
+								block.innerHTML = `
+									<input class="form-control my-link-separate border border-0 ps-4" type="text" value="${link}" disabled readonly>
+									<button class="btn my-btn btn-copy-link fs-5 mt-2 mb-2 rounded-3 pb-2 pt-1" data-link="${link}">
+										<i class="bi bi-clipboard2-fill"></i>
+									</button>
+									<button class="btn my-btn btn-show-qr m-2 rounded-3" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true" data-link="${link}">
+										<svg class="bi"><use href="#qr"></use></svg>
+									</button>
+								`;
+								linksList.appendChild(block);
+							});
+
+							// --- Separate servers links block start ---
+							const copyButtons = document.querySelectorAll('.btn-copy-link');
+							const qrButtons = document.querySelectorAll('.btn-show-qr');
+							const inputs = document.querySelectorAll('.my-link-separate');
+										
+							// Decode server name from link
+							function extractName(url) {
+								const decoded = decodeURIComponent(url);
+							
+								if (decoded.startsWith("vmess://")) {
+									const encodedString = decoded.replace("vmess://", "");
+									const decodedString = atob(encodedString);
+									return JSON.parse(decodedString).ps;
+								}
+							
+								const match = decoded.match(/#(.+)$/);
+								return match ? match[1] : null;
+							}
+										
+							// Show decoded server name
+							inputs.forEach((input) => {
+								const originalValue = input.value; 
+								const name = extractName(originalValue);
+								if (name) {
+									input.setAttribute('data-original', originalValue);
+									input.setAttribute('value', name);
+								}
+							});
+										
+							// Copy each node connection link
+							copyButtons.forEach((button) => {
+								button.addEventListener('click', () => {
+									const separateLink = button.dataset.link;
+									navigator.clipboard.writeText(separateLink);
+								});
+							});
+							
+							// Show notification toast when separate link is copied
+							document.querySelectorAll('.btn-copy-link').forEach(button => {
+								button.addEventListener('click', () => {
+									bootstrap.Toast.getOrCreateInstance(toastCopyLink).show();
+								});
+							});
+										
+							// Generate different QR code for each separate connection link
+							qrButtons.forEach((qrButtons) => {
+								qrButtons.addEventListener('click', () => {
+									const separateLink = qrButtons.dataset.link;
+									const name = extractName(separateLink);
+									qrLink = separateLink;
+									qrCode.clear();
+									qrCode.makeCode(qrLink);
+									
+									// Change QR modal header to server name
+									if (qrModalLabel) {
+										qrModalLabel.setAttribute('x-text', `'${name}'`);
+									}
+								});
+							});
+							// --- Separate servers links block end ---
+						}
+					})
+					.catch(err => {
+						console.error("JSON loading error:", err);
+					});
+			}
 			
 			// Change "sub" to other string to customize subscription group name when import in app (works in some apps)
 			const serviceName = "sub";
@@ -352,7 +544,9 @@
 			
 			<!-- Subscription username and buttons -->
 			<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-				<span class="text-break fs-3 fw-bold"><span x-text="$t('subscriptionFor')"></span> {{ user.username }}</span>
+				<span class="text-break fs-3 fw-bold">
+					<span x-text="$t('subscriptionFor')"></span> <span id="user-username"></span>
+				</span>
 				<div>
 					<button class="btn my-btn btn-copy-sub-link" type="button" x-text="$t('copyLink')"></button>
 					<button class="btn my-btn btn-show-qr-sub" id="btn-show-qr-sub" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true">
@@ -362,70 +556,33 @@
 			</div>
 			
 			<!-- Subscription status -->
-			<div class="row row-cols-2 row-cols-sm-4 g-3 mb-4">
+			<div class="row row-cols-2 row-cols-sm-4 g-3 mb-4" id="subscription-info">
 				<div class="col">
 					<div class="my-block d-flex flex-column h-100">
-						{% if user.status.value == 'active' %}
-						<i class="bi my-color-green fs-4 mb-3 bi-emoji-smile-fill"></i>
-						{% else %}
-						<i class="bi my-color-red fs-4 mb-3 bi-emoji-frown-fill"></i>
-						{% endif %}
+						<i id="status-icon" class="bi fs-4 mb-3"></i>
 						<span class="fs-5 fw-bold" x-text="$t('status')"></span>
-						{% if user.status.value == 'active' %}
-						<span class="fw-semibold" x-text="$t('active')"></span>
-						{% elif user.status.value == 'limited' %}
-						<span class="fw-semibold" x-text="$t('limited')"></span>
-						{% elif user.status.value == 'expired' %}
-						<span class="fw-semibold" x-text="$t('expired')"></span>
-						{% elif user.status.value == 'disabled' %}
-						<span class="fw-semibold" x-text="$t('disabled')"></span>
-						{% endif %}
+						<span id="status-text" class="fw-semibold"></span>
 					</div>
 				</div>
 				<div class="col">
 					<div class="my-block d-flex flex-column h-100">
 						<i class="bi my-color-red fs-4 mb-3 bi-calendar3"></i>
 						<span class="fs-5 fw-bold" x-text="$t('duration')"></span>
-						{% if not user.expire %}
-						<span class="fw-semibold" x-text="$t('forever')"></span>
-						{% else %}
-						<!-- Can it be done better? -->
-						{% set date = (user.expire | datetime).split()[0].split('-')[::-1] %}
-						<span class="fw-semibold">
-							<span x-text="$t('until')"></span>
-							{{ '.'.join(date) }}
-						</span>
-						{% endif %}
+						<span id="expire-text" class="fw-semibold"></span>
 					</div>
 				</div>
 				<div class="col">
 					<div class="my-block d-flex flex-column h-100">
 						<i class="bi my-color-blue fs-4 mb-3 bi-arrow-down-up"></i>
 						<span class="fs-5 fw-bold" x-text="$t('traffic')"></span>
-						<span class="fw-semibold">
-							{{ user.used_traffic | bytesformat }}
-							<span x-text="$t('of')"></span>
-							{% if not user.data_limit %}∞{% else %}
-							{{ user.data_limit | bytesformat }}
-							{% endif %}
-						</span>
+						<span id="traffic-text" class="fw-semibold"></span>
 					</div>
 				</div>
 				<div class="col">
 					<div class="my-block d-flex flex-column h-100">
 						<i class="bi my-color-yellow fs-4 mb-3 bi-repeat"></i>
 						<span class="fs-5 fw-bold" x-text="$t('trafficReset')"></span>
-						{% if user.data_limit_reset_strategy == 'no_reset' %}
-						<span class="fw-semibold" x-text="$t('no')"></span>
-						{% elif user.data_limit_reset_strategy == 'day' %}
-						<span class="fw-semibold" x-text="$t('daily')"></span>
-						{% elif user.data_limit_reset_strategy == 'week' %}
-						<span class="fw-semibold" x-text="$t('weekly')"></span>
-						{% elif user.data_limit_reset_strategy == 'month' %}
-						<span class="fw-semibold" x-text="$t('monthly')"></span>
-						{% elif user.data_limit_reset_strategy == 'year' %}
-						<span class="fw-semibold" x-text="$t('yearly')"></span>
-						{% endif %}
+						<span id="reset-strategy" class="fw-semibold"></span>
 					</div>
 				</div>
 			</div>
@@ -1173,33 +1330,23 @@
 				</div>
 				
 				<!-- Separate servers links start -->
-				{% if user.status == 'active' %}
-				<div class="accordion-item rounded-4 px-3 mb-2">
-					<h2 class="accordion-header">
-						<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLinks" aria-expanded="false" aria-controls="collapseLinks">
-							<i class="bi bi-geo-alt-fill mb-2"></i>
-							<span class="d-block w-100 text-center" x-text="$t('separateLinksTitle')"></span>
-						</button>
-					</h2>
-					<div id="collapseLinks" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
-						<div class="pb-2">
-							<p x-text="$t('separateLinks1')"></p>
-							<p x-text="$t('separateLinks2')"></p>
-							{% for link in user.links %}
-							<div class="input-group input-group-lg border border-0 text-bg-dark rounded-4 mb-3">	
-								<input class="form-control my-link-separate border border-0 ps-4" type="text" value="{{ link }}" disabled readonly>
-								<button class="btn my-btn btn-copy-link fs-5 mt-2 mb-2 rounded-3 pb-2 pt-1" data-link="{{ link }}">
-									<i class="bi bi-clipboard2-fill"></i>
-								</button>
-								<button class="btn my-btn btn-show-qr m-2 rounded-3" id="btn-show-qr" data-bs-toggle="modal" data-bs-target="#qrModal" data-ignore="true" data-link="{{ link }}">
-									<svg class="bi"><use href="#qr"></use></svg>
-								</button>
+				<div id="separate-links-container" style="display: none;">
+					<div class="accordion-item rounded-4 px-3 mb-2">
+						<h2 class="accordion-header">
+							<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLinks" aria-expanded="false" aria-controls="collapseLinks">
+								<i class="bi bi-geo-alt-fill mb-2"></i>
+								<span class="d-block w-100 text-center" x-text="$t('separateLinksTitle')"></span>
+							</button>
+						</h2>
+						<div id="collapseLinks" class="accordion-collapse collapse" data-bs-parent="#accordionOs">
+							<div class="pb-2">
+								<p x-text="$t('separateLinks1')"></p>
+								<p x-text="$t('separateLinks2')"></p>
+								<div id="separate-links-list"></div>
 							</div>
-							{% endfor %}
 						</div>
 					</div>
 				</div>
-				{% endif %}
 				<!-- Separate servers links end -->
 				
 			</div>
@@ -1251,7 +1398,6 @@
 					until: 'Until',
 					forever: 'Forever',
 					traffic: 'Traffic',
-					of: 'of',
 					trafficReset: 'Traffic Reset',
 					no: 'No',
 					daily: 'Daily',
@@ -1370,7 +1516,6 @@
 					until: 'До',
 					forever: 'Навсегда',
 					traffic: 'Трафик',
-					of: 'из',
 					trafficReset: 'Сброс трафика',
 					no: 'Нет',
 					daily: 'Ежедневно',
@@ -1489,7 +1634,6 @@
 					until: '直到',
 					forever: '永久',
 					traffic: '流量',
-					of: '的',
 					trafficReset: '流量重置',
 					no: '无',
 					daily: '每日',
@@ -1608,7 +1752,6 @@
 					until: 'تا',
 					forever: 'همیشگی',
 					traffic: 'ترافیک',
-					of: 'از',
 					trafficReset: 'بازنشانی ترافیک',
 					no: 'خیر',
 					daily: 'روزانه',
@@ -1714,6 +1857,29 @@
 					donate: 'کمک مالی',
 				},
 			};
+			const demo = {
+				"expire": null,
+				"data_limit": null,
+				"data_limit_reset_strategy": "no_reset",
+				"sub_updated_at": "2025-08-05T04:18:55.664275",
+				"online_at": "2025-08-05T08:09:01.010693",
+				"on_hold_expire_duration": null,
+				"on_hold_timeout": null,
+				"next_plan": null,
+				"username": "John Doe",
+				"status": "active",
+				"used_traffic": 2848826407690,
+				"lifetime_used_traffic": 3029225501419,
+				"created_at": "2024-09-05T07:55:17.150849",
+				"links": [
+					"vless://aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee@ru.example.com:443?flow=xtls-rprx-vision&sni=example.com&fp=firefox&pbk=AbCdEfGhIjKlMnOpQrStUvWxYz1234567890abcd&sid=1111111111111111#🇷🇺 RU [VLESS]",
+					"vless://bbbbbbbb-cccc-dddd-eeee-aaaaaaaaaaaa@de.example.com:443?flow=xtls-rprx-vision&sni=example.org&fp=safari&pbk=ZyXwVuTsRqPoNmLkJiHgFeDcBa0987654321abcd&sid=2222222222222222#🇩🇪 DE [VLESS]",
+					"vless://cccccccc-dddd-eeee-aaaa-bbbbbbbbbbbb@nl.example.com:443?flow=xtls-rprx-vision&sni=example.net&fp=edge&pbk=Mnbvcxzasdfghjklqwertyuiop1234567890abcd&sid=3333333333333333#🇳🇱 NL [VLESS]",
+					"vless://dddddddd-eeee-aaaa-bbbb-cccccccccccc@us.example.com:443?flow=xtls-rprx-vision&sni=test.com&fp=chrome&pbk=Qwerty1234567890AsDfGhJkLzXcVbNmPoIuYtRe&sid=4444444444444444#🇺🇸 US [VLESS]",
+					"vless://eeeeeeee-aaaa-bbbb-cccc-dddddddddddd@pl.example.com:443?flow=xtls-rprx-vision&sni=demo.site&fp=brave&pbk=1234abcd5678efgh9012ijkl3456mnop7890qrst&sid=5555555555555555#🇵🇱 PL [VLESS]"
+				],
+				"subscription_url": "https://github.com/streletskiy/marzban-sub-page"
+			};
 			
 			// Change CSS style between RTL and LTR
 			function updateDirectionAndStyles(language) {
@@ -1809,12 +1975,24 @@
 						updateDirectionAndStyles(newLang);
 					});
 				});
+					
+				populateSubscriptionInfo();
 			});
+			
+			// QR code settings
+			const qrCode = new QRCode(document.getElementById("qrcode"), {
+				text: qrLink,
+				width: 256	,
+				height: 256,
+				colorDark: "#fff",
+				colorLight: "#35384b",
+				correctLevel: QRCode.CorrectLevel.L
+			});
+			const toastCopyLink = document.getElementById('toast-copy-link');
 			
 			document.addEventListener('DOMContentLoaded', () => {
 				//  Setup deeplinks
 				setHrefs()
-				const toastCopyLink = document.getElementById('toast-copy-link');
 				
 				// Copy subscription link and show toast
 				document.querySelectorAll('.btn-copy-sub-link').forEach(button => {
@@ -1822,16 +2000,6 @@
 						navigator.clipboard.writeText(linkFull);
 						bootstrap.Toast.getOrCreateInstance(toastCopyLink).show();
 					});
-				});
-				
-				// QR code settings
-				const qrCode = new QRCode(document.getElementById("qrcode"), {
-					text: qrLink,
-					width: 256	,
-					height: 256,
-					colorDark: "#fff",
-					colorLight: "#35384b",
-					correctLevel: QRCode.CorrectLevel.L
 				});
 				
 				// Define QR modal header string container and subscription show button
@@ -1846,67 +2014,6 @@
 					subscriptionTitle = MESSAGES[getPreferredLanguage()]['subscription'];
 					qrModalLabel.setAttribute('x-text', `'${subscriptionTitle}'`);
 				});
-				
-				// --- Separate servers links block start ---
-				const copyButtons = document.querySelectorAll('.btn-copy-link');
-				const qrButtons = document.querySelectorAll('.btn-show-qr');
-				const inputs = document.querySelectorAll('.my-link-separate');
-			
-				// Decode server name from link
-				function extractName(url) {
-					const decoded = decodeURIComponent(url);
-				
-					if (decoded.startsWith("vmess://")) {
-						const encodedString = decoded.replace("vmess://", "");
-						const decodedString = atob(encodedString);
-						return JSON.parse(decodedString).ps;
-					}
-				
-					const match = decoded.match(/#(.+)$/);
-					return match ? match[1] : null;
-				}
-			
-				// Show decoded server name
-				inputs.forEach((input) => {
-					const originalValue = input.value; 
-					const name = extractName(originalValue);
-					if (name) {
-						input.setAttribute('data-original', originalValue);
-						input.setAttribute('value', name);
-					}
-				});
-			
-				// Copy each node connection link
-				copyButtons.forEach((button) => {
-					button.addEventListener('click', () => {
-						const separateLink = button.dataset.link;
-						navigator.clipboard.writeText(separateLink);
-					});
-				});
-				
-				// Show notification toast when separate link is copied
-				document.querySelectorAll('.btn-copy-link').forEach(button => {
-					button.addEventListener('click', () => {
-						bootstrap.Toast.getOrCreateInstance(toastCopyLink).show();
-					});
-				});
-			
-				// Generate different QR code for each separate connection link
-				qrButtons.forEach((qrButtons) => {
-					qrButtons.addEventListener('click', () => {
-						const separateLink = qrButtons.dataset.link;
-						const name = extractName(separateLink);
-						qrLink = separateLink;
-						qrCode.clear();
-						qrCode.makeCode(qrLink);
-						
-						// Change QR modal header to server name
-						if (qrModalLabel) {
-							qrModalLabel.setAttribute('x-text', `'${name}'`);
-						}
-					});
-				});
-				// --- Separate servers links block end ---
 			});
 			
 			// Get link to the latest version of cmfa
