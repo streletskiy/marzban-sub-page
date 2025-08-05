@@ -27,8 +27,7 @@
 			
 			function getSubData() {
 				const urlParams = new URLSearchParams(window.location.search);
-			
-				// Приоритет: demo из параметров URL
+
 				if (urlParams.has('demo')) {
 					return Promise.resolve(demo);
 				}
