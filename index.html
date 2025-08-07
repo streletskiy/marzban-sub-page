@@ -66,7 +66,9 @@
 						// User name
 						document.getElementById('user-username').textContent = data.username;
 						document.title = `${data.username} - Sub Info`;
-			
+						document.querySelectorAll('.insert-link-full').forEach(el => {
+							el.textContent = linkFull;
+						});
 						// User status
 						const statusIcon = document.getElementById('status-icon');
 						const statusText = document.getElementById('status-text');
@@ -1128,11 +1130,7 @@
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
-														<script type="text/javascript">
-															document.write(linkFull);
-														</script>
-													</button>
+													<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link insert-link-full" type="button">	</button>
 													<p x-text="$t('openAndPaste')"></p>
 													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('tunWish')"></span></p>
 													<p x-text="$t('nekorayTun')"></p>
@@ -1184,11 +1182,7 @@
 													<p x-text="$t('betterAdmin')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('addConfig')"></span></p>
 													<p x-text="$t('copyLinkBelow')"></p>
-													<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link" type="button">
-														<script type="text/javascript">
-															document.write(linkFull);
-														</script>
-													</button>
+													<button class="btn my-btn my-btn-accent w-100 text-break mb-4 btn-copy-sub-link insert-link-full" type="button"></button>
 													<p x-text="$t('openAndPaste')"></p>
 													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('doUpdate')"></span></p>
 													<p x-text="$t('v2rayNupdateSub')"></p>
@@ -1342,11 +1336,7 @@
 											<button type="button" class="btn my-btn my-btn-accent w-100 mb-3" x-text="$t('linuxExampleV2rayA')"></button>
 										</a>
 										<p x-text="$t('linux2')"></p>
-										<button class="btn my-btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4" type="button">
-											<script type="text/javascript">
-												document.write(linkFull);
-											</script>
-										</button>
+										<button class="btn my-btn my-btn-accent w-100 text-break btn-copy-sub-link mb-4 insert-link-full" type="button"></button>
 									</div>
 								</div>
 							</div>
