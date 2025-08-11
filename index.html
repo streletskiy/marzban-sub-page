@@ -142,7 +142,10 @@
 								`;
 								linksList.appendChild(block);
 							});
-
+							
+							//  Setup deeplinks
+							setHrefs()
+							
 							// --- Separate servers links block start ---
 							const copyButtons = document.querySelectorAll('.btn-copy-link');
 							const qrButtons = document.querySelectorAll('.btn-show-qr');
@@ -208,6 +211,7 @@
 					.catch(err => {
 						console.error("JSON loading error:", err);
 					});
+					
 			}
 			
 			// Change "sub" to other string to customize subscription group name when import in app (works in some apps)
@@ -2001,10 +2005,7 @@
 			});
 			const toastCopyLink = document.getElementById('toast-copy-link');
 			
-			document.addEventListener('DOMContentLoaded', () => {
-				//  Setup deeplinks
-				setHrefs()
-				
+			document.addEventListener('DOMContentLoaded', () => {			
 				// Copy subscription link and show toast
 				document.querySelectorAll('.btn-copy-sub-link').forEach(button => {
 					button.addEventListener('click', () => {
