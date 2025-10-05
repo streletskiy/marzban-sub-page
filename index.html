@@ -242,35 +242,34 @@
 				document.getElementById("href-ios-happ-ReFilter").href = `happ://routing/onadd/ewogICAgIk5hbWUiOiAiUmU6ZmlsdGVyIiwKICAgICJHbG9iYWxQcm94eSI6ICJmYWxzZSIsCiAgICAiUmVtb3RlRG5zIjogIjEuMS4xLjEiLAogICAgIkRvbWVzdGljRG5zIjogIjc3Ljg4LjguOCIsCiAgICAiR2VvaXB1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9pcC5kYXQiLAogICAgIkdlb3NpdGV1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9zaXRlLmRhdCIsCiAgICAiRG5zSG9zdHMiOiB7fSwKICAgICJEaXJlY3RTaXRlcyI6IFtdLAogICAgIkRpcmVjdElwIjogWwogICAgICAgICIxMC4wLjAuMC84IiwKICAgICAgICAiMTcyLjE2LjAuMC8xMiIsCiAgICAgICAgIjE5Mi4xNjguMC4wLzE2IiwKICAgICAgICAiMTY5LjI1NC4wLjAvMTYiLAogICAgICAgICIyMjQuMC4wLjAvNCIsCiAgICAgICAgIjI1NS4yNTUuMjU1LjI1NSIKICAgIF0sCiAgICAiUHJveHlTaXRlcyI6IFsKICAgICAgICAiZ2Vvc2l0ZTpyZWZpbHRlciIKICAgIF0sCiAgICAiUHJveHlJcCI6IFsKICAgICAgICAiZ2VvaXA6cmVmaWx0ZXIiCiAgICBdLAogICAgIkJsb2NrU2l0ZXMiOiBbXSwKICAgICJCbG9ja0lwIjogW10sCiAgICAiRG9tYWluU3RyYXRlZ3kiOiAiSVBPbkRlbWFuZCIKfQ==`;
 				document.getElementById("href-android-happ-RoscomVPN").href = `https://routing.vpn.ru.com/`;
 				document.getElementById("href-android-happ-ReFilter").href = `happ://routing/onadd/ewogICAgIk5hbWUiOiAiUmU6ZmlsdGVyIiwKICAgICJHbG9iYWxQcm94eSI6ICJmYWxzZSIsCiAgICAiUmVtb3RlRG5zIjogIjEuMS4xLjEiLAogICAgIkRvbWVzdGljRG5zIjogIjc3Ljg4LjguOCIsCiAgICAiR2VvaXB1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9pcC5kYXQiLAogICAgIkdlb3NpdGV1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tLzFhbmRyZXZpY2gvUmUtZmlsdGVyLWxpc3RzL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9nZW9zaXRlLmRhdCIsCiAgICAiRG5zSG9zdHMiOiB7fSwKICAgICJEaXJlY3RTaXRlcyI6IFtdLAogICAgIkRpcmVjdElwIjogWwogICAgICAgICIxMC4wLjAuMC84IiwKICAgICAgICAiMTcyLjE2LjAuMC8xMiIsCiAgICAgICAgIjE5Mi4xNjguMC4wLzE2IiwKICAgICAgICAiMTY5LjI1NC4wLjAvMTYiLAogICAgICAgICIyMjQuMC4wLjAvNCIsCiAgICAgICAgIjI1NS4yNTUuMjU1LjI1NSIKICAgIF0sCiAgICAiUHJveHlTaXRlcyI6IFsKICAgICAgICAiZ2Vvc2l0ZTpyZWZpbHRlciIKICAgIF0sCiAgICAiUHJveHlJcCI6IFsKICAgICAgICAiZ2VvaXA6cmVmaWx0ZXIiCiAgICBdLAogICAgIkJsb2NrU2l0ZXMiOiBbXSwKICAgICJCbG9ja0lwIjogW10sCiAgICAiRG9tYWluU3RyYXRlZ3kiOiAiSVBPbkRlbWFuZCIKfQ==`;
-
-				// Change support and donate links below
-				function updateLinksFromUrlParams() {
-					const urlParams = new URLSearchParams(window.location.search);
-				
-					const supportParam = urlParams.get('support');
-					const donateParam = urlParams.get('donate');
-				
-					const supportElem = document.getElementById("href-support");
-					if (supportElem) {
-						if (supportParam === 'null') {
-							supportElem.remove();
-						} else {
-							supportElem.href = supportParam || 'https://t.me/gozargah_marzban';
-						}
-					}
-				
-					const donateElem = document.getElementById("href-donate");
-					if (donateElem) {
-						if (donateParam === 'null') {
-							donateElem.remove();
-						} else {
-							donateElem.href = donateParam || 'https://github.com/Gozargah/Marzban#donation';
-						}
+			}
+			
+			// Change support and donate links below
+			function updateLinksFromUrlParams() {
+				const urlParams = new URLSearchParams(window.location.search);
+				const supportParam = urlParams.get('support');
+				const donateParam = urlParams.get('donate');
+			
+				const supportElem = document.getElementById("href-support");
+				if (supportElem) {
+					if (supportParam === 'null') {
+						supportElem.remove();
+					} else {
+						supportElem.href = supportParam || 'https://t.me/gozargah_marzban';
 					}
 				}
-				
-				window.addEventListener('DOMContentLoaded', updateLinksFromUrlParams);
+			
+				const donateElem = document.getElementById("href-donate");
+				if (donateElem) {
+					if (donateParam === 'null') {
+						donateElem.remove();
+					} else {
+						donateElem.href = donateParam || 'https://github.com/Gozargah/Marzban#donation';
+					}
+				}
 			}
+			
+			window.addEventListener('DOMContentLoaded', updateLinksFromUrlParams);
 		</script>
 		<style>
 			.my-block {
