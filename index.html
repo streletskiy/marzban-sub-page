@@ -498,6 +498,8 @@
 			<symbol id="clash-verge-rev" viewBox="0 0 22 22">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M11.007 22C6.01025 22 0.413848 19.6085 0.0141045 14.2017C-0.0891418 12.8053 0.39302 11.8257 0.853709 10.8897C0.907577 10.7802 0.961152 10.6714 1.01346 10.5625C0.347223 7.78979 -0.385635 1.82844 2.01282 0.164802C3.51185 -0.87497 7.0096 3.28412 8.00897 4.84377C9.00832 4.32389 10.5074 4.32389 11.007 4.32389C12.0064 4.32389 12.5061 4.32389 14.0051 4.84377C15.171 3.11082 18.0026 -0.251107 20.0013 0.164802C22.0654 0.594314 21.401 6.70141 21.1077 9.39799C21.0459 9.96537 21.0006 10.3818 21.0006 10.5625C21.0864 10.7409 21.1721 10.904 21.2553 11.0623C21.6571 11.8266 22 12.479 22 14.2017C22 16.2813 19.0019 22 11.007 22ZM8.86995 16.1663C8.39444 16.9904 6.84049 16.9834 5.3991 16.1507C3.95771 15.318 3.17471 13.9749 3.65022 13.1507C4.12573 12.3266 5.67969 12.3336 7.12107 13.1663C8.56246 13.999 9.34546 15.3421 8.86995 16.1663ZM18.0871 13.1507C18.5626 13.9749 17.7796 15.318 16.3382 16.1507C14.8968 16.9834 13.3429 16.9904 12.8674 16.1663C12.3919 15.3421 13.1749 13.999 14.6163 13.1663C16.0576 12.3336 17.6116 12.3266 18.0871 13.1507ZM11.007 19.1585C10.0077 19.1585 8.14148 17.6696 9.508 17.6585H12.5061C14.0051 17.6585 12.0064 19.1585 11.007 19.1585Z"/>
 			</symbol>
+			<symbol id="discord" viewBox="0 0 24 24">
+<path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></symbol>
 		</svg>
 		<div class="container my-container py-3 pb-5" x-data>
 			
@@ -630,14 +632,14 @@
 								<hr class="m-0">
 								<div class="accordion-item">
 									<h2 class="accordion-header">
-										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHapp" aria-expanded="false" aria-controls="collapseOsIosHapp">
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appIosHapp" aria-expanded="false" aria-controls="appIosHapp">
 											<svg class="my-icon"><use href="#happ"></use></svg>
 											<span class="d-block w-100 text-center">
 												Happ 🔥
 											</span>
 										</button>
 									</h2>
-									<div id="collapseOsIosHapp" class="accordion-collapse collapse show" data-bs-parent="#accordionOsIos">
+									<div id="appIosHapp" class="accordion-collapse collapse show" data-bs-parent="#accordionOsIos">
 										<div class="container pb-4">
 											<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
 											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
@@ -680,14 +682,14 @@
 											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosStreisand" aria-expanded="false" aria-controls="collapseOsIosStreisand">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appIosStreisand" aria-expanded="false" aria-controls="appIosStreisand">
 														<svg class="my-icon"><use href="#streisand"></use></svg>
 														<span class="d-block w-100 text-center">
 															Streisand
 														</span>
 													</button>
 												</h2>
-												<div id="collapseOsIosStreisand" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+												<div id="appIosStreisand" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
 													<div class="container pb-4">
 														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 14+</b></p>
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
@@ -706,14 +708,14 @@
 											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosFoxray" aria-expanded="false" aria-controls="collapseOsIosFoxray">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appIosFoxray" aria-expanded="false" aria-controls="appIosFoxray">
 														<svg class="my-icon"><use href="#foxray"></use></svg>
 														<span class="d-block w-100 text-center">
 															FoxRay
 														</span>
 													</button>
 												</h2>
-												<div id="collapseOsIosFoxray" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+												<div id="appIosFoxray" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
 													<div class="container pb-4">
 														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 16+</b></p>
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
@@ -732,14 +734,14 @@
 											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosV2box" aria-expanded="false" aria-controls="collapseOsIosV2box">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appIosV2box" aria-expanded="false" aria-controls="appIosV2box">
 														<svg class="my-icon"><use href="#v2box"></use></svg>
 														<span class="d-block w-100 text-center">
 															V2Box
 														</span>
 													</button>
 												</h2>
-												<div id="collapseOsIosV2box" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+												<div id="appIosV2box" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
 													<div class="container pb-4">
 														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 12+</b></p>
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
@@ -759,14 +761,14 @@
 											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosShadowrocket" aria-expanded="false" aria-controls="collapseOsIosShadowrocket">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appIosShadowrocket" aria-expanded="false" aria-controls="appIosShadowrocket">
 														<svg class="my-icon"><use href="#shadowrocket"></use></svg>
 														<span class="d-block w-100 text-center">
 															Shadowrocket
 														</span>
 													</button>
 												</h2>
-												<div id="collapseOsIosShadowrocket" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+												<div id="appIosShadowrocket" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
 													<div class="container pb-4">
 														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 14+</b></p>
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
@@ -785,14 +787,14 @@
 											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosSingbox" aria-expanded="false" aria-controls="collapseOsIosSingbox">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appIosSingbox" aria-expanded="false" aria-controls="appIosSingbox">
 														<svg class="my-icon"><use href="#singbox"></use></svg>
 														<span class="d-block w-100 text-center">
 															SingBox
 														</span>
 													</button>
 												</h2>
-												<div id="collapseOsIosSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+												<div id="appIosSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
 													<div class="container pb-4">
 														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
@@ -812,14 +814,14 @@
 											<div class="accordion-item">
 												<hr class="m-0">
 												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsIosHiddify" aria-expanded="false" aria-controls="collapseOsIosHiddify">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appIosHiddify" aria-expanded="false" aria-controls="appIosHiddify">
 														<svg class="my-icon-small"><use href="#hiddify"></use></svg>
 														<span class="d-block w-100 text-center">
 															Hiddify
 														</span>
 													</button>
 												</h2>
-												<div id="collapseOsIosHiddify" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
+												<div id="appIosHiddify" class="accordion-collapse collapse" data-bs-parent="#accordionOsIosAltList">
 													<div class="container pb-4">
 														<p><span x-text="$t('needVersion')"></span> <b class="fw-bold">iOS 15+</b></p>
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
@@ -861,14 +863,14 @@
 								<div class="accordion-item">
 									<hr class="m-0">
 									<h2 class="accordion-header">
-										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidHiddify" aria-expanded="false" aria-controls="accordionOsAndroidHiddify">
+										<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appAndroidHiddify" aria-expanded="false" aria-controls="appAndroidHiddify">
 											<svg class="my-icon-small"><use href="#hiddify"></use></svg>
 											<span class="d-block w-100 text-center">
 												Hiddify🔥
 											</span>
 										</button>
 									</h2>
-									<div id="accordionOsAndroidHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsAndroid">
+									<div id="appAndroidHiddify" class="accordion-collapse collapse show" data-bs-parent="#accordionOsAndroid">
 										<div class="container pb-4">
 											<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 											<p x-text="$t('getAppDescription')"></p>
@@ -901,126 +903,14 @@
 											<hr class="m-0">
 											<div class="accordion-item">
 												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidV2rayng" aria-expanded="false" aria-controls="accordionOsAndroidV2rayng">
-														<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
-														<span class="d-block w-100 text-center">
-															V2RayNG
-														</span>
-													</button>
-												</h2>
-												<div id="accordionOsAndroidV2rayng" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
-													<div class="container pb-4">
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-android-v2rayng">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
-														<p x-text="$t('v2rayNgUpdateSub')"></p>
-														<div class="row align-items-center">
-															<div class="col">
-																<img id="imgV2rayNg1" src="" width="100%" class="rounded img-fluid">
-															</div>
-															<div class="col">
-																<img id="imgV2rayNg2"src="" width="100%" class="rounded img-fluid">
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<hr class="m-0">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidV2raytun" aria-expanded="false" aria-controls="collapseOsAndroidV2raytun">
-														<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
-														<span class="d-block w-100 text-center">
-															V2RayTun
-														</span>
-													</button>
-												</h2>
-												<div id="collapseOsAndroidV2raytun" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
-													<div class="container pb-4">
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-android-v2raytun">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-													</div>
-												</div>
-											</div>
-											<hr class="m-0">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsAndroidCMFA" aria-expanded="false" aria-controls="accordionOsAndroidCMFA">
-														<svg class="my-icon"><use href="#clash-meta"></use></svg>
-														<span class="d-block w-100 text-center">
-															Clash Meta
-														</span>
-													</button>
-												</h2>
-												<div id="accordionOsAndroidCMFA" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
-													<div class="container pb-4">
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a id="cmfa" href="#">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('CMFAaddconfig')"></p>
-														<a id="href-android-cmfa">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
-														<p x-text="$t('CMFArunconfig')"></p>
-													</div>
-												</div>
-											</div>
-											<hr class="m-0">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidSingbox" aria-expanded="false" aria-controls="collapseOsAndroidSingbox">
-														<svg class="my-icon"><use href="#singbox"></use></svg>
-														<span class="d-block w-100 text-center">
-															SingBox
-														</span>
-													</button>
-												</h2>
-												<div id="collapseOsAndroidSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
-													<div class="container pb-4">
-														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
-														<p x-text="$t('getAppDescription')"></p>
-														<a href="https://play.google.com/store/apps/details?id=io.nekohasekai.sfa">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
-														</a>
-														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
-														<p x-text="$t('addConfigDescription')"></p>
-														<a id="href-android-singbox">
-															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
-														</a>
-													</div>
-												</div>
-											</div>
-											<hr class="m-0">
-											<div class="accordion-item">
-												<h2 class="accordion-header">
-													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsAndroidHapp" aria-expanded="false" aria-controls="collapseOsAndroidHapp">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appAndroidHapp" aria-expanded="false" aria-controls="appAndroidHapp">
 														<svg class="my-icon"><use href="#happ"></use></svg>
 														<span class="d-block w-100 text-center">
 															Happ
 														</span>
 													</button>
 												</h2>
-												<div id="collapseOsAndroidHapp" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
+												<div id="appAndroidHapp" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
 													<div class="container pb-4">
 														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 														<p x-text="$t('getAppDescription')"></p>
@@ -1048,6 +938,118 @@
 													</div>
 												</div>
 											</div>
+											<hr class="m-0">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appAndroidV2rayNG" aria-expanded="false" aria-controls="appAndroidV2rayNG">
+														<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
+														<span class="d-block w-100 text-center">
+															V2RayNG
+														</span>
+													</button>
+												</h2>
+												<div id="appAndroidV2rayNG" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
+													<div class="container pb-4">
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-v2rayng">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doUpdate')"></span></p>
+														<p x-text="$t('v2rayNgUpdateSub')"></p>
+														<div class="row align-items-center">
+															<div class="col">
+																<img id="imgV2rayNg1" src="" width="100%" class="rounded img-fluid">
+															</div>
+															<div class="col">
+																<img id="imgV2rayNg2"src="" width="100%" class="rounded img-fluid">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<hr class="m-0">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appAndroidV2rayTun" aria-expanded="false" aria-controls="appAndroidV2rayTun">
+														<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
+														<span class="d-block w-100 text-center">
+															V2RayTun
+														</span>
+													</button>
+												</h2>
+												<div id="appAndroidV2rayTun" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
+													<div class="container pb-4">
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-v2raytun">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
+											<hr class="m-0">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+													<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appAndroidCMFA" aria-expanded="false" aria-controls="appAndroidCMFA">
+														<svg class="my-icon"><use href="#clash-meta"></use></svg>
+														<span class="d-block w-100 text-center">
+															Clash Meta
+														</span>
+													</button>
+												</h2>
+												<div id="appAndroidCMFA" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
+													<div class="container pb-4">
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a id="cmfa" href="#">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('CMFAaddconfig')"></p>
+														<a id="href-android-cmfa">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('doRun')"></span></p>
+														<p x-text="$t('CMFArunconfig')"></p>
+													</div>
+												</div>
+											</div>
+											<hr class="m-0">
+											<div class="accordion-item">
+												<h2 class="accordion-header">
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appAndroidSingbox" aria-expanded="false" aria-controls="appAndroidSingbox">
+														<svg class="my-icon"><use href="#singbox"></use></svg>
+														<span class="d-block w-100 text-center">
+															SingBox
+														</span>
+													</button>
+												</h2>
+												<div id="appAndroidSingbox" class="accordion-collapse collapse" data-bs-parent="#accordionOsAndroidAltList">
+													<div class="container pb-4">
+														<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
+														<p x-text="$t('getAppDescription')"></p>
+														<a href="https://play.google.com/store/apps/details?id=io.nekohasekai.sfa">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('downloadApp')"></button>
+														</a>
+														<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('addConfig')"></span></p>
+														<p x-text="$t('addConfigDescription')"></p>
+														<a id="href-android-singbox">
+															<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('addConfigApp')"></button>
+														</a>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -1069,14 +1071,14 @@
 							<div class="accordion-item">
 								<hr class="m-0">
 								<h2 class="accordion-header">
-									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsHapp" aria-expanded="false" aria-controls="accordionOsWindowsHapp">
+									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appWinHapp" aria-expanded="false" aria-controls="appWinHapp">
 										<svg class="my-icon"><use href="#happ"></use></svg>
 										<span class="d-block w-100 text-center">
 											Happ 🔥
 										</span>
 									</button>
 								</h2>
-								<div id="accordionOsWindowsHapp" class="accordion-collapse collapse show" data-bs-parent="#accordionOsWindows">
+								<div id="appWinHapp" class="accordion-collapse collapse show" data-bs-parent="#accordionOsWindows">
 									<div class="container pb-4">
 										<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 										<p x-text="$t('getAppDescription')"></p>
@@ -1101,6 +1103,10 @@
 										</a>
 										<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('doRun')"></span></p>
 										<p x-text="$t('hiddifyAdditional3')"></p>
+										<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('proxifyWin')"></span></p>
+										<a href="#accordionOsWindowsProxify">
+											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('proxifyWinButton')" type="button"></button>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -1118,14 +1124,14 @@
 										<hr class="m-0">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsThrone" aria-expanded="false" aria-controls="collapseOsWindowsThrone">
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appWinThrone" aria-expanded="false" aria-controls="appWinThrone">
 													<svg class="my-icon"><use href="#throne"></use></svg>
 													<span class="d-block w-100 text-center">
-														Throne
+														Throne 🔥
 													</span>
 												</button>
 											</h2>
-											<div id="collapseOsWindowsThrone" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
+											<div id="appWinThrone" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
 												<div class="container pb-4">
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
@@ -1139,25 +1145,24 @@
 													<p x-text="$t('openAndPaste')"></p>
 													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('doRun')"></span></p>
 													<p x-text="$t('throneRun1')"></p>
-													<div class="my-warning">
-														<p x-text="$t('troubleWin1')"></p>
-														<p x-text="$t('troubleWin2')"></p>
-													</div>
+													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('proxifyWin')"></span></p>
+													<a href="#accordionOsWindowsProxify">
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('proxifyWinButton')" type="button"></button>
+													</a>
 												</div>
 											</div>
 										</div>
 										<hr class="m-0">
 										<div class="accordion-item">
-											<hr class="m-0">
 											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsHiddify" aria-expanded="false" aria-controls="accordionOsWindowsHiddify">
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appWinHiddify" aria-expanded="false" aria-controls="appWinHiddify">
 													<svg class="my-icon-small"><use href="#hiddify"></use></svg>
 													<span class="d-block w-100 text-center">
 														Hiddify
 													</span>
 												</button>
 											</h2>
-											<div id="accordionOsWindowsHiddify" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
+											<div id="appWinHiddify" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
 												<div class="container pb-4">
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
@@ -1186,14 +1191,14 @@
 										<hr class="m-0">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsV2rayN" aria-expanded="false" aria-controls="collapseOsWindowsV2rayN">
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appWinV2rayN" aria-expanded="false" aria-controls="appWinV2rayN">
 													<svg class="my-icon-small"><use href="#v2rayng"></use></svg>
 													<span class="d-block w-100 text-center">
 														v2rayN
 													</span>
 												</button>
 											</h2>
-											<div id="collapseOsWindowsV2rayN" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
+											<div id="appWinV2rayN" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
 												<div class="container pb-4">
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
@@ -1210,34 +1215,30 @@
 													<p x-text="$t('openAndPaste')"></p>
 													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('doUpdate')"></span></p>
 													<p x-text="$t('v2rayNupdateSub')"></p>
-													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
-													<p x-text="$t('v2rayNtun1')"/></p>
-													<p x-text="$t('v2rayNtun2')"/></p>
-													<p x-text="$t('v2rayNtun3')"/></p>
-													<p class="fs-5 fw-bold mt-4">7. <span x-text="$t('doRun')"></span></p>
+													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('doRun')"></span></p>
 													<p x-text="$t('v2rayNrun1')"></p>
 													<p x-text="$t('v2rayNrun2')"></p>
 													<a href="https://habr.com/en/articles/853796/">
-														<button type="button" class="btn my-btn my-btn-accent w-100 mt-2 mb-4" x-text="$t('v2rayNabout')"></button>
+														<button type="button" class="btn my-btn my-btn-accent w-100 mt-2" x-text="$t('v2rayNabout')"></button>
 													</a>
-													<div class="my-warning">
-														<p x-text="$t('troubleWin1')"></p>
-														<p x-text="$t('troubleWin2')"></p>
-													</div>
+													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('proxifyWin')"></span></p>
+													<a href="#accordionOsWindowsProxify">
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('proxifyWinButton')" type="button"></button>
+													</a>
 												</div>
 											</div>
 										</div>
 										<hr class="m-0">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsInvisibleman" aria-expanded="false" aria-controls="collapseOsWindowsInvisibleman">
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appWinInvman" aria-expanded="false" aria-controls="appWinInvman">
 													<svg class="my-icon"><use href="#invisibleman"></use></svg>
 													<span class="d-block w-100 text-center">
 														InvisibleMan
 													</span>
 												</button>
 											</h2>
-											<div id="collapseOsWindowsInvisibleman" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
+											<div id="appWinInvman" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
 												<div class="container pb-4">
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
@@ -1257,26 +1258,24 @@
 													<p x-text="$t('invManAddConf2')"></p>
 													<p class="fs-5 fw-bold mt-4">5. <span x-text="$t('doRun')"></span></p>
 													<p x-text="$t('invManRun')"></p>
-													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('tunWish')"></span></p>
-													<p x-text="$t('invManTun')"></p>
-													<div class="my-warning">
-														<p x-text="$t('troubleWin1')"></p>
-														<p x-text="$t('troubleWin2')"></p>
-													</div>
+													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('proxifyWin')"></span></p>
+													<a href="#accordionOsWindowsProxify">
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('proxifyWinButton')" type="button"></button>
+													</a>
 												</div>
 											</div>
 										</div>
 										<hr class="m-0">
 										<div class="accordion-item">
 											<h2 class="accordion-header">
-												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOsWindowsClashVergeRev" aria-expanded="false" aria-controls="collapseOsWindowsClashVergeRev">
+												<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appWinClashVR" aria-expanded="false" aria-controls="appWinClashVR">
 													<svg class="my-icon-small"><use href="#clash-verge-rev"></use></svg>
 													<span class="d-block w-100 text-center">
 														Clash Verge Rev
 													</span>
 												</button>
 											</h2>
-											<div id="collapseOsWindowsClashVergeRev" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
+											<div id="appWinClashVR" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindowsAltList">
 												<div class="container pb-4">
 													<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 													<p x-text="$t('getAppDescription')"></p>
@@ -1292,19 +1291,62 @@
 													</a>
 													<p x-text="$t('ClashVergeRevAddConf1')"></p>
 													<p x-text="$t('ClashVergeRevOnSysProxy')"></p>
-													<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('tunWish')"></span></p>
-													<p x-text="$t('ClashVergeRevTun')"></p>
-													<p x-text="$t('ClashVergeRevOffSysProxy')"></p>
-													<div class="my-warning">
-														<p x-text="$t('troubleWin1')"></p>
-														<p x-text="$t('troubleWin2')"></p>
-													</div>
+													<p class="fs-5 fw-bold mt-4">6. <span x-text="$t('proxifyWin')"></span></p>
+													<a href="#accordionOsWindowsProxify">
+														<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('proxifyWinButton')" type="button"></button>
+													</a>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+							<hr class="m-0">
+							<!-- Info about proxifier/win2socks/etc on windows start -->
+							<div class="accordion-item">
+								<h2 class="accordion-header">
+									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsWindowsProxify" aria-expanded="false" aria-controls="accordionOsWindowsProxify">
+										<svg class="my-icon-small"><use href="#discord"></use></svg>
+										<span class="d-block w-100 text-center" x-text="$t('proxifyWinButton')"></span>
+									</button>
+								</h2>
+								<div id="accordionOsWindowsProxify" class="accordion-collapse collapse" data-bs-parent="#accordionOsWindows">
+									<div class="container pb-4">
+										<p class="fs-5 fw-bold">1. <span x-text="$t('proxifyWin1')"></p>
+										<p>
+											<span x-text="$t('proxifyWin2_1')"></span>	
+											<a href="https://www.proxifier.com/">Proxifier</a>, 
+											<a href="https://win2socks.com/">win2socks</a> 
+											<span x-text="$t('proxifyWin2_2')"></span> 
+											<a href="https://github.com/wiresock/proxifyre">ProxiFyre</a>. 
+											<span x-text="$t('proxifyWin2_3')"></span>
+										</p>
+										<a href="https://www.proxifier.com/download/ProxifierSetup.exe">
+											<button type="button" class="btn my-btn my-btn-accent w-100" x-text="$t('proxifyWin3')"></button>
+										</a>
+										<p class="fs-5 fw-bold mt-4">2. <span x-text="$t('proxifyWin4')"></p>
+										<p x-text="$t('proxifyWin5')"></p>
+										<p>
+											<span x-text="$t('proxifyWin6_1')"></span>
+											</br>
+											<span x-text="$t('proxifyWin6_2')"></span>
+										</p>
+										<p>
+											<span x-text="$t('proxifyWin7_1')"></span>
+											<a href="https://www.proxifier.com/docs/win-v4/quick.html" x-text="$t('proxifyWin7_2')"></a>
+										</p>
+										<p class="fs-5 fw-bold mt-4">3. <span x-text="$t('proxifyWin8')"></p>
+										<p>
+											<span x-text="$t('proxifyWin9_1')"></span>
+											<a href="https://www.proxifier.com/docs/win-v4/rules.html" x-text="$t('proxifyWin7_2')"></a>
+											<span x-text="$t('proxifyWin9_2')"></span>
+										</p>
+										<p class="fs-5 fw-bold mt-4">4. <span x-text="$t('proxifyWin10')"></p>
+										<p x-text="$t('proxifyWin11')"></p>
+									</div>
+								</div>
+							</div>
+							<!-- End of block -->
 						</div>
 					</div>
 				</div>
@@ -1322,14 +1364,14 @@
 							<div class="accordion-item">
 								<hr class="m-0">
 								<h2 class="accordion-header">
-									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#accordionOsLinuxClashVergeRev" aria-expanded="false" aria-controls="accordionOsLinuxClashVergeRev">
+									<button class="accordion-button collapsed fs-5 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#appLinuxClashVR" aria-expanded="false" aria-controls="appLinuxClashVR">
 										<svg class="my-icon-small"><use href="#clash-verge-rev"></use></svg>
 										<span class="d-block w-100 text-center">
 											Clash Verge Rev🔥
 										</span>
 									</button>
 								</h2>
-								<div id="accordionOsLinuxClashVergeRev" class="accordion-collapse collapse show" data-bs-parent="#accordionOsLinuxClashVergeRev">
+								<div id="appLinuxClashVR" class="accordion-collapse collapse show" data-bs-parent="#appLinuxClashVR">
 									<div class="container pb-4">
 										<p class="fs-5 fw-bold">1. <span x-text="$t('getApp')"></span></p>
 										<p x-text="$t('getAppDescription')"></p>
@@ -1476,6 +1518,26 @@
 					troubleWin1: 'If the internet does not work after starting the program, go to the Windows system settings, open the "Network & Internet" section, then "Proxy Server," activate the "Use a proxy server" toggle, and save.',
 					troubleWin2: 'Also, if the internet does not work after turning off the program, you need to disable the "Use a proxy server" option.',
 			
+					//Proxifier
+					proxifyWin: 'Additional:',
+					proxifyWinButton: 'Proxy setup for any applications',
+					proxifyWin1: 'Choose and download a program:',
+					proxifyWin2_1: 'For example',
+					proxifyWin2_2: 'or',
+					proxifyWin2_3: 'The following guide will use Proxifier as an example.',
+					proxifyWin3: 'Download Proxifier',
+					proxifyWin4: 'Add your proxy server:',
+					proxifyWin5: 'You need to add the proxy server address from the previously added program:',
+					proxifyWin6_1: 'If you are using Throne/Nekoray, it is 127.0.0.1:2080',
+					proxifyWin6_2: 'Otherwise, check the proxy server address in the settings of your chosen program.',
+					proxifyWin7_1: 'To add the server, follow the',
+					proxifyWin7_2: 'Proxifier website instructions.',
+					proxifyWin8: 'Configure the necessary applications',
+					proxifyWin9_1: 'Add the process names that should use the proxy, following the',
+					proxifyWin9_2: 'For example, for Discord add: update.exe and discord.exe in the "Applications" field. In the "Action" dropdown, select the proxy address added in step 2.',
+					proxifyWin10: 'Set up autostart:',
+					proxifyWin11: 'In the Proxifier toolbar in the top-left corner, check "File" -> "Autostart".',
+
 					//v2box
 					v2boxStart: 'In the "Configs" tab, the subscription will appear. Click on the desired server and start it in the "Home" tab.',
 					
@@ -1590,6 +1652,26 @@
 					tunWish: 'Настройте TUN-режим, если необходимо:',
 					troubleWin1: 'Если после включения программы интернет не работает, то перейдите в системные настройки Windows, откройте раздел «Сеть и Интернет», затем «Прокси-сервер» и активируйте переключатель «Использовать прокси-сервер» и сохраните.',
 					troubleWin2: 'Также если после отключения программы у вас не работает интернет, то необходимо отключить параметр «Использовать прокси-сервер».',
+					
+					//Proxifier
+					proxifyWin: 'Дополнительно:',
+					proxifyWinButton: 'Настройка прокси для любых приложений',
+					proxifyWin1: 'Выберите и скачайте программу:',
+					proxifyWin2_1: 'Например', 
+					proxifyWin2_2: 'или', 
+					proxifyWin2_3: 'Дальнейшее руководство будет рассмотрено на примере Proxifier.',
+					proxifyWin3: 'Скачать Proxifier',
+					proxifyWin4: 'Добавьте ваш прокси сервер:',
+					proxifyWin5: 'Необходимо добавить адрес прокси сервера из добавленной ранее программы:',
+					proxifyWin6_1: 'Если вы используете Throne/Nekoray то это 127.0.0.1:2080',
+					proxifyWin6_2: 'В осталньых случаях проверьте адрес прокси сервера в настройках выбранной вами программы',
+					proxifyWin7_1: 'Для добавления сервера следуйте',
+					proxifyWin7_2: 'инструкции с сайта Proxifier.',
+					proxifyWin8: 'Настройте необходимые приложения',
+					proxifyWin9_1: 'Добавьте названия процессов, которые должны использовать прокси, следуйте',
+					proxifyWin9_2: 'Например, для discord нужно добавить: update.exe и discord.exe в поле "Applications". В выпадающем меню "Action" выберите добавленный в пункте 2 адрес сервера.',
+					proxifyWin10: 'Настройте автозапуск:',
+					proxifyWin11: 'В панели инструментов Proxifier в левом верхнем углу поставьте галку на "File" -> "Autostart".',
 					
 					//v2box
 					v2boxStart: 'Во вкладке "Configs" появится подписка, тыкните на нужный сервер и запустите во вкладке "Home"',
@@ -1706,6 +1788,27 @@
 					troubleWin1: '如果在启动程序后互联网无法使用，请进入 Windows 系统设置，打开 "网络和互联网" 部分，然后 "代理服务器"，启用 "使用代理服务器" 切换，并保存。',
 					troubleWin2: '此外，如果在关闭程序后互联网无法使用，您需要禁用 "使用代理服务器" 选项。',
 				
+					//Proxifier
+					proxifyWin: '附加内容：',
+					proxifyWinButton: '为任何应用程序设置代理',
+					proxifyWin1: '选择并下载程序：',
+					proxifyWin2_1: '例如',
+					proxifyWin2_2: '或',
+					proxifyWin2_3: '以下教程将以 Proxifier 为示例进行说明。',
+					proxifyWin3: '下载 Proxifier',
+					proxifyWin4: '添加你的代理服务器：',
+					proxifyWin5: '需要从之前添加的程序中添加代理服务器地址：',
+					proxifyWin6_1: '如果你使用 Throne/Nekoray，则为 127.0.0.1:2080',
+					proxifyWin6_2: '其他情况下，请在所选程序的设置中检查代理服务器地址。',
+					proxifyWin7_1: '要添加服务器，请参照',
+					proxifyWin7_2: 'Proxifier 官方网站的说明。',
+					proxifyWin8: '配置所需的应用程序',
+					proxifyWin9_1: '添加需要使用代理的进程名称，并参照',
+					proxifyWin9_2: '例如，对于 Discord，需在“Applications”字段中添加 update.exe 和 discord.exe。在“Action”下拉菜单中选择步骤 2 中添加的代理地址。',
+					proxifyWin10: '设置自动启动：',
+					proxifyWin11: '在 Proxifier 工具栏左上角，勾选“File” -> “Autostart”。',
+
+					
 					//v2box
 					v2boxStart: '在 "配置" 选项卡中，订阅将出现。点击所需的服务器并在 "主页" 选项卡中启动它。',
 					
@@ -1821,6 +1924,26 @@
 					troubleWin1: 'اگر اینترنت پس از شروع برنامه کار نمی‌کند، به تنظیمات سیستم ویندوز بروید، بخش "Network & Internet" را باز کنید، سپس "Proxy Server"، گزینه "استفاده از پروکسی سرور" را فعال کنید و ذخیره کنید.',
 					troubleWin2: 'همچنین، اگر اینترنت پس از خاموش کردن برنامه کار نمی‌کند، باید گزینه "استفاده از پروکسی سرور" را غیرفعال کنید.',
 				
+					//Proxifier
+					proxifyWin: 'افزودنی:',
+					proxifyWinButton: 'تنظیم پروکسی برای هر برنامه‌ای',
+					proxifyWin1: 'یک برنامه انتخاب و دانلود کنید:',
+					proxifyWin2_1: 'برای مثال',
+					proxifyWin2_2: 'یا',
+					proxifyWin2_3: 'در این راهنما از Proxifier به عنوان نمونه استفاده می‌شود.',
+					proxifyWin3: 'دانلود Proxifier',
+					proxifyWin4: 'سرور پروکسی خود را اضافه کنید:',
+					proxifyWin5: 'باید آدرس سرور پروکسی را از برنامه‌ای که قبلاً اضافه کرده‌اید وارد کنید:',
+					proxifyWin6_1: 'اگر از Throne/Nekoray استفاده می‌کنید، آدرس آن 127.0.0.1:2080 است.',
+					proxifyWin6_2: 'در غیر این صورت، آدرس سرور پروکسی را در تنظیمات برنامه‌ای که انتخاب کرده‌اید بررسی کنید.',
+					proxifyWin7_1: 'برای افزودن سرور، به',
+					proxifyWin7_2: 'دستورالعمل‌های وب‌سایت Proxifier مراجعه کنید.',
+					proxifyWin8: 'برنامه‌های مورد نیاز را پیکربندی کنید',
+					proxifyWin9_1: 'نام فرآیندهایی را که باید از پروکسی استفاده کنند اضافه کنید و از',
+					proxifyWin9_2: 'برای مثال، برای Discord باید update.exe و discord.exe را در قسمت "Applications" اضافه کنید. سپس در منوی "Action" سروری را که در مرحله ۲ اضافه کرده‌اید انتخاب کنید.',
+					proxifyWin10: 'تنظیم راه‌اندازی خودکار:',
+					proxifyWin11: 'در نوار ابزار Proxifier در گوشه بالا سمت چپ، گزینه "File" -> "Autostart" را فعال کنید.',
+					
 					//v2box
 					v2boxStart: 'در تب "تنظیمات"، اشتراک ظاهر خواهد شد. روی سرور موردنظر کلیک کرده و در تب "خانه" آن را شروع کنید.',
 					
@@ -2087,6 +2210,36 @@
 				catch (error) {
 					console.error('Failed to update link:', error);
 				}
+			});
+			
+			document.addEventListener('DOMContentLoaded', () => {
+			
+				function openAccordion(el, visited = new Set()) {
+					if (!el || visited.has(el)) return;
+					visited.add(el);
+					const parentCollapse = el.parentElement.closest('.accordion-collapse.collapse');
+					if (parentCollapse && parentCollapse !== el) {
+						openAccordion(parentCollapse, visited);
+					}
+					const bsCollapse = bootstrap.Collapse.getInstance(el) || new bootstrap.Collapse(el, { toggle: false });
+					bsCollapse.show();
+				}
+			
+				function openAccordionByHash() {
+					const hash = window.location.hash;
+					if (!hash) return;
+			
+					const target = document.querySelector(hash + '.accordion-collapse');
+					if (target) {
+						openAccordion(target);
+						setTimeout(() => {
+							target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						}, 400);
+					}
+				}
+			
+				openAccordionByHash();
+				window.addEventListener('hashchange', openAccordionByHash);
 			});
 		</script>
 	</body
